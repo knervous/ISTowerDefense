@@ -22,6 +22,8 @@ public class GameplayController {
     private ArrayList<SlowTower> slowTower;
     private ArrayList<LongRangeTower> longRangeTower;
     private GameView gameView;
+    private LevelOne levelOne;
+    private LevelTwo levelTwo;
 
     
     public GameplayController()

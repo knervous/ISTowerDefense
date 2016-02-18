@@ -6,10 +6,11 @@ import Controllers.MainController;
 
 public class ISTowerDefense {
 
+    static MainController mc;
     
     public static void main(String[] args) {
         
-        MainController mc = new MainController();
+        mc = new MainController();
     }
     
 }
