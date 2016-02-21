@@ -38,13 +38,13 @@ public class PlayGame extends JFrame {
         bgPanel.setSize(frameWidth,frameHeight);
         add(bgPanel);
         
-        constraints.weightx = .8;
+        constraints.weightx = .95;
         constraints.weighty = 1.0;
         constraints.fill = GridBagConstraints.BOTH;
 
         bgPanel.add(level, constraints);
         
-        constraints.weightx = .2;
+        constraints.weightx = .1;
         constraints.weighty = 1.0;
         
         bgPanel.add(optionsPanel, constraints);
@@ -58,7 +58,7 @@ public class PlayGame extends JFrame {
     
     public class OptionsPanel extends JPanel
     {
-        private JTextField levelDisplay, waveDisplay, waveTimerDisplay, goldDisplay;
+        private JLabel levelDisplay, waveDisplay, waveTimerDisplay, goldDisplay;
         private JButton towerOne, towerTwo, towerThree, start, pause, quit;
         private Timer waveTimer;
         private GridBagConstraints constraints;
@@ -69,7 +69,10 @@ public class PlayGame extends JFrame {
             super();
             setSize((frameWidth*(1/5)),frameHeight);
             setBackground(Color.red);
+            setLayout(new GridBagLayout());
             initializeComponents();
+            setupComponents();
+            addComponents();
         }
         
         
@@ -98,18 +101,56 @@ public class PlayGame extends JFrame {
             pause = new JButton("Pause");
             quit = new JButton("Quit");
             
-            levelDisplay = new JTextField("Level: "+level);
-            waveDisplay = new JTextField("Wave: "+wave);
-            waveTimerDisplay = new JTextField(waveTime+" secs");
-            goldDisplay = new JTextField("Gold: "+gold);
+            levelDisplay = new JLabel("Level: "+level);
+            waveDisplay = new JLabel("Wave: "+wave);
+            waveTimerDisplay = new JLabel(waveTime+" secs");
+            goldDisplay = new JLabel("Gold: "+gold);
             
             
         }
         
-        public void layoutComponents()
-        {
-            constraints.fill = GridBagConstraints.BOTH;
+        private void setupComponents() {
+            towerOne.setPreferredSize(new Dimension(75,75));
+            towerTwo.setPreferredSize(new Dimension(75,75));
+            towerThree.setPreferredSize(new Dimension(75,75));
+            
         }
+        
+        public void addComponents()
+        {
+            
+            constraints.gridx = 0;
+            constraints.gridy = 0;
+            constraints.weightx = 1.0;
+            constraints.weighty = .05;
+            constraints.insets = new Insets(3,3,3,3);
+            add(this.levelDisplay, constraints);
+            constraints.gridy = 1;
+            add(this.waveDisplay, constraints);
+            constraints.gridy = 2;
+            add(this.waveTimerDisplay, constraints);
+            constraints.gridy = 3;
+            add(this.goldDisplay, constraints);
+            constraints.weighty = .10;
+            //constraints.insets = new Insets(10,0,0,10);
+            constraints.gridy = 4;
+            add(towerOne, constraints);
+            constraints.gridy = 5;
+            add(towerTwo, constraints);
+            constraints.gridy = 6;
+            add(towerThree, constraints);
+            constraints.weighty = .05;
+            constraints.insets = new Insets(3,3,3,3);
+            constraints.gridy = 7;
+            add(start, constraints);
+            constraints.gridy = 8;
+            add(pause, constraints);
+            constraints.gridy = 9;
+            add(quit, constraints);
+            
+        }
+
+        
     }
     
 }
