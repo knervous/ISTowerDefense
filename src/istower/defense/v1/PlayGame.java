@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package istower.defense.v1;
+import Levels.*;
 import java.awt.Color;
 import javax.swing.*;
 import java.awt.*;
@@ -20,7 +21,8 @@ public class PlayGame extends JFrame {
     protected int frameWidth = 800;
     protected int frameHeight = 600;
     private GridBagConstraints constraints = new GridBagConstraints();
-    protected JPanel bgPanel;
+    private JPanel bgPanel;
+    private Level level;
     
     public PlayGame()
     {
@@ -28,8 +30,7 @@ public class PlayGame extends JFrame {
 
         setSize(frameWidth,frameHeight);
         setVisible(true);
-        
-        GamePanel gamePanel = new GamePanel();
+        level = new LevelOne();
         OptionsPanel optionsPanel = new OptionsPanel();
         
         bgPanel = new JPanel();
@@ -41,7 +42,7 @@ public class PlayGame extends JFrame {
         constraints.weighty = 1.0;
         constraints.fill = GridBagConstraints.BOTH;
 
-        bgPanel.add(gamePanel, constraints);
+        bgPanel.add(level, constraints);
         
         constraints.weightx = .2;
         constraints.weighty = 1.0;
@@ -54,29 +55,6 @@ public class PlayGame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
-    public class GamePanel extends JPanel 
-    {
-        private int level;
-        
-        public GamePanel()
-        {
-            super();
-            setSize((frameWidth*(4/5)),frameHeight);
-            this.setBackground(Color.yellow);
-        }
-        
-        private void initializeComponents()
-        {
-            level = 0;
-        }
-         
-        public int getLevel()
-        {
-            return level;
-        }
-        
-        
-    }
     
     public class OptionsPanel extends JPanel
     {
