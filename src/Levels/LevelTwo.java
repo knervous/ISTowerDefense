@@ -23,7 +23,7 @@ public class LevelTwo extends Level{
         
         private void initializeComponents()
         {
-            level = 0;
+            level = 2;
         }
          
         public int getLevel()
