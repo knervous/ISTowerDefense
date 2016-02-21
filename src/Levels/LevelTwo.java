@@ -18,7 +18,6 @@ public class LevelTwo extends Level{
         public LevelTwo()
         {
             super();
-            setSize((800*(4/5)),600);
             this.setBackground(Color.black);
         }
         

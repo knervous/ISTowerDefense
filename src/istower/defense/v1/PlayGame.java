@@ -62,13 +62,14 @@ public class PlayGame extends JFrame {
         private JButton towerOne, towerTwo, towerThree, start, pause, quit;
         private Timer waveTimer;
         private GridBagConstraints constraints;
-        private int level, wave, waveTime;
+        private int level, wave, waveTime, gold;
         
         public OptionsPanel()
         {
             super();
             setSize((frameWidth*(1/5)),frameHeight);
-            this.setBackground(Color.red);
+            setBackground(Color.red);
+            initializeComponents();
         }
         
         
@@ -77,8 +78,8 @@ public class PlayGame extends JFrame {
             level = 1;
             waveTime = 30;
             wave = 1;
+            gold = 800;
             constraints = new GridBagConstraints();
-            
             waveTimer = new Timer(1000, new ActionListener() // setting up wave timer
             {
 
@@ -90,13 +91,24 @@ public class PlayGame extends JFrame {
                 }
                 
             });
+            towerOne = new JButton("Tower 1");
+            towerTwo = new JButton("Tower 2");
+            towerThree = new JButton("Tower 3");
+            start = new JButton("Start");
+            pause = new JButton("Pause");
+            quit = new JButton("Quit");
+            
+            levelDisplay = new JTextField("Level: "+level);
+            waveDisplay = new JTextField("Wave: "+wave);
+            waveTimerDisplay = new JTextField(waveTime+" secs");
+            goldDisplay = new JTextField("Gold: "+gold);
             
             
         }
         
         public void layoutComponents()
         {
-            
+            constraints.fill = GridBagConstraints.BOTH;
         }
     }
     

@@ -18,8 +18,6 @@ public class LevelOne extends Level{
         
         public LevelOne()
         {
-            super();
-            setSize((800*(4/5)),600);
             this.setBackground(Color.yellow);
         }
         

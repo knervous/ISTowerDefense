@@ -11,7 +11,8 @@ public abstract class Level extends JPanel{
     
     public Level()
     {
-        
+        super();
+        setSize((800*(4/5)),600);
     }
     
 }

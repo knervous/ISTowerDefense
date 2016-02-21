@@ -18,7 +18,6 @@ public class LevelThree extends Level{
         public LevelThree()
         {
             super();
-            setSize((800*(4/5)),600);
             this.setBackground(Color.gray);
         }
         
