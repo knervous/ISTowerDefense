@@ -18,11 +18,12 @@ public abstract class Tower {
         double enemyDistance = Math.sqrt(Math.pow(enemy.getCenterX(), 2) + Math.pow(enemy.getCenterY(), 2));
         while(enemyDistance <= range){
             shouldFire = true;
+            fire(enemy, tower);
         }
         shouldFire = false;
     }
     
-    public abstract void fire();
+    public abstract void fire(Rectangle enemy, Rectangle tower);
     
     public void pickTarget(){
         

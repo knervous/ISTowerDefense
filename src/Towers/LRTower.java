@@ -5,6 +5,8 @@
  */
 package Towers;
 
+import java.awt.Rectangle;
+
 /**
  *
  * @author greg
@@ -21,7 +23,7 @@ public class LRTower extends Tower{
         this.fireRate = fireRate;
         this.size = size;
     }
-    public void fire(){
+    public void fire(Rectangle enemy, Rectangle tower){
         while (super.shouldFire = true){
             
         }
