@@ -31,25 +31,26 @@ public class PlayGame extends JFrame {
         OptionsPanel optionsPanel = new OptionsPanel(frameWidth, frameHeight);
         
         bgPanel = new JPanel();
-        bgPanel.setLayout(new GridBagLayout());
-        bgPanel.setSize(frameWidth,frameHeight);
-        add(bgPanel);
+        setLayout(new GridBagLayout());
+        setSize(frameWidth,frameHeight);
+        //add(bgPanel);
         
-        constraints.weightx = .95;
+        constraints.weightx = .9;
         constraints.weighty = 1.0;
         constraints.fill = GridBagConstraints.BOTH;
 
-        bgPanel.add(level, constraints);
+        add(level, constraints);
         
         constraints.weightx = .1;
         constraints.weighty = 1.0;
         
-        bgPanel.add(optionsPanel, constraints);
+        add(optionsPanel, constraints);
         
-
-        setContentPane(bgPanel);
+        //setContentPane(bgPanel);
         setTitle("ISTower Defense");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+    
     
 }
