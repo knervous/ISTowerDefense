@@ -30,7 +30,7 @@ public class PlayGame extends JFrame {
 
         setSize(frameWidth,frameHeight);
         setVisible(true);
-        level = new LevelOne();
+        level = new LevelTwo();
         OptionsPanel optionsPanel = new OptionsPanel();
         
         bgPanel = new JPanel();
@@ -68,11 +68,13 @@ public class PlayGame extends JFrame {
         {
             super();
             setSize((frameWidth*(1/5)),frameHeight);
+            setPreferredSize(new Dimension(200,600));
             setBackground(Color.red);
             setLayout(new GridBagLayout());
             initializeComponents();
             setupComponents();
             addComponents();
+            System.out.println(this.getHeight());
         }
         
         
@@ -108,11 +110,31 @@ public class PlayGame extends JFrame {
             
             
         }
-        
-        private void setupComponents() {
+        /*
+        @Override
+        public void paintComponent(Graphics g)
+        {
+            setupComponents();
+            System.out.println();
+            
+            
+            getParent().setPreferredSize(new Dimension(getParent().getParent().getSize().width / 5, getParent().getParent().getSize().height));
+            
+            
+        }
+        */
+        private void setupComponents() 
+        {
+            //System.out.println(this.getSize());
+            System.out.println((Double.valueOf(this.getSize().width*.90).intValue()));
+            
+            
             towerOne.setPreferredSize(new Dimension(75,75));
+            
             towerTwo.setPreferredSize(new Dimension(75,75));
             towerThree.setPreferredSize(new Dimension(75,75));
+            
+            levelDisplay.setBackground(Color.white);
             
         }
         

@@ -5,6 +5,7 @@
  */
 package Levels;
 import javax.swing.*;
+import java.awt.GridLayout;
 
 
 public abstract class Level extends JPanel{
@@ -12,6 +13,7 @@ public abstract class Level extends JPanel{
     public Level()
     {
         super();
+        setLayout(new GridLayout());
         setSize((800*(4/5)),600);
     }
     
