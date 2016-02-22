@@ -22,5 +22,7 @@ public class LRTower extends Tower{
         this.fireRate = fireRate;
         this.size = size;
     }
-    public void fire
+    public void fire(){
+        
+    }
 }
