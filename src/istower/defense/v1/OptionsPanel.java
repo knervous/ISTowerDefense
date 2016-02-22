@@ -110,7 +110,7 @@ public class OptionsPanel extends JPanel
             constraints.gridy = 0;
             constraints.weightx = 1.0;
             constraints.weighty = .05;
-            constraints.insets = new Insets(3,3,3,3);
+            constraints.insets = new Insets(2,2,2,2);
             add(this.levelDisplay, constraints);
             constraints.gridy = 1;
             add(this.waveDisplay, constraints);
@@ -127,7 +127,7 @@ public class OptionsPanel extends JPanel
             constraints.gridy = 6;
             add(towerThree, constraints);
             constraints.weighty = .05;
-            constraints.insets = new Insets(3,3,3,3);
+            constraints.insets = new Insets(2,2,2,2);
             constraints.gridy = 7;
             add(start, constraints);
             constraints.gridy = 8;
