@@ -12,12 +12,12 @@ import java.awt.Rectangle;
  * @author greg
  */
 public class LRTower extends Tower{
-    private int range;
+    private double range;
     private int damage;
     private int fireRate;
     private int size;
     
-    public LRTower(int range, int damage, int fireRate, int size){
+    public LRTower(double range, int damage, int fireRate, int size){
         this.range = range;
         this.damage = damage;
         this.fireRate = fireRate;
