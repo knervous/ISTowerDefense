@@ -14,7 +14,6 @@ public class LRTower extends Tower{
     private int damage;
     private int fireRate;
     private int size;
-    private boolean fire = false;
     
     public LRTower(int range, int damage, int fireRate, int size){
         this.range = range;
@@ -23,6 +22,8 @@ public class LRTower extends Tower{
         this.size = size;
     }
     public void fire(){
-        
+        while (super.shouldFire = true){
+            
+        }
     }
 }
