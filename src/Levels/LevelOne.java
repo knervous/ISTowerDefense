@@ -43,9 +43,9 @@ public class LevelOne extends Level implements Runnable{
             world.add(new Rectangle(0,300,300,300)); // bottom  left
             world.add(new Rectangle(350,0,225,510)); // top right
             pathingPoints.add(new Point(300,250));
-            pathingPoints.add(new Point(300,550));
-            pathingPoints.add(new Point(550,550));
-            pathingPoints.add(new Point(550,50));
+            pathingPoints.add(new Point(300,500));
+            pathingPoints.add(new Point(575,500));
+            pathingPoints.add(new Point(575,50));
         }
         
         private void doDrawing(Graphics g) {        
@@ -74,29 +74,36 @@ public class LevelOne extends Level implements Runnable{
     @Override
     public void run() {
         
-        
-        xdif = pathingPoints.get(0).x - LevelOne.enemy.x;
-        ydif = LevelOne.enemy.y - pathingPoints.get(0).y;
-        
-        
-        
-        while(xdif>5)
-        {
-            xdif = pathingPoints.get(0).x - LevelOne.enemy.x;
+            for (Point pathingPoint : pathingPoints) {
             
-            enemy.setLocation(LevelOne.enemy.x + 1,LevelOne.enemy.y);
-            System.out.println(LevelOne.enemy.x);
+        
+        xdif = pathingPoint.x - enemy.x;
+        ydif = enemy.y - pathingPoint.y;
+
+        while(Math.abs(xdif)>0 || Math.abs(ydif)>0)
+        {
+            xdif = pathingPoint.x - LevelOne.enemy.x;
+            ydif = enemy.y - pathingPoint.y;
+            if(xdif>0)
+            enemy.setLocation(enemy.x + 1,enemy.y);
+            else if(xdif<0)
+                enemy.setLocation(enemy.x - 1,enemy.y);
+            if(ydif>0)
+            enemy.setLocation(enemy.x ,enemy.y - 1);
+            else if(ydif<0)
+                enemy.setLocation(enemy.x ,enemy.y + 1);
+            
+            System.out.println(enemy.x);
             try{
-            Thread.sleep(100);
+            Thread.sleep(12);
                     }
             catch(Exception e){} 
             repaint();
         }
         
-        xdif = pathingPoints.get(1).x - LevelOne.enemy.x;
-        ydif = LevelOne.enemy.y - pathingPoints.get(1).y;
         
         
+            }
         
     }
 
