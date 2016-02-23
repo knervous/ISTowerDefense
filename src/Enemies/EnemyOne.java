@@ -7,11 +7,7 @@ package Enemies;
 
 import javax.swing.*;
 import java.awt.*;
-import javax.imageio.*;
-import java.awt.image.*;
-import java.io.File;
-import java.io.*;
-import java.awt.Image;
+
 
 
 

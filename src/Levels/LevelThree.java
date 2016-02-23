@@ -19,6 +19,7 @@ public class LevelThree extends Level{
         {
             super();
             this.setBackground(Color.gray);
+            
         }
         
         private void initializeComponents()
