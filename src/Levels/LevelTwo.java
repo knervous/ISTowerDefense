@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
+import Enemies.*;
 
 /**
  *
@@ -25,7 +26,10 @@ public class LevelTwo extends Level{
             super();
             this.setBackground(Color.black);
             setLayout(null);
-
+            EnemyOne enemy = new EnemyOne();
+            
+            add(enemy);
+            //enemy.setBounds(null);
             world.add(new Rectangle(0,0,350,250)); // top left
             world.add(new Rectangle(0,300,300,300)); // bottom  left
             world.add(new Rectangle(350,0,225,510)); // top right
@@ -41,8 +45,7 @@ public class LevelTwo extends Level{
         g2d.setPaint(Color.green);
 
             for (Rectangle world1 : world) {
-                
-                 //g2d.fillRect(world1.x,world1.y,world1.width,world1.height);
+
                  g2d.drawImage(new ImageIcon("Images/forestfloor.jpg").getImage(), world1.x,world1.y,world1.width,world1.height, null);
             }
 

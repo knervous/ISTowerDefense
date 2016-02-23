@@ -7,11 +7,13 @@ package istower.defense.v1;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -135,6 +137,14 @@ public class OptionsPanel extends JPanel
             constraints.gridy = 9;
             add(quit, constraints);
             
+        }
+        
+        @Override
+        public void paintComponent(Graphics g) {
+
+        super.paintComponent(g);
+        g.drawImage(new ImageIcon("Images/scroll.png").getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
+        
         }
 
         

@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Animations;
+package Enemies;
 
 /**
  *
- * @author greg
+ * @author Paul
  */
-public class EnemyAnimation {
+public class EnemyTwo extends Enemy{
     
     
-    public EnemyAnimation()
+    public EnemyTwo()
     {
         
     }
