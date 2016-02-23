@@ -15,13 +15,12 @@ import javax.swing.*;
  *
  * @author Paul
  */
-public abstract class Enemy extends JPanel {
+public abstract class Enemy extends Rectangle {
     
     
     public Enemy()
     {
-        super();
-        setVisible(true);
+
     }
     
     

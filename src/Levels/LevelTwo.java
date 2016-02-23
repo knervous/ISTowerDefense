@@ -19,17 +19,15 @@ public class LevelTwo extends Level{
     
         private int level;
         private ArrayList<Rectangle> world = new ArrayList<>();
-
+        private EnemyOne enemy;
         
         public LevelTwo()
         {
             super();
             this.setBackground(Color.black);
             setLayout(null);
-            EnemyOne enemy = new EnemyOne();
-            
-            add(enemy);
-            //enemy.setBounds(null);
+            enemy = new EnemyOne();
+            enemy.setRect(0,250,50,50);
             world.add(new Rectangle(0,0,350,250)); // top left
             world.add(new Rectangle(0,300,300,300)); // bottom  left
             world.add(new Rectangle(350,0,225,510)); // top right
@@ -59,6 +57,7 @@ public class LevelTwo extends Level{
         super.paintComponent(g);
         g.drawImage(new ImageIcon("Images/dirtpath2.jpg").getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
         doDrawing(g);
+        enemy.draw(g);
         
         }
     

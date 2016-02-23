@@ -13,44 +13,37 @@ import java.io.File;
 import java.io.*;
 import java.awt.Image;
 
+
+
 /**
  *
  * @author Paul
  */
-public class EnemyOne extends Enemy{
+public class EnemyOne extends Enemy {
     
     private Rectangle base;
     
-    public EnemyOne()
+    public EnemyOne ()
     {
-        super();
-        setSize(50,50);
+
         base = new Rectangle(0,0,50,50);
-        BufferedImage img = null;
-        try {
-        img = ImageIO.read(new File("Images/monster.png"));
-        } catch (IOException e) {
-        }
-        
-        
-        
-        Graphics2D g2 = img.createGraphics();
-        //g2.fill(new Rectangle(1,2,50,50));
-        g2.drawImage(img, base.x, base.y, null);
-        g2.dispose();
-        
-        
+  
     }
     
     
-    /*
-    @Override
-    public void paintComponent(Graphics g)
+    public void draw(Graphics g)
     {
-        super.paintComponent(g);
-        g.drawImage(new ImageIcon("Images/monster.png").getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.drawImage(new ImageIcon("Images/monster.png").getImage(), base.x, base.y, base.width, base.height, null);
     }
     
-    */
+    
+    public void setRect(int x, int y, int width, int height)
+    {
+        base.x = x;
+        base.y = y;
+        base.width = width;
+        base.height = height;
+    }
     
 }
