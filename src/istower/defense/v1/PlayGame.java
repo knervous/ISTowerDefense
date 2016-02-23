@@ -5,8 +5,10 @@
  */
 package istower.defense.v1;
 import Levels.*;
+import Enemies.*;
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 
 /**
  *
@@ -18,22 +20,27 @@ public class PlayGame extends JFrame {
     protected int frameWidth = 800;
     protected int frameHeight = 600;
     private GridBagConstraints constraints = new GridBagConstraints();
-    private JPanel bgPanel;
     private Level level;
+    
     
     public PlayGame()
     {
         super();
-
+        initUI();
+        
+    }
+    
+    public void initUI()
+    {
         setSize(frameWidth,frameHeight);
         setVisible(true);
-        level = new LevelTwo();
+        level = new LevelOne();
         OptionsPanel optionsPanel = new OptionsPanel(frameWidth, frameHeight);
         
-        bgPanel = new JPanel();
+
         setLayout(new GridBagLayout());
         setSize(frameWidth,frameHeight);
-        //add(bgPanel);
+
         
         constraints.weightx = .9;
         constraints.weighty = 1.0;
@@ -46,7 +53,7 @@ public class PlayGame extends JFrame {
         
         add(optionsPanel, constraints);
         
-        //setContentPane(bgPanel);
+
         setTitle("ISTower Defense");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

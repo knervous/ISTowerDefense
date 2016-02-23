@@ -4,16 +4,22 @@
  * and open the template in the editor.
  */
 package Animations;
-
+import java.awt.*;
+import java.util.*;
 /**
  *
  * @author greg
  */
-public class EnemyAnimation {
+public class EnemyAnimation implements Runnable{
     
     
-    public EnemyAnimation()
+    public EnemyAnimation(Rectangle rect, ArrayList<Point> points)
     {
+        
+    }
+
+    @Override
+    public void run() {
         
     }
     

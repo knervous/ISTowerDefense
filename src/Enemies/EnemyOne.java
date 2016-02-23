@@ -21,29 +21,22 @@ import java.awt.Image;
  */
 public class EnemyOne extends Enemy {
     
-    private Rectangle base;
+    
     
     public EnemyOne ()
     {
-
-        base = new Rectangle(0,0,50,50);
-  
+       super();
     }
     
     
     public void draw(Graphics g)
     {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(new ImageIcon("Images/monster.png").getImage(), base.x, base.y, base.width, base.height, null);
+        g2d.drawImage(new ImageIcon("Images/monster1.png").getImage(), this.x, this.y, this.width, this.height, null);
+        g2d.dispose();
     }
     
     
-    public void setRect(int x, int y, int width, int height)
-    {
-        base.x = x;
-        base.y = y;
-        base.width = width;
-        base.height = height;
-    }
+    
     
 }
