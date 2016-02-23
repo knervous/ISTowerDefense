@@ -31,8 +31,7 @@ public class EnemyAnimation implements Runnable {
     @Override
     public void run() {
 
-        try {
-
+        try{
             for (Point pathingPoint : pathingPoints) {
                 xdif = pathingPoint.x - enemy.x;
                 ydif = enemy.y - pathingPoint.y;
@@ -52,7 +51,7 @@ public class EnemyAnimation implements Runnable {
                     } else if (ydif < 0) {
                         enemy.setLocation(enemy.x, enemy.y + 1);
                     }
-                    Thread.sleep(12);
+                    Thread.sleep(25);
                     parent.repaint();
 
                 }

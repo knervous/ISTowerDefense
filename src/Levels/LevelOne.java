@@ -43,8 +43,8 @@ public class LevelOne extends Level {
         world.add(new Rectangle(0, 300, 300, 300));    // bottom  left
         world.add(new Rectangle(350, 0, 225, 510));    // top right
         pathingPoints.add(new Point(300, 250));
-        pathingPoints.add(new Point(300, 500));
-        pathingPoints.add(new Point(575, 500));
+        pathingPoints.add(new Point(300, 520));
+        pathingPoints.add(new Point(575, 520));
         pathingPoints.add(new Point(575, 50));
         //startWaves();
     }
@@ -74,17 +74,15 @@ public class LevelOne extends Level {
         //enemies.addAll(createEnemies(5,1));
         
         for (Enemy enemy : enemies) {
-            
-            threads.add(new Thread(new EnemyAnimation(enemy, pathingPoints, this, startingPoint)));
+            threads.add(new Thread(new EnemyAnimation(enemy, pathingPoints, this, new Point((startingPoint.x + enemies.indexOf(enemy)*50),startingPoint.y))));
             threads.get(enemies.indexOf(enemy)).start();
             
-
-            System.out.println("done");
-            try {
-                Thread.sleep(1000);
-
+            
+            /*try {
+                Thread.sleep(20);
+                
             } catch (Exception e) {
-            }
+            }*/
         }
         
     }

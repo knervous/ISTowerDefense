@@ -1,22 +1,12 @@
 
 package istower.defense.v1;
 
-//~--- non-JDK imports --------------------------------------------------------
-
-import Animations.EnemyAnimation;
-
 import Enemies.*;
-
 import Levels.*;
-
-//~--- JDK imports ------------------------------------------------------------
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.util.*;
-
 import javax.swing.*;
 
 /**
@@ -70,6 +60,7 @@ public class PlayGame extends JFrame {
             {
                 level.startWaves();
                 optionsPanel.getWaveTimer().start();
+                optionsPanel.getStart().removeActionListener(this);
             }
         }); 
     }

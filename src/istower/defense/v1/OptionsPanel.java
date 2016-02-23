@@ -49,7 +49,7 @@ public class OptionsPanel extends JPanel {
 
     public void initializeComponents() {
         level = 1;
-        waveTime = 30;
+        waveTime = 20;
         wave = 1;
         gold = 800;
         constraints = new GridBagConstraints();
@@ -58,11 +58,11 @@ public class OptionsPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 waveTime--;
-                waveTimerDisplay.setText("Wave ends: "+waveTime + "s");
+                waveTimerDisplay.setText("Ends in: "+waveTime + "s");
                 waveDisplay.setText("Wave: "+wave);
                 if (waveTime == 0) {
-                    level++;
-                    waveTime = 30;
+                    wave++;
+                    waveTime = 20;
                     PlayGame.level.startWaves();
                 }
             }
@@ -75,7 +75,7 @@ public class OptionsPanel extends JPanel {
         quit = new JButton("Quit");
         levelDisplay = new JLabel("Level: " + level);
         waveDisplay = new JLabel("Wave: " + wave);
-        waveTimerDisplay = new JLabel("Wave ends: "+waveTime + "s");
+        waveTimerDisplay = new JLabel("Ends in: "+waveTime + "s");
         goldDisplay = new JLabel("Gold: " + gold);
     }
 
