@@ -63,6 +63,10 @@ public class OptionsPanel extends JPanel {
                 if (waveTime == 0) {
                     wave++;
                     waveTime = 20;
+                }
+                
+                if(waveTime % 10 == 0)
+                {
                     PlayGame.level.startWaves();
                 }
             }
