@@ -26,11 +26,30 @@ public class PlayGame extends JFrame {
     protected int              frameHeight = 600;
     private GridBagConstraints constraints = new GridBagConstraints();
     private LevelOne           level;
+    private ArrayList<Thread> threads = new ArrayList<>();
+    private ArrayList<EnemyOne> enemies = new ArrayList<>();
 
     public PlayGame() {
         super();
         initUI();
-
+        
+        enemies.add(new EnemyOne());
+        enemies.add(new EnemyOne());
+        enemies.add(new EnemyOne());
+        enemies.add(new EnemyOne());
+        
+        for(EnemyOne enemy : enemies)
+        {
+            threads.add(new Thread(new EnemyAnimation(enemy, level.getPathingPoints(), level, "test")));
+            threads.get(enemies.indexOf(enemy)).start();
+            
+            System.out.println("done");
+            try{
+            Thread.sleep(2000);
+            
+            }catch(Exception e){}
+        }
+        /*
         Thread thread = new Thread(new EnemyAnimation(new EnemyOne(), level.getPathingPoints(), level, "first thread"));
 
         thread.start();
@@ -43,6 +62,17 @@ public class PlayGame extends JFrame {
         Thread thread1 = new Thread(new EnemyAnimation(new EnemyOne(), level.getPathingPoints(), level, "second thread"));
 
         thread1.start();
+        
+        try{
+            Thread.sleep(2000);
+            
+        }catch(Exception e){}
+        
+        Thread thread2 = new Thread(new EnemyAnimation(new EnemyOne(), level.getPathingPoints(), level, "second thread"));
+
+        thread2.start();
+                
+                */
     }
 
     public void initUI() {

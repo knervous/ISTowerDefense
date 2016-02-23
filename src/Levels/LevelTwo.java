@@ -23,7 +23,7 @@ import javax.swing.*;
  *
  * @author Paul
  */
-public class LevelTwo extends Level {
+public class LevelTwo {
     private int level;
 
     public LevelTwo() {}
@@ -36,15 +36,6 @@ public class LevelTwo extends Level {
         return level;
     }
 
-    @Override
-    public void setEnemyPH(EnemyOne infEnemy) {
-        throw new UnsupportedOperationException("Not supported yet.");    // To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArrayList<Point> getPathingPoints() {
-        throw new UnsupportedOperationException("Not supported yet.");    // To change body of generated methods, choose Tools | Templates.
-    }
 }
 
 

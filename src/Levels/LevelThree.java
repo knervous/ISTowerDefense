@@ -21,12 +21,11 @@ import java.util.ArrayList;
  *
  * @author Paul
  */
-public class LevelThree extends Level {
+public class LevelThree {
     private int level;
 
     public LevelThree() {
         super();
-        this.setBackground(Color.gray);
     }
 
     private void initializeComponents() {
@@ -37,15 +36,6 @@ public class LevelThree extends Level {
         return level;
     }
 
-    @Override
-    public void setEnemyPH(EnemyOne infEnemy) {
-        throw new UnsupportedOperationException("Not supported yet.");    // To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ArrayList<Point> getPathingPoints() {
-        throw new UnsupportedOperationException("Not supported yet.");    // To change body of generated methods, choose Tools | Templates.
-    }
 }
 
 
