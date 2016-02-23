@@ -6,6 +6,13 @@
  */
 package istower.defense.v1;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Sequencer;
+
 /**
  *
  * @author Paul
@@ -15,8 +22,18 @@ public class ISTowerDefenseV1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         PlayGame playGame = new PlayGame();
+        
+        
+        InputStream is;
+        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        is = new BufferedInputStream(new FileInputStream(new File("src/lady_gaga-bad_romance.mid")));
+        sequencer.setSequence(is);
+        sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+        sequencer.start();
+        
     }
 }
 
