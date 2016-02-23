@@ -13,18 +13,17 @@ import java.util.*;
 public class EnemyAnimation implements Runnable {
 
     private int xdif = 0,
-            ydif = 0;
-    public EnemyOne enemy;
+                ydif = 0;
+    public Enemy enemy;
     private ArrayList<Point> pathingPoints;
     private Level parent;
-    private String input;
 
-    public EnemyAnimation(EnemyOne enemy, ArrayList<Point> pathingPoints, Level parent, String input) {
+
+    public EnemyAnimation(Enemy enemy, ArrayList<Point> pathingPoints, Level parent, Point start) {
         this.enemy = enemy;
-        enemy.setRect(0, 250, 50, 50);
+        enemy.setLocation(start);
         this.pathingPoints = pathingPoints;
         this.parent = parent;
-        this.input = input;
         parent.addPH(enemy);
 
     }
@@ -37,7 +36,6 @@ public class EnemyAnimation implements Runnable {
             for (Point pathingPoint : pathingPoints) {
                 xdif = pathingPoint.x - enemy.x;
                 ydif = enemy.y - pathingPoint.y;
-                System.out.println(this.input);
 
                 while ((Math.abs(xdif) > 0) || (Math.abs(ydif) > 0)) {
                     xdif = pathingPoint.x - enemy.x;

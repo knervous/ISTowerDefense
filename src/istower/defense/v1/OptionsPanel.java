@@ -1,13 +1,12 @@
 
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package istower.defense.v1;
 
 //~--- JDK imports ------------------------------------------------------------
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -28,11 +27,12 @@ import javax.swing.Timer;
  * @author Paul
  */
 public class OptionsPanel extends JPanel {
-    private JLabel             levelDisplay, waveDisplay, waveTimerDisplay, goldDisplay;
-    private JButton            towerOne, towerTwo, towerThree, start, pause, quit;
-    private Timer              waveTimer;
+
+    private JLabel levelDisplay, waveDisplay, waveTimerDisplay, goldDisplay;
+    private JButton towerOne, towerTwo, towerThree, start, pause, quit;
+    private Timer waveTimer;
     private GridBagConstraints constraints;
-    private int                level, wave, waveTime, gold;
+    private int level, wave, waveTime, gold;
 
     public OptionsPanel(int frameWidth, int frameHeight) {
         super();
@@ -45,49 +45,40 @@ public class OptionsPanel extends JPanel {
         addComponents();
         System.out.println(this.getHeight());
     }
+    
 
     public void initializeComponents() {
-        level       = 1;
-        waveTime    = 30;
-        wave        = 1;
-        gold        = 800;
+        level = 1;
+        waveTime = 30;
+        wave = 1;
+        gold = 800;
         constraints = new GridBagConstraints();
-        waveTimer   = new Timer(1000, new ActionListener()    // setting up wave timer
+        waveTimer = new Timer(1000, new ActionListener() // setting up wave timer
         {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 waveTime--;
-
+                waveTimerDisplay.setText("Wave ends: "+waveTime + "s");
+                waveDisplay.setText("Wave: "+wave);
                 if (waveTime == 0) {
-                    waveTimer.removeActionListener(this);
+                    level++;
+                    waveTime = 30;
+                    PlayGame.level.startWaves();
                 }
             }
         });
-        towerOne         = new JButton("Tower 1");
-        towerTwo         = new JButton("Tower 2");
-        towerThree       = new JButton("Tower 3");
-        start            = new JButton("Start");
-        pause            = new JButton("Pause");
-        quit             = new JButton("Quit");
-        levelDisplay     = new JLabel("Level: " + level);
-        waveDisplay      = new JLabel("Wave: " + wave);
-        waveTimerDisplay = new JLabel(waveTime + " secs");
-        goldDisplay      = new JLabel("Gold: " + gold);
+        towerOne = new JButton("Tower 1");
+        towerTwo = new JButton("Tower 2");
+        towerThree = new JButton("Tower 3");
+        start = new JButton("Start");
+        pause = new JButton("Pause");
+        quit = new JButton("Quit");
+        levelDisplay = new JLabel("Level: " + level);
+        waveDisplay = new JLabel("Wave: " + wave);
+        waveTimerDisplay = new JLabel("Wave ends: "+waveTime + "s");
+        goldDisplay = new JLabel("Gold: " + gold);
     }
 
-    /*
-     * @Override
-     * public void paintComponent(Graphics g)
-     * {
-     *   setupComponents();
-     *   System.out.println();
-     *
-     *
-     *   getParent().setPreferredSize(new Dimension(getParent().getParent().getSize().width / 5, getParent().getParent().getSize().height));
-     *
-     *
-     * }
-     */
     private void setupComponents() {
 
         // System.out.println(this.getSize());
@@ -99,11 +90,11 @@ public class OptionsPanel extends JPanel {
     }
 
     public void addComponents() {
-        constraints.gridx   = 0;
-        constraints.gridy   = 0;
+        constraints.gridx = 0;
+        constraints.gridy = 0;
         constraints.weightx = 1.0;
         constraints.weighty = .05;
-        constraints.insets  = new Insets(2, 2, 2, 2);
+        constraints.insets = new Insets(2, 2, 2, 2);
         add(this.levelDisplay, constraints);
         constraints.gridy = 1;
         add(this.waveDisplay, constraints);
@@ -121,8 +112,8 @@ public class OptionsPanel extends JPanel {
         constraints.gridy = 6;
         add(towerThree, constraints);
         constraints.weighty = .05;
-        constraints.insets  = new Insets(2, 2, 2, 2);
-        constraints.gridy   = 7;
+        constraints.insets = new Insets(2, 2, 2, 2);
+        constraints.gridy = 7;
         add(start, constraints);
         constraints.gridy = 8;
         add(pause, constraints);
@@ -134,6 +125,22 @@ public class OptionsPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(new ImageIcon("Images/scroll.png").getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
+    }
+    
+    
+    public void startLevel(ActionListener al)
+    {
+        start.addActionListener(al);
+    }
+    
+    public JButton getStart()
+    {
+        return start;
+    }
+    
+    public Timer getWaveTimer()
+    {
+        return waveTimer;
     }
 }
 

@@ -12,6 +12,8 @@ import Levels.*;
 //~--- JDK imports ------------------------------------------------------------
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import java.util.*;
 
@@ -25,63 +27,28 @@ public class PlayGame extends JFrame {
     protected int              frameWidth  = 800;
     protected int              frameHeight = 600;
     private GridBagConstraints constraints = new GridBagConstraints();
-    private LevelOne           level;
+    public static LevelOne           level;
     private ArrayList<Thread> threads = new ArrayList<>();
     private ArrayList<EnemyOne> enemies = new ArrayList<>();
+    private OptionsPanel optionsPanel;
 
     public PlayGame() {
         super();
+        
         initUI();
-        
-        enemies.add(new EnemyOne());
-        enemies.add(new EnemyOne());
-        enemies.add(new EnemyOne());
-        enemies.add(new EnemyOne());
-        
-        for(EnemyOne enemy : enemies)
-        {
-            threads.add(new Thread(new EnemyAnimation(enemy, level.getPathingPoints(), level, "test")));
-            threads.get(enemies.indexOf(enemy)).start();
-            
-            System.out.println("done");
-            try{
-            Thread.sleep(2000);
-            
-            }catch(Exception e){}
-        }
-        /*
-        Thread thread = new Thread(new EnemyAnimation(new EnemyOne(), level.getPathingPoints(), level, "first thread"));
-
-        thread.start();
-        System.out.println("done");
-        try{
-            Thread.sleep(2000);
-            
-        }catch(Exception e){}
-        
-        Thread thread1 = new Thread(new EnemyAnimation(new EnemyOne(), level.getPathingPoints(), level, "second thread"));
-
-        thread1.start();
-        
-        try{
-            Thread.sleep(2000);
-            
-        }catch(Exception e){}
-        
-        Thread thread2 = new Thread(new EnemyAnimation(new EnemyOne(), level.getPathingPoints(), level, "second thread"));
-
-        thread2.start();
-                
-                */
+        revalidate();
+        level.repaint();
+        optionsPanel.repaint();
+        setResizable(false);
+        addActionListeners();
     }
 
     public void initUI() {
+        
         setSize(frameWidth, frameHeight);
         setVisible(true);
         level = new LevelOne();
-
-        OptionsPanel optionsPanel = new OptionsPanel(frameWidth, frameHeight);
-
+        optionsPanel = new OptionsPanel(frameWidth, frameHeight);
         setLayout(new GridBagLayout());
         setSize(frameWidth, frameHeight);
         constraints.weightx = .9;
@@ -94,5 +61,23 @@ public class PlayGame extends JFrame {
         setTitle("ISTower Defense");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+    public void addActionListeners()
+    {
+        optionsPanel.startLevel(new ActionListener() {    
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                level.startWaves();
+                optionsPanel.getWaveTimer().start();
+            }
+        }); 
+    }
+    
+    
+    
+        
+    
+    
 }
 

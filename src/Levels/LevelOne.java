@@ -26,9 +26,11 @@ public class LevelOne extends Level {
             ydif = 0;
     private ArrayList<Rectangle> world = new ArrayList<>();
     private ArrayList<Point> pathingPoints = new ArrayList<>();
-    private ArrayList<EnemyOne> enemies = new ArrayList<>();
-    private EnemyOne enemyPH = new EnemyOne();
-
+    private ArrayList<Enemy> enemies = new ArrayList<>();
+    private ArrayList<Enemy> enemyGroup = new ArrayList<>();
+    private ArrayList<Thread> threads = new ArrayList<>();
+    private Point startingPoint = new Point(0,250);
+    
     public LevelOne() {
         super();
         this.setBackground(Color.black);
@@ -44,6 +46,7 @@ public class LevelOne extends Level {
         pathingPoints.add(new Point(300, 500));
         pathingPoints.add(new Point(575, 500));
         pathingPoints.add(new Point(575, 50));
+        //startWaves();
     }
 
     private void doDrawing(Graphics g) {
@@ -65,11 +68,43 @@ public class LevelOne extends Level {
         super.draw(g);
     }
 
-    @Override
-    public void update(Graphics g) {
-        paint(g);
+    public void startWaves() {
+        threads.clear();
+        enemies = createEnemies(5, 1);
+        //enemies.addAll(createEnemies(5,1));
+        
+        for (Enemy enemy : enemies) {
+            
+            threads.add(new Thread(new EnemyAnimation(enemy, pathingPoints, this, startingPoint)));
+            threads.get(enemies.indexOf(enemy)).start();
+            
+
+            System.out.println("done");
+            try {
+                Thread.sleep(1000);
+
+            } catch (Exception e) {
+            }
+        }
+        
     }
 
+    public ArrayList<Enemy> createEnemies(int numEnemies, int enemyType) {
+        
+        enemyGroup.clear();
+        if (enemyType == 1) {
+            for (int i = 0; i < numEnemies; i++) {
+                enemyGroup.add(new EnemyOne());
+            }
+        } else if (enemyType == 2) {
+            for (int i = 0; i < numEnemies; i++) {
+                enemyGroup.add(new EnemyTwo());
+            }
+        }
+        
+        return enemyGroup;
+
+    }
 
     public ArrayList<Point> getPathingPoints() {
         return pathingPoints;

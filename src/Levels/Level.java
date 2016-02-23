@@ -29,7 +29,7 @@ public abstract class Level extends JPanel {
     }
     
     
-    public void addPH(EnemyOne infEnemy)
+    public void addPH(Enemy infEnemy)
     {
         enemies.add(infEnemy);
     }
@@ -45,7 +45,7 @@ public abstract class Level extends JPanel {
 
 
     public abstract ArrayList<Point> getPathingPoints();
-    
+    public abstract void startWaves();
     //public abstract void addPH(EnemyOne infEnemy);
 }
 
