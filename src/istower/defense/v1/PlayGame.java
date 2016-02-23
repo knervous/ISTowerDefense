@@ -31,7 +31,7 @@ public class PlayGame extends JFrame {
         super();
         initUI();
 
-        Thread thread = new Thread(new EnemyAnimation(new EnemyOne(), level.getPathingPoints(), level));
+        Thread thread = new Thread(new EnemyAnimation(new EnemyOne(), level.getPathingPoints(), level, "first thread"));
 
         thread.start();
         System.out.println("done");
@@ -40,7 +40,7 @@ public class PlayGame extends JFrame {
             
         }catch(Exception e){}
         
-        Thread thread1 = new Thread(new EnemyAnimation(new EnemyOne(), level.getPathingPoints(), level));
+        Thread thread1 = new Thread(new EnemyAnimation(new EnemyOne(), level.getPathingPoints(), level, "second thread"));
 
         thread1.start();
     }

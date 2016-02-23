@@ -28,20 +28,24 @@ public class EnemyAnimation implements Runnable {
     public EnemyOne          enemy;
     private ArrayList<Point> pathingPoints;
     private Level            parent;
+    private String input;
 
-    public EnemyAnimation(EnemyOne enemy, ArrayList<Point> pathingPoints, Level parent) {
+    public EnemyAnimation(EnemyOne enemy, ArrayList<Point> pathingPoints, Level parent, String input) {
         this.enemy = enemy;
         enemy.setRect(0, 250, 50, 50);
         this.pathingPoints = pathingPoints;
         this.parent        = parent;
+        this.input = input;
     }
 
     @Override
     public void run() {
-        synchronized (parent) {
+        
+        try {
             for (Point pathingPoint : pathingPoints) {
                 xdif = pathingPoint.x - enemy.x;
                 ydif = enemy.y - pathingPoint.y;
+                System.out.println(this.input);
 
                 while ((Math.abs(xdif) > 0) || (Math.abs(ydif) > 0)) {
                     xdif = pathingPoint.x - enemy.x;
@@ -58,17 +62,19 @@ public class EnemyAnimation implements Runnable {
                     } else if (ydif < 0) {
                         enemy.setLocation(enemy.x, enemy.y + 1);
                     }
-
-
-                    try {
-                        Thread.sleep(12);
-                    } catch (Exception e) {}
-
+                    Thread.sleep(12);
                     parent.setEnemyPH(enemy);
                     parent.repaint();
+                    
                 }
-            }
-        }
+            }    
+        }           
+                     catch (Exception e) {}
+
+                    
+                
+            
+        
     }
 }
 

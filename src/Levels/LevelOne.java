@@ -64,7 +64,12 @@ public class LevelOne extends Level {
         doDrawing(g);
         enemyPH.draw(g);
     }
-
+    
+    @Override
+    public void update(Graphics g){
+           paint(g);
+    }
+    
     public void setEnemyPH(EnemyOne infEnemy) {
         enemyPH = infEnemy;
     }
