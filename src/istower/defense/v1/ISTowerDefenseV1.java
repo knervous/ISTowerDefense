@@ -1,7 +1,8 @@
+
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package istower.defense.v1;
 
@@ -17,5 +18,7 @@ public class ISTowerDefenseV1 {
     public static void main(String[] args) {
         PlayGame playGame = new PlayGame();
     }
-    
 }
+
+
+//~ Formatted by Jindent --- http://www.jindent.com

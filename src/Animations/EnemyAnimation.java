@@ -1,66 +1,76 @@
+
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package Animations;
+
+//~--- non-JDK imports --------------------------------------------------------
+
 import Enemies.*;
-import java.awt.*;
-import java.util.*;
+
 import Levels.*;
-import javax.swing.*;
+
+//~--- JDK imports ------------------------------------------------------------
+
+import java.awt.*;
+
+import java.util.*;
+
 /**
  *
  * @author greg
  */
-public class EnemyAnimation extends JPanel implements Runnable{
-    
-    private EnemyOne rect;
-    private ArrayList<Point> points;
-    private int xdif;
-    private int ydif;
-    
-    
-    
-    public EnemyAnimation(EnemyOne rect, ArrayList<Point> points)
-    {
-        this.rect = rect;
-        this.points = points;
-        xdif = 0;
-        ydif = 0;
-        
-        int size = points.size();
+public class EnemyAnimation implements Runnable {
+    private int              xdif = 0,
+                             ydif = 0;
+    public EnemyOne          enemy;
+    private ArrayList<Point> pathingPoints;
+    private Level            parent;
+
+    public EnemyAnimation(EnemyOne enemy, ArrayList<Point> pathingPoints, Level parent) {
+        this.enemy = enemy;
+        enemy.setRect(0, 250, 50, 50);
+        this.pathingPoints = pathingPoints;
+        this.parent        = parent;
     }
 
     @Override
     public void run() {
-        
-        xdif = points.get(0).x - LevelOne.enemy.x;
-        ydif = LevelOne.enemy.y - points.get(0).y;
-        
-        
-        System.out.println(xdif);
-        while(xdif>5)
-        {
-            
-            LevelOne.enemy.setLocation(LevelOne.enemy.x + 1,LevelOne.enemy.y);
-            System.out.println(LevelOne.enemy.x);
-            try{
-            Thread.sleep(200);
+        synchronized (parent) {
+            for (Point pathingPoint : pathingPoints) {
+                xdif = pathingPoint.x - enemy.x;
+                ydif = enemy.y - pathingPoint.y;
+
+                while ((Math.abs(xdif) > 0) || (Math.abs(ydif) > 0)) {
+                    xdif = pathingPoint.x - enemy.x;
+                    ydif = enemy.y - pathingPoint.y;
+
+                    if (xdif > 0) {
+                        enemy.setLocation(enemy.x + 1, enemy.y);
+                    } else if (xdif < 0) {
+                        enemy.setLocation(enemy.x - 1, enemy.y);
                     }
-            catch(Exception e){} 
-            
+
+                    if (ydif > 0) {
+                        enemy.setLocation(enemy.x, enemy.y - 1);
+                    } else if (ydif < 0) {
+                        enemy.setLocation(enemy.x, enemy.y + 1);
+                    }
+
+
+                    try {
+                        Thread.sleep(12);
+                    } catch (Exception e) {}
+
+                    parent.setEnemyPH(enemy);
+                    parent.repaint();
+                }
+            }
         }
-        
-        
-        
     }
-    
-    
-    @Override
-        public void paintComponent(Graphics g)
-        {
-            LevelOne.enemy.draw(g);
-        }
-    
 }
+
+
+//~ Formatted by Jindent --- http://www.jindent.com
