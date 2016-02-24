@@ -33,6 +33,8 @@ public class OptionsPanel extends JPanel {
     private Timer waveTimer;
     private GridBagConstraints constraints;
     private int level, wave, waveTime, gold;
+    
+    public OptionsPanel(){};
 
     public OptionsPanel(int frameWidth, int frameHeight) {
         super();
@@ -58,8 +60,8 @@ public class OptionsPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 waveTime--;
-                waveTimerDisplay.setText("Ends in: "+waveTime + "s");
-                waveDisplay.setText("Wave: "+wave);
+                waveTimerDisplay.setText("Ends in: "+ waveTime + "s");
+                getWaveDisplay().setText("Wave: "+wave);
                 if (waveTime == 0) {
                     wave++;
                     waveTime = 20;
@@ -71,15 +73,15 @@ public class OptionsPanel extends JPanel {
                 }
             }
         });
-        towerOne = new JButton("Tower 1");
-        towerTwo = new JButton("Tower 2");
-        towerThree = new JButton("Tower 3");
+        towerOne = new JButton(new ImageIcon("Images/lr_tower.png"));
+        towerTwo = new JButton(new ImageIcon("Images/mr_tower.png"));
+        towerThree = new JButton(new ImageIcon("Images/sr_tower.png"));
         start = new JButton("Start");
         pause = new JButton("Pause");
         quit = new JButton("Quit");
         levelDisplay = new JLabel("Level: " + level);
-        waveDisplay = new JLabel("Wave: " + wave);
-        waveTimerDisplay = new JLabel("Ends in: "+waveTime + "s");
+        setWaveDisplay(new JLabel("Wave: " + wave));
+        waveTimerDisplay = new JLabel("Ends in: "+getWaveTime() + "s");
         goldDisplay = new JLabel("Gold: " + gold);
     }
 
@@ -101,7 +103,7 @@ public class OptionsPanel extends JPanel {
         constraints.insets = new Insets(2, 2, 2, 2);
         add(this.levelDisplay, constraints);
         constraints.gridy = 1;
-        add(this.waveDisplay, constraints);
+        add(this.getWaveDisplay(), constraints);
         constraints.gridy = 2;
         add(this.waveTimerDisplay, constraints);
         constraints.gridy = 3;
@@ -145,6 +147,27 @@ public class OptionsPanel extends JPanel {
     public Timer getWaveTimer()
     {
         return waveTimer;
+    }
+
+    /**
+     * @return the waveDisplay
+     */
+    public JLabel getWaveDisplay() {
+        return waveDisplay;
+    }
+
+    /**
+     * @param waveDisplay the waveDisplay to set
+     */
+    public void setWaveDisplay(JLabel waveDisplay) {
+        this.waveDisplay = waveDisplay;
+    }
+
+    /**
+     * @return the waveTime
+     */
+    public int getWaveTime() {
+        return waveTime;
     }
 }
 

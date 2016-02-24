@@ -8,7 +8,9 @@ package Levels;
 
 //~--- non-JDK imports --------------------------------------------------------
 
+import Animations.EnemyAnimation;
 import Enemies.*;
+import istower.defense.v1.OptionsPanel;
 
 //~--- JDK imports ------------------------------------------------------------
 
@@ -21,13 +23,28 @@ import javax.swing.*;
 public abstract class Level extends JPanel {
     protected EnemyOne enemy;
     protected ArrayList<Enemy> enemies = new ArrayList<>();
+    private OptionsPanel optionsPanel = new OptionsPanel();
+    private JLabel waveDisplay;
 
     public Level() {
         super();
         setLayout(null);
         setSize((800 * (4 / 5)), 600);
     }
-    
+    public void displayWaves(){
+        waveDisplay = new JLabel("Next Wave!!");
+        waveDisplay.setBounds(300, 300, 10, 10);
+        
+        if (optionsPanel.getWaveTime() % 20 == 0){
+            add(waveDisplay);
+        }
+        try{
+            Thread.sleep(2000);
+        }
+        catch(Exception e){}
+        
+//            remove(waveDisplay);
+    }
     
     public void addPH(Enemy infEnemy)
     {

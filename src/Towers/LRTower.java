@@ -25,10 +25,7 @@ public class LRTower extends Tower {
         this.damage   = damage;
         this.fireRate = fireRate;
         this.size     = size;
-    }
-
-    public void fire(Rectangle enemy, Rectangle tower) {
-        while (super.shouldFire = true) {}
+        super.image = "Images/lr_tower.png";
     }
 }
 
