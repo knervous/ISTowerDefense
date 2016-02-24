@@ -76,6 +76,9 @@ public class OptionsPanel extends JPanel {
         towerOne = new JButton(new ImageIcon("Images/lr_tower.png"));
         towerTwo = new JButton(new ImageIcon("Images/mr_tower.png"));
         towerThree = new JButton(new ImageIcon("Images/sr_tower.png"));
+        towerOne.setContentAreaFilled(false);
+        towerTwo.setContentAreaFilled(false);
+        towerThree.setContentAreaFilled(false);
         start = new JButton("Start");
         pause = new JButton("Pause");
         quit = new JButton("Quit");

@@ -53,9 +53,10 @@ public abstract class Level extends JPanel {
     
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        for(Enemy enemy : enemies)
-        {
-        g2d.drawImage(new ImageIcon("Images/monster1.png").getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
+        for (Enemy enemy : enemies) {
+            if (enemy instanceof EnemyOne) {
+                g2d.drawImage(new ImageIcon("Images/monster1.png").getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
+            }
         }
         g2d.dispose();
     }
