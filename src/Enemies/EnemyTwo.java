@@ -13,6 +13,8 @@ package Enemies;
 public class EnemyTwo extends Enemy {
 
     public EnemyTwo() {
+        
+        super();
     }
 }
 

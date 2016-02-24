@@ -70,8 +70,10 @@ public class LevelOne extends Level {
 
     public void startWaves() {
         threads.clear();
-        createEnemies(3,1);
+        createEnemies(2,1);
+        createEnemies(2,2);
         enemies.addAll(enemyGroup);
+        
         
         
         for (Enemy enemy : enemyGroup) {

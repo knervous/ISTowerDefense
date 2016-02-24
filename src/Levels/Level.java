@@ -53,13 +53,20 @@ public abstract class Level extends JPanel {
     
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+        
         for (Enemy enemy : enemies) {
             if (enemy instanceof EnemyOne) {
                 g2d.drawImage(new ImageIcon("Images/monster1.png").getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
             }
+            else if(enemy instanceof EnemyTwo) {
+                g2d.drawImage(new ImageIcon("Images/Orc_Berserker.gif").getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
+            }
         }
         g2d.dispose();
     }
+    
+    
+    
 
 
     public abstract ArrayList<Point> getPathingPoints();
