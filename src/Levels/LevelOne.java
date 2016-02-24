@@ -70,24 +70,19 @@ public class LevelOne extends Level {
 
     public void startWaves() {
         threads.clear();
-        enemies = createEnemies(3, 1);
-        //enemies.addAll(createEnemies(5,1));
+        createEnemies(3,1);
+        enemies.addAll(enemyGroup);
         
-        for (Enemy enemy : enemies) {
-            threads.add(new Thread(new EnemyAnimation(enemy, pathingPoints, this, new Point((startingPoint.x + enemies.indexOf(enemy)*50),startingPoint.y))));
-            threads.get(enemies.indexOf(enemy)).start();
-            
-            
-            /*try {
-                Thread.sleep(20);
-                
-            } catch (Exception e) {
-            }*/
+        
+        for (Enemy enemy : enemyGroup) {
+            threads.add(new Thread(new EnemyAnimation(enemy, pathingPoints, this, new Point((startingPoint.x + enemyGroup.indexOf(enemy)*50),startingPoint.y))));
+            threads.get(enemyGroup.indexOf(enemy)).start();
+
         }
         
     }
 
-    public ArrayList<Enemy> createEnemies(int numEnemies, int enemyType) {
+    public void createEnemies(int numEnemies, int enemyType) {
         
         enemyGroup.clear();
         if (enemyType == 1) {
@@ -100,7 +95,7 @@ public class LevelOne extends Level {
             }
         }
         
-        return enemyGroup;
+        
 
     }
 
