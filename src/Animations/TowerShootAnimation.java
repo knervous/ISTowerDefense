@@ -10,7 +10,12 @@ package Animations;
  *
  * @author greg
  */
-public class TowerShootAnimation {
+public class TowerShootAnimation implements Runnable{
+
+    @Override
+    public void run() {
+        
+    }
 }
 
 

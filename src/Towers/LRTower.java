@@ -7,24 +7,27 @@
 package Towers;
 
 //~--- JDK imports ------------------------------------------------------------
+import java.awt.*;
 
-import java.awt.Rectangle;
+import java.util.*;
 
+import javax.swing.*;
+import javax.swing.*;
 /**
  *
  * @author greg
  */
 public class LRTower extends Tower {
-    private double range;
-    private int    damage;
-    private int    fireRate;
-    private int    size;
+    private final double range;
+    private final int    damage;
 
-    public LRTower(double range, int damage, int fireRate, int size) {
-        this.range    = range;
-        this.damage   = damage;
-        this.fireRate = fireRate;
-        this.size     = size;
+
+
+    public LRTower() {
+        this.range    = 100;
+        this.damage   = 10;
+        this.width = new ImageIcon("Images/lr_tower.png").getImage().getWidth(null);
+        this.height= new ImageIcon("Images/lr_tower.png").getImage().getHeight(null);
         super.image = "Images/lr_tower.png";
     }
 }

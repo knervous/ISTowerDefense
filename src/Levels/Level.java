@@ -9,6 +9,7 @@ package Levels;
 //~--- non-JDK imports --------------------------------------------------------
 import Animations.EnemyAnimation;
 import Enemies.*;
+import Towers.*;
 import istower.defense.v1.OptionsPanel;
 
 //~--- JDK imports ------------------------------------------------------------
@@ -22,6 +23,7 @@ public abstract class Level extends JPanel {
 
     protected ArrayList<Enemy> enemies = new ArrayList<>();
     private ArrayList<Enemy> enemyGroup = new ArrayList<>();
+    private ArrayList<Tower> towers = new ArrayList<>();
     private ArrayList<Thread> threads = new ArrayList<>();
     private Point startingPoint = new Point(0, 250);
 
@@ -30,23 +32,8 @@ public abstract class Level extends JPanel {
         setLayout(null);
         setSize((800 * (4 / 5)), 600);
         setPathingPoints();
+        createTowers();
 
-    }
-
-    public static void displayWaves() {
-        JLabel waveDisplay = new JLabel("Next Wave!!");
-        waveDisplay.setBounds(300, 300, 10, 10);
-        waveDisplay.setVisible(true);
-
-        //if (optionsPanel.getWaveTime() % 20 == 0){
-        //   add(waveDisplay);
-        //}
-        try {
-            Thread.sleep(2000);
-        } catch (Exception e) {
-        }
-
-        //  remove(waveDisplay);
     }
 
     public void addPH(Enemy infEnemy) {
@@ -63,6 +50,18 @@ public abstract class Level extends JPanel {
                 g2d.drawImage(new ImageIcon("Images/Orc_Marauder.gif").getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
             }
         }
+
+        for (Tower tower : towers) {
+            if (tower instanceof LRTower) {
+                g2d.drawImage(new ImageIcon("Images/lr_tower.png").getImage(), 0, 200, tower.width, tower.height, null);
+            } else if (tower instanceof MRTower) {
+                g2d.drawImage(new ImageIcon("Images/mr_tower.png").getImage(), 250, 250, tower.width, tower.height, null);
+            } else if (tower instanceof SRTower) {
+                g2d.drawImage(new ImageIcon("Images/sr_tower.png").getImage(), 350, 350, tower.width, tower.height, null);
+            }
+
+        }
+
         g2d.dispose();
     }
 
@@ -76,6 +75,15 @@ public abstract class Level extends JPanel {
             threads.get(enemyGroup.indexOf(enemy)).start();
 
         }
+
+    }
+
+    public void createTowers() {
+
+        towers.add(new SRTower());
+        towers.add(new SRTower());
+        towers.add(new LRTower());
+        towers.add(new MRTower());
 
     }
 

@@ -153,24 +153,24 @@ public class OptionsPanel extends JPanel {
     public int getWaveTime() {
         return waveTime;
     }
-    
-    
-    public class WaveTimer implements ActionListener
-    {
-        @Override
-            public void actionPerformed(ActionEvent ae) {
-                waveTime--;
-                waveTimerDisplay.setText("Ends in: " + waveTime + "s");
-                getWaveDisplay().setText("Wave: " + wave);
-                if (waveTime == 0) {
-                    wave++;
-                    waveTime = 20;
-                }
 
-                if (waveTime % 10 == 0) {
-                    PlayGame.level.startWaves();
-                }
+    public class WaveTimer implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            waveTime--;
+            waveTimerDisplay.setText("Ends in: " + waveTime + "s");
+            getWaveDisplay().setText("Wave: " + wave);
+            if (waveTime == 0) {
+                wave++;
+                waveTime = 20;
+
             }
+
+            if (waveTime % 10 == 0) {
+                PlayGame.level.startWaves();
+            }
+        }
     }
 }
 

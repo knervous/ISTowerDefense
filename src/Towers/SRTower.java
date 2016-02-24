@@ -6,6 +6,7 @@
 package Towers;
 
 import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -14,14 +15,15 @@ import java.awt.Rectangle;
 public class SRTower extends Tower{
     private double range;
     private int    damage;
-    private int    fireRate;
-    private int    size;
 
-    public SRTower(double range, int damage, int fireRate, int size) {
-        this.range    = range;
-        this.damage   = damage;
-        this.fireRate = fireRate;
-        this.size     = size;
+
+
+    public SRTower() {
+        this.range    = 50;
+        this.damage   = 15;
+        this.width = new ImageIcon("Images/sr_tower.png").getImage().getWidth(null);
+        this.height= new ImageIcon("Images/sr_tower.png").getImage().getHeight(null);
+        
         super.image = "Images/sr_tower.png";
     }
 }
