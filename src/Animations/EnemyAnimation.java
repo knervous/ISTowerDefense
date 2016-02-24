@@ -69,7 +69,6 @@ public class EnemyAnimation implements Runnable {
     public void killedEnemy()
     {
         
-        enemy.setLocation(1000,1000);
     }
 }
 
