@@ -82,7 +82,7 @@ public class LevelOne extends Level {
     @Override
     public int getEnemyType() {
         int rand = new Random().nextInt(8)+1;
-        if(rand>2) return 1;
+        if(rand>3) return 1;
         else return 2;
     }
 

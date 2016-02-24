@@ -33,8 +33,11 @@ public class OptionsPanel extends JPanel {
     private Timer waveTimer;
     private GridBagConstraints constraints;
     private int level, wave, waveTime, gold;
-    
-    public OptionsPanel(){};
+
+    public OptionsPanel() {
+    }
+
+    ;
 
     public OptionsPanel(int frameWidth, int frameHeight) {
         super();
@@ -47,7 +50,6 @@ public class OptionsPanel extends JPanel {
         addComponents();
         System.out.println(this.getHeight());
     }
-    
 
     public void initializeComponents() {
         level = 1;
@@ -55,24 +57,7 @@ public class OptionsPanel extends JPanel {
         wave = 1;
         gold = 800;
         constraints = new GridBagConstraints();
-        waveTimer = new Timer(1000, new ActionListener() // setting up wave timer
-        {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                waveTime--;
-                waveTimerDisplay.setText("Ends in: "+ waveTime + "s");
-                getWaveDisplay().setText("Wave: "+wave);
-                if (waveTime == 0) {
-                    wave++;
-                    waveTime = 20;
-                }
-                
-                if(waveTime % 10 == 0)
-                {
-                    PlayGame.level.startWaves();
-                }
-            }
-        });
+        waveTimer = new Timer(1000, new WaveTimer());
         towerOne = new JButton(new ImageIcon("Images/lr_tower.png"));
         towerTwo = new JButton(new ImageIcon("Images/mr_tower.png"));
         towerThree = new JButton(new ImageIcon("Images/sr_tower.png"));
@@ -84,7 +69,7 @@ public class OptionsPanel extends JPanel {
         quit = new JButton("Quit");
         levelDisplay = new JLabel("Level: " + level);
         setWaveDisplay(new JLabel("Wave: " + wave));
-        waveTimerDisplay = new JLabel("Ends in: "+getWaveTime() + "s");
+        waveTimerDisplay = new JLabel("Ends in: " + getWaveTime() + "s");
         goldDisplay = new JLabel("Gold: " + gold);
     }
 
@@ -135,20 +120,16 @@ public class OptionsPanel extends JPanel {
         super.paintComponent(g);
         g.drawImage(new ImageIcon("Images/scroll.png").getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
     }
-    
-    
-    public void startLevel(ActionListener al)
-    {
+
+    public void startLevel(ActionListener al) {
         start.addActionListener(al);
     }
-    
-    public JButton getStart()
-    {
+
+    public JButton getStart() {
         return start;
     }
-    
-    public Timer getWaveTimer()
-    {
+
+    public Timer getWaveTimer() {
         return waveTimer;
     }
 
@@ -171,6 +152,25 @@ public class OptionsPanel extends JPanel {
      */
     public int getWaveTime() {
         return waveTime;
+    }
+    
+    
+    public class WaveTimer implements ActionListener
+    {
+        @Override
+            public void actionPerformed(ActionEvent ae) {
+                waveTime--;
+                waveTimerDisplay.setText("Ends in: " + waveTime + "s");
+                getWaveDisplay().setText("Wave: " + wave);
+                if (waveTime == 0) {
+                    wave++;
+                    waveTime = 20;
+                }
+
+                if (waveTime % 10 == 0) {
+                    PlayGame.level.startWaves();
+                }
+            }
     }
 }
 
