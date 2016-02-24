@@ -8,7 +8,7 @@ package Levels;
 
 //~--- non-JDK imports --------------------------------------------------------
 import Animations.*;
-
+import java.util.Random;
 import Enemies.*;
 
 //~--- JDK imports ------------------------------------------------------------
@@ -21,15 +21,10 @@ import javax.swing.*;
 
 public class LevelOne extends Level {
 
-    private int level,
-            xdif = 0,
-            ydif = 0;
+    private int level=1;
     private ArrayList<Rectangle> world = new ArrayList<>();
-    private ArrayList<Point> pathingPoints = new ArrayList<>();
-    private ArrayList<Enemy> enemies = new ArrayList<>();
-    private ArrayList<Enemy> enemyGroup = new ArrayList<>();
-    private ArrayList<Thread> threads = new ArrayList<>();
-    private Point startingPoint = new Point(0,250);
+    private ArrayList<Point> pathingPoints;
+
     
     public LevelOne() {
         super();
@@ -42,11 +37,7 @@ public class LevelOne extends Level {
         world.add(new Rectangle(0, 0, 350, 250));      // top left
         world.add(new Rectangle(0, 300, 300, 300));    // bottom  left
         world.add(new Rectangle(350, 0, 225, 510));    // top right
-        pathingPoints.add(new Point(300, 250));
-        pathingPoints.add(new Point(300, 520));
-        pathingPoints.add(new Point(575, 520));
-        pathingPoints.add(new Point(575, 50));
-        //startWaves();
+       
     }
 
     private void doDrawing(Graphics g) {
@@ -68,41 +59,31 @@ public class LevelOne extends Level {
         super.draw(g);
     }
 
-    public void startWaves() {
-        threads.clear();
-        createEnemies(2,1);
-        createEnemies(2,2);
-        enemies.addAll(enemyGroup);
-        
-        
-        
-        for (Enemy enemy : enemyGroup) {
-            threads.add(new Thread(new EnemyAnimation(enemy, pathingPoints, this, new Point((startingPoint.x + enemyGroup.indexOf(enemy)*50),startingPoint.y))));
-            threads.get(enemyGroup.indexOf(enemy)).start();
-
-        }
-        
-    }
-
-    public void createEnemies(int numEnemies, int enemyType) {
-        
-        enemyGroup.clear();
-        if (enemyType == 1) {
-            for (int i = 0; i < numEnemies; i++) {
-                enemyGroup.add(new EnemyOne());
-            }
-        } else if (enemyType == 2) {
-            for (int i = 0; i < numEnemies; i++) {
-                enemyGroup.add(new EnemyTwo());
-            }
-        }
-        
-        
-
-    }
+    
 
     public ArrayList<Point> getPathingPoints() {
         return pathingPoints;
+    }
+    
+    public void setPathingPoints()
+    {
+        pathingPoints = new ArrayList<>();
+        pathingPoints.add(new Point(300, 250));
+        pathingPoints.add(new Point(300, 520));
+        pathingPoints.add(new Point(575, 520));
+        pathingPoints.add(new Point(575, 50));
+    }
+
+    @Override
+    public int getNumEnemies() {
+        return new Random().nextInt(3)+1;
+    }
+
+    @Override
+    public int getEnemyType() {
+        int rand = new Random().nextInt(8)+1;
+        if(rand>2) return 1;
+        else return 2;
     }
 
 }
