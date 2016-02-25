@@ -21,14 +21,17 @@ import javax.swing.*;
 
 public class LevelOne extends Level {
 
-    private int level=1;
+    private int level = 1;
     private ArrayList<Point> pathingPoints;
-    
-    
+    private String grass;
+    private String path;
+
     public LevelOne() {
         super();
         this.setBackground(Color.black);
         setLayout(null);
+        path = "Images/dirtpath2.jpg";
+        grass = "Images/forestfloor.jpg";
         initWorld();
     }
 
@@ -36,14 +39,14 @@ public class LevelOne extends Level {
         world.add(new Rectangle(0, 0, 350, 250));      // top left
         world.add(new Rectangle(0, 300, 300, 300));    // bottom  left
         world.add(new Rectangle(350, 0, 225, 510));    // top right
-       
+
     }
+
     public ArrayList<Point> getPathingPoints() {
         return pathingPoints;
     }
-    
-    public void setPathingPoints()
-    {
+
+    public void setPathingPoints() {
         pathingPoints = new ArrayList<>();
         pathingPoints.add(new Point(300, 250));
         pathingPoints.add(new Point(300, 520));
@@ -53,14 +56,27 @@ public class LevelOne extends Level {
 
     @Override
     public int getNumEnemies() {
-        return new Random().nextInt(3)+1;
+        return new Random().nextInt(3) + 1;
     }
 
     @Override
     public int getEnemyType() {
-        int rand = new Random().nextInt(8)+1;
-        if(rand>3) return 1;
-        else return 2;
+        int rand = new Random().nextInt(8) + 1;
+        if (rand > 3) {
+            return 1;
+        } else {
+            return 2;
+        }
+    }
+
+    @Override
+    public String getGrass() {
+        return grass;
+    }
+
+    @Override
+    public String getPath() {
+        return path;
     }
 }
 
