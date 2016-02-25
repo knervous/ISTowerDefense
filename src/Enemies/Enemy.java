@@ -9,12 +9,9 @@ package Enemies;
 //~--- JDK imports ------------------------------------------------------------
 import java.awt.*;
 import java.awt.image.*;
-
 import java.io.*;
 import java.io.File;
-
 import javax.imageio.*;
-
 import javax.swing.*;
 
 /**
@@ -22,6 +19,7 @@ import javax.swing.*;
  * @author Paul
  */
 public abstract class Enemy extends Rectangle {
+    protected int hitpoints;
 
     public Enemy() {
         super();

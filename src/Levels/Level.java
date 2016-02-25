@@ -26,6 +26,10 @@ public abstract class Level extends JPanel {
     private ArrayList<Tower> towers = new ArrayList<>();
     private ArrayList<Thread> threads = new ArrayList<>();
     private Point startingPoint = new Point(0, 250);
+    protected ArrayList<Rectangle> world = new ArrayList<>();
+    private String grass;
+    private String path;
+
 
     public Level() {
         super();
@@ -33,6 +37,8 @@ public abstract class Level extends JPanel {
         setSize((800 * (4 / 5)), 600);
         setPathingPoints();
         createTowers();
+        path = "Images/dirtpath2.jpg";
+        grass = "Images/forestfloor.jpg";
 
     }
 
@@ -60,6 +66,23 @@ public abstract class Level extends JPanel {
                 g2d.drawImage(new ImageIcon("Images/sr_tower.png").getImage(), 350, 350, tower.width, tower.height, null);
             }
 
+        }
+
+        g2d.dispose();
+    }
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(new ImageIcon(path).getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
+        doDrawing(g);
+        draw(g);
+    }
+    private void doDrawing(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g.create();
+
+        for (Rectangle world1 : world) {
+            g2d.drawImage(new ImageIcon(grass).getImage(), world1.x, world1.y, world1.width,
+                    world1.height, null);
         }
 
         g2d.dispose();

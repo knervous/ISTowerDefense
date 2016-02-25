@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
  * @author greg
  */
 public abstract class Tower extends Rectangle{
-    protected boolean shouldFire = false; 
+    private boolean shouldFire = false; 
     protected String image;
     
     public Tower() {
@@ -47,17 +47,19 @@ public abstract class Tower extends Rectangle{
 
         while (enemyDistance <= range) {
             shouldFire = true;
-            fire(enemy, tower);
         }
 
         shouldFire = false;
     }
-
-    public void fire(Rectangle enemy, Rectangle tower) {
-            while (shouldFire = true) {
-        }
-    }
+    
     public void pickTarget() {}
+
+    /**
+     * @return the shouldFire
+     */
+    public boolean getShouldFire() {
+        return shouldFire;
+    }
 }
 
 

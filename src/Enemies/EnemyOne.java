@@ -19,6 +19,7 @@ public class EnemyOne extends Enemy {
 
     public EnemyOne() {
         super();
+        hitpoints = 50;
     }
 
     
