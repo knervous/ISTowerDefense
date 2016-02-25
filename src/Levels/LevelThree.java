@@ -74,7 +74,25 @@ public abstract class LevelThree extends Level {
         pathingPoints.add(new Point(575, 20));
     }
 
-    
+    @Override
+    public int getNumEnemies() {
+        return 3;
+    }
+
+    @Override
+    public int getEnemyType() {
+        return 2;
+    }
+
+    @Override
+    public String getGrass() {
+        return grass;
+    }
+
+    @Override
+    public String getPath() {
+        return path;
+    }
     
     
 
