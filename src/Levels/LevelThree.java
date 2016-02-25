@@ -34,8 +34,8 @@ public abstract class LevelThree extends Level {
         this.setBackground(Color.blue);
         setLayout(null);
         initWorld();
-        path = "Images/dirtpath2.jpg";
-        grass = "Images/forestfloor.jpg";
+        path = "Images/tile.jpg";
+        grass = "Images/grass.jpg";
     }
 
     private void initializeComponents() {
