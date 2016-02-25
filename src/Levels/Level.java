@@ -114,6 +114,22 @@ public abstract class Level extends JPanel {
         }
 
     }
+    public void pauseGame(){
+        if (optionsPanel.getPause() == true){
+            for (Thread thread : threads){
+                try{
+                    thread.wait();
+                }
+                catch(Exception e){}
+            }
+        }
+        else{
+            for (Thread thread : threads){
+                thread.notify();
+            }
+        }
+    }
+    
 
     public void createTowers() {
 

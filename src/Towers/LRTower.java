@@ -19,7 +19,7 @@ import javax.swing.*;
  */
 public class LRTower extends Tower {
     private final double range;
-    private final int    damage;
+    private final int damage;
 
 
 

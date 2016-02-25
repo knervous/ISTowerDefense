@@ -33,6 +33,7 @@ public class OptionsPanel extends JPanel {
     private Timer waveTimer;
     private GridBagConstraints constraints;
     private int level, wave, waveTime, gold;
+    private boolean isPaused = false;
 
     public OptionsPanel() {
     }
@@ -124,6 +125,9 @@ public class OptionsPanel extends JPanel {
     public void startLevel(ActionListener al) {
         start.addActionListener(al);
     }
+    public void pauseGame(ActionListener al){
+        pause.addActionListener(al);
+    }
 
     public JButton getStart() {
         return start;
@@ -152,6 +156,14 @@ public class OptionsPanel extends JPanel {
      */
     public int getWaveTime() {
         return waveTime;
+    }
+
+    public void setIsPaused() {
+        this.isPaused = !isPaused;
+    }
+
+    public boolean getPause() {
+        return isPaused;
     }
 
     public class WaveTimer implements ActionListener {
