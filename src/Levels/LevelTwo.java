@@ -30,10 +30,10 @@ public class LevelTwo extends Level {
 
     public LevelTwo() {
         super();
-        this.setBackground(Color.black);
+        this.setBackground(Color.white);
         setLayout(null);
-        path = "Images/dirtpath2.jpg";
-        grass = "Images/forestfloor.jpg";
+        path = "Images/snow.jpg";
+        grass = "Images/snow_mountain.jpg";
         initWorld();
     }
 
