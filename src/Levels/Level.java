@@ -24,9 +24,10 @@ public abstract class Level extends JPanel {
     protected ArrayList<Enemy> enemies = new ArrayList<>();
     private ArrayList<Enemy> enemyGroup = new ArrayList<>();
     private ArrayList<Tower> towers = new ArrayList<>();
-    private ArrayList<Thread> threads = new ArrayList<>();
+    private static ArrayList<Thread> threads = new ArrayList<>();
     private Point startingPoint = new Point(0, 250);
     protected ArrayList<Rectangle> world = new ArrayList<>();
+    private static boolean isPaused = false;
 
     public Level() {
         super();
@@ -104,23 +105,17 @@ public abstract class Level extends JPanel {
 
     }
 
-    /*
-     public void pauseGame(){
-     if (optionsPanel.getPause() == true){
-     for (Thread thread : threads){
-     try{
-     thread.wait();
-     }
-     catch(Exception e){}
-     }
-     }
-     else{
-     for (Thread thread : threads){
-     thread.notify();
-     }
-     }
-     }
-     */
+    public static void pauseGame() {
+        System.out.println("123");
+        try {
+            for (Thread thread : threads) {
+
+                thread.wait();
+            }
+        } catch (Exception e) {
+        }
+    }
+
     public void createTowers() {
 
         towers.add(new SRTower());
@@ -149,6 +144,16 @@ public abstract class Level extends JPanel {
         System.out.println("Enemy Type: " + enemyType);
         System.out.println("Num Enemies: " + numEnemies);
 
+    }
+    
+    public static void setIsPaused()
+    {
+        isPaused = !isPaused;
+    }
+    
+    public static boolean getIsPaused()
+    {
+        return isPaused;
     }
 
     public abstract void setPathingPoints();

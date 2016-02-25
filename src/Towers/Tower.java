@@ -49,8 +49,7 @@ public abstract class Tower extends Rectangle{
         
         
         double enemyDistance = Math.sqrt(Math.pow(xdistance, 2) + Math.pow(ydistance, 2));
-        
-        System.out.println(enemyDistance);
+
         
         while (enemyDistance <= range) {
             return true;

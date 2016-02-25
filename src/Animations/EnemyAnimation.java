@@ -1,5 +1,5 @@
-
 package Animations;
+
 import Enemies.*;
 
 import Levels.*;
@@ -13,11 +13,10 @@ import java.util.*;
 public class EnemyAnimation implements Runnable {
 
     private int xdif = 0,
-                ydif = 0;
+            ydif = 0;
     public Enemy enemy;
     private ArrayList<Point> pathingPoints;
     private Level parent;
-
 
     public EnemyAnimation(Enemy enemy, ArrayList<Point> pathingPoints, Level parent, Point start) {
         this.enemy = enemy;
@@ -30,12 +29,15 @@ public class EnemyAnimation implements Runnable {
     @Override
     public void run() {
 
-        try{
+        try {
+
             for (Point pathingPoint : pathingPoints) {
                 xdif = pathingPoint.x - enemy.x;
                 ydif = enemy.y - pathingPoint.y;
 
                 while ((Math.abs(xdif) > 0) || (Math.abs(ydif) > 0)) {
+                    
+                    System.out.println(parent.getIsPaused());
                     xdif = pathingPoint.x - enemy.x;
                     ydif = enemy.y - pathingPoint.y;
 
@@ -54,21 +56,20 @@ public class EnemyAnimation implements Runnable {
                     parent.repaint();
 
                 }
-                
-                
-                
+
             }
+
         } catch (Exception e) {
         }
 
-        enemy.setLocation(1000,1000);
+        enemy.setLocation(1000, 1000);
+    }
+
+    public void killedEnemy() {
+
     }
     
     
-    public void killedEnemy()
-    {
-        
-    }
 }
 
 
