@@ -18,7 +18,7 @@ public class SRTower extends Tower {
     private int damage;
 
     public SRTower() {
-        this.range = 200;
+        this.range = 100;
         this.damage = 15;
         this.width = new ImageIcon("Images/sr_tower.png").getImage().getWidth(null);
         this.height = new ImageIcon("Images/sr_tower.png").getImage().getHeight(null);

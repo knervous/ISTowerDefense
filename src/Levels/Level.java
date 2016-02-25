@@ -81,13 +81,12 @@ public abstract class Level extends JPanel {
             for (Tower tower : towers) {
 
                 if (tower.whenToFire(tower.getRange(), enemy, tower) && !tower.isFiring()) {
-                    
-                    if(!(enemies.indexOf(enemy)==(enemies.indexOf(enemies.size()-1))))
-                    {
+
+                    if ((enemies.indexOf(enemy) == (enemies.indexOf(enemies.size() - 1)))) {
                         break;
                     }
                     tower.setIsFiring(true);
-                   
+
                     projectiles.add(new Projectile());
                     threads.add(new Thread(new TowerShootAnimation(projectiles.get(projectiles.size() - 1), enemy, tower, this, enemies)));
                     threads.get(threads.size() - 1).start();
@@ -143,6 +142,10 @@ public abstract class Level extends JPanel {
         towers.add(new SRTower());
 
         towers.get(0).setLocation(350, 350);
+        
+        towers.add(new MRTower());
+        
+        towers.get(1).setLocation(350,230);
         //towers.add(new MRTower());
 
     }

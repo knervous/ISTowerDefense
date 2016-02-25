@@ -49,7 +49,7 @@ public class TowerShootAnimation implements Runnable {
                 angle = getAngle(tower.getLocation(), enemy.getLocation());
                 yscale = Math.cos(Math.toRadians(angle));
                 xscale = Math.sin(Math.toRadians(angle));
-                p.setLocation(projectile.x + xscale * 2, projectile.y - yscale * 3);
+                p.setLocation(projectile.x + xscale * 2, projectile.y - yscale * 3.5);
 
                 projectile.setLocation(p);
 
