@@ -11,7 +11,13 @@ package Animations;
  * @author greg
  */
 public abstract class Animation {
-}
+    
+    
 
+
+
+public abstract void setPause();
+
+}
 
 //~ Formatted by Jindent --- http://www.jindent.com

@@ -68,6 +68,8 @@ public class PlayGame extends JFrame {
                     optionsPanel.getWaveTimer().start();
                     optionsPanel.setIsPaused();
                 }*/
+                //Level.setIsPaused();
+                Level.pauseGame();
                 Level.setIsPaused();
                 System.out.println("pausing");
             }

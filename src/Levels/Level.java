@@ -25,6 +25,7 @@ public abstract class Level extends JPanel {
     private ArrayList<Enemy> enemyGroup = new ArrayList<>();
     private ArrayList<Tower> towers = new ArrayList<>();
     private static ArrayList<Thread> threads = new ArrayList<>();
+    private static ArrayList<Thread> allThreads = new ArrayList<>();
     private Point startingPoint = new Point(0, 250);
     protected ArrayList<Rectangle> world = new ArrayList<>();
     private static boolean isPaused = false;
@@ -102,15 +103,19 @@ public abstract class Level extends JPanel {
             threads.get(enemyGroup.indexOf(enemy)).start();
 
         }
+        
+        allThreads.addAll(threads);
 
     }
 
     public static void pauseGame() {
         System.out.println("123");
         try {
-            for (Thread thread : threads) {
-
-                thread.wait();
+            for (Thread thread : allThreads) {
+               if(!isPaused) 
+               thread.suspend();
+               else if (isPaused)
+               thread.resume();
             }
         } catch (Exception e) {
         }
