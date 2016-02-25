@@ -27,8 +27,6 @@ public abstract class Level extends JPanel {
     private ArrayList<Thread> threads = new ArrayList<>();
     private Point startingPoint = new Point(0, 250);
     protected ArrayList<Rectangle> world = new ArrayList<>();
-    private String grass;
-    private String path;
 
 
     public Level() {
@@ -37,8 +35,7 @@ public abstract class Level extends JPanel {
         setSize((800 * (4 / 5)), 600);
         setPathingPoints();
         createTowers();
-        path = "Images/dirtpath2.jpg";
-        grass = "Images/forestfloor.jpg";
+        
 
     }
 
@@ -72,7 +69,7 @@ public abstract class Level extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(new ImageIcon(path).getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
+        g.drawImage(new ImageIcon(getPath()).getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
         doDrawing(g);
         draw(g);
         
@@ -98,7 +95,7 @@ public abstract class Level extends JPanel {
         Graphics2D g2d = (Graphics2D) g.create();
 
         for (Rectangle world1 : world) {
-            g2d.drawImage(new ImageIcon(grass).getImage(), world1.x, world1.y, world1.width,
+            g2d.drawImage(new ImageIcon(getGrass()).getImage(), world1.x, world1.y, world1.width,
                     world1.height, null);
         }
 
@@ -156,6 +153,10 @@ public abstract class Level extends JPanel {
     public abstract int getNumEnemies();
 
     public abstract int getEnemyType();
+    
+    public abstract String getGrass();
+    
+    public abstract String getPath();
 
     //public abstract void addPH(EnemyOne infEnemy);
 }
