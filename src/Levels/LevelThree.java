@@ -14,6 +14,7 @@ import Enemies.EnemyOne;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 import java.util.ArrayList;
 
@@ -21,11 +22,20 @@ import java.util.ArrayList;
  *
  * @author Paul
  */
-public class LevelThree {
-    private int level;
+public abstract class LevelThree extends Level {
+    private int level = 3;
+    private ArrayList<Point> pathingPoints; 
+    private String grass;
+    private String path;
+    
 
     public LevelThree() {
         super();
+        this.setBackground(Color.blue);
+        setLayout(null);
+        initWorld();
+        path = "Images/dirtpath2.jpg";
+        grass = "Images/forestfloor.jpg";
     }
 
     private void initializeComponents() {
@@ -35,6 +45,39 @@ public class LevelThree {
     public int getLevel() {
         return level;
     }
+
+    private void initWorld() {
+      
+        world.add(new Rectangle(0, 0, 350, 250));      // top left
+        world.add(new Rectangle(0, 300, 300, 300));    // bottom  left
+        world.add(new Rectangle(350, 0, 225, 510));    //top right 
+    }
+
+    public void setBackground(Color blue) {
+        throw new UnsupportedOperationException("");  }
+
+    private void setLayout(Object object) {
+        throw new UnsupportedOperationException(""); }
+ 
+    private  ArrayList<Rectangle> world = new ArrayList<>();
+        
+    
+    public ArrayList<Point> getPathingPoints(){
+        return pathingPoints;
+    }
+    
+    public void setPathingPoints(){
+        pathingPoints = new ArrayList<>();
+        pathingPoints.add(new Point(250, 100));
+        pathingPoints.add(new Point(250, 520));
+        pathingPoints.add(new Point(675, 400));
+        pathingPoints.add(new Point(575, 20));
+    }
+
+    
+    
+    
+
 
 }
 
