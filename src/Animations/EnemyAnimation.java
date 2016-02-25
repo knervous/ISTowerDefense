@@ -24,7 +24,6 @@ public class EnemyAnimation implements Runnable {
         enemy.setLocation(start);
         this.pathingPoints = pathingPoints;
         this.parent = parent;
-        parent.addPH(enemy);
 
     }
 

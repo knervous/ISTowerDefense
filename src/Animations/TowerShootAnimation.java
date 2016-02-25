@@ -6,15 +6,36 @@
  */
 package Animations;
 
+import Enemies.Enemy;
+import Levels.Level;
+import Towers.*;
+import java.awt.Point;
+import java.util.ArrayList;
+
 /**
  *
  * @author greg
  */
-public class TowerShootAnimation implements Runnable{
+public class TowerShootAnimation implements Runnable {
+
+    private int xdif = 0, ydif = 0;
+    private Enemy enemy;
+    private Projectile projectile;
+    private Level parent;
+    private Tower tower;
+    
+
+    public TowerShootAnimation(Projectile projectile, Enemy enemy, Level parent, Tower tower) {
+        
+        this.enemy = enemy;
+        this.projectile = projectile;
+        this.parent = parent;
+        this.tower = tower;
+    }
 
     @Override
     public void run() {
-        
+
     }
 }
 

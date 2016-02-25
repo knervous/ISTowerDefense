@@ -26,4 +26,9 @@ public class MRTower extends Tower{
 
         super.image = "Images/mr_tower.png";
     }
+    
+    public double getRange()
+    {
+        return range;
+    }
 }

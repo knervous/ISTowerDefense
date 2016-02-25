@@ -42,14 +42,21 @@ public abstract class Tower extends Rectangle{
         g2d.dispose();
         
     }
-    public void whenToFire(double range, Rectangle enemy, Rectangle tower) {
-        double enemyDistance = Math.sqrt(Math.pow(enemy.getCenterX(), 2) + Math.pow(enemy.getCenterY(), 2));
-
+    public boolean whenToFire(double range, Rectangle enemy, Rectangle tower) {
+        
+        double xdistance = Math.abs(enemy.getCenterX() - tower.getCenterX());
+        double ydistance = Math.abs(enemy.getCenterY() - tower.getCenterY());
+        
+        
+        double enemyDistance = Math.sqrt(Math.pow(xdistance, 2) + Math.pow(ydistance, 2));
+        
+        System.out.println(enemyDistance);
+        
         while (enemyDistance <= range) {
-            shouldFire = true;
+            return true;
         }
 
-        shouldFire = false;
+        return false;
     }
     
     public void pickTarget() {}
@@ -60,6 +67,11 @@ public abstract class Tower extends Rectangle{
     public boolean getShouldFire() {
         return shouldFire;
     }
+    
+    public abstract double getRange();
+    
+    
+    
 }
 
 

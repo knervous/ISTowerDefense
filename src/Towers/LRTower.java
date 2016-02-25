@@ -30,6 +30,11 @@ public class LRTower extends Tower {
         this.height= new ImageIcon("Images/lr_tower.png").getImage().getHeight(null);
         super.image = "Images/lr_tower.png";
     }
+    
+    public double getRange()
+    {
+        return range;
+    }
 }
 
 

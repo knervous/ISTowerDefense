@@ -42,9 +42,6 @@ public abstract class Level extends JPanel {
 
     }
 
-    public void addPH(Enemy infEnemy) {
-        enemies.add(infEnemy);
-    }
 
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
@@ -59,24 +56,44 @@ public abstract class Level extends JPanel {
 
         for (Tower tower : towers) {
             if (tower instanceof LRTower) {
-                g2d.drawImage(new ImageIcon("Images/lr_tower.png").getImage(), 0, 200, tower.width, tower.height, null);
+                g2d.drawImage(new ImageIcon("Images/lr_tower.png").getImage(), tower.x, tower.y, tower.width, tower.height, null);
             } else if (tower instanceof MRTower) {
-                g2d.drawImage(new ImageIcon("Images/mr_tower.png").getImage(), 250, 250, tower.width, tower.height, null);
+                g2d.drawImage(new ImageIcon("Images/mr_tower.png").getImage(), tower.x, tower.y, tower.width, tower.height, null);
             } else if (tower instanceof SRTower) {
-                g2d.drawImage(new ImageIcon("Images/sr_tower.png").getImage(), 350, 350, tower.width, tower.height, null);
+                g2d.drawImage(new ImageIcon("Images/sr_tower.png").getImage(), tower.x, tower.y, tower.width, tower.height, null);
             }
 
         }
 
         g2d.dispose();
     }
+    
+    
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(new ImageIcon(path).getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
         doDrawing(g);
         draw(g);
+        
+        
+        
+        for(Enemy enemy : enemies)
+        {
+            for(Tower tower : towers)
+            {
+
+                if(tower.whenToFire(tower.getRange(),enemy,tower))
+                
+                {
+                    System.out.println("IN RANGE");
+                    
+                }
+            }
+        }
     }
+    
+    
     private void doDrawing(Graphics g) {
         Graphics2D g2d = (Graphics2D) g.create();
 
@@ -104,9 +121,10 @@ public abstract class Level extends JPanel {
     public void createTowers() {
 
         towers.add(new SRTower());
-        towers.add(new SRTower());
-        towers.add(new LRTower());
-        towers.add(new MRTower());
+        
+        
+        towers.get(0).setLocation(350,350);
+        //towers.add(new MRTower());
 
     }
 
