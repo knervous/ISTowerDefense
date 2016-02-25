@@ -67,7 +67,14 @@ public class PlayGame extends JFrame {
         optionsPanel.pauseGame(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                optionsPanel.setIsPaused();
+                if(optionsPanel.getPause() == true){
+                    optionsPanel.getWaveTimer().stop();
+                    optionsPanel.setIsPaused();
+                }
+                else{
+                    optionsPanel.getWaveTimer().start();
+                    optionsPanel.setIsPaused();
+                }
             }
         });
                 
