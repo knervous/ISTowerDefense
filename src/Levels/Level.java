@@ -28,17 +28,14 @@ public abstract class Level extends JPanel {
     private Point startingPoint = new Point(0, 250);
     protected ArrayList<Rectangle> world = new ArrayList<>();
 
-
     public Level() {
         super();
         setLayout(null);
         setSize((800 * (4 / 5)), 600);
         setPathingPoints();
         createTowers();
-        
 
     }
-
 
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
@@ -64,33 +61,25 @@ public abstract class Level extends JPanel {
 
         g2d.dispose();
     }
-    
-    
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(new ImageIcon(getPath()).getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
         doDrawing(g);
         draw(g);
-        
-        
-        
-        for(Enemy enemy : enemies)
-        {
-            for(Tower tower : towers)
-            {
 
-                if(tower.whenToFire(tower.getRange(),enemy,tower))
-                
-                {
+        for (Enemy enemy : enemies) {
+            for (Tower tower : towers) {
+
+                if (tower.whenToFire(tower.getRange(), enemy, tower)) {
                     System.out.println("IN RANGE");
-                    
+
                 }
             }
         }
     }
-    
-    
+
     private void doDrawing(Graphics g) {
         Graphics2D g2d = (Graphics2D) g.create();
 
@@ -114,31 +103,29 @@ public abstract class Level extends JPanel {
         }
 
     }
-    
-    /*
-    public void pauseGame(){
-        if (optionsPanel.getPause() == true){
-            for (Thread thread : threads){
-                try{
-                    thread.wait();
-                }
-                catch(Exception e){}
-            }
-        }
-        else{
-            for (Thread thread : threads){
-                thread.notify();
-            }
-        }
-    }
-    */
 
+    /*
+     public void pauseGame(){
+     if (optionsPanel.getPause() == true){
+     for (Thread thread : threads){
+     try{
+     thread.wait();
+     }
+     catch(Exception e){}
+     }
+     }
+     else{
+     for (Thread thread : threads){
+     thread.notify();
+     }
+     }
+     }
+     */
     public void createTowers() {
 
         towers.add(new SRTower());
-        
-        
-        towers.get(0).setLocation(350,350);
+
+        towers.get(0).setLocation(350, 350);
         //towers.add(new MRTower());
 
     }
@@ -171,9 +158,9 @@ public abstract class Level extends JPanel {
     public abstract int getNumEnemies();
 
     public abstract int getEnemyType();
-    
+
     public abstract String getGrass();
-    
+
     public abstract String getPath();
 
     //public abstract void addPH(EnemyOne infEnemy);
