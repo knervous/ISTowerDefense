@@ -114,6 +114,8 @@ public abstract class Level extends JPanel {
         }
 
     }
+    
+    /*
     public void pauseGame(){
         if (optionsPanel.getPause() == true){
             for (Thread thread : threads){
@@ -129,7 +131,7 @@ public abstract class Level extends JPanel {
             }
         }
     }
-    
+    */
 
     public void createTowers() {
 
