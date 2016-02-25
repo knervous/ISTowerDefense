@@ -1,12 +1,9 @@
-
 package istower.defense.v1;
 
-import Enemies.*;
 import Levels.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 import javax.swing.*;
 
 /**
@@ -14,17 +11,16 @@ import javax.swing.*;
  * @author Paul
  */
 public class PlayGame extends JFrame {
-    protected int              frameWidth  = 800;
-    protected int              frameHeight = 600;
+
+    protected int frameWidth = 800;
+    protected int frameHeight = 600;
     private GridBagConstraints constraints = new GridBagConstraints();
-    public static LevelOne           level;
-    private ArrayList<Thread> threads = new ArrayList<>();
-    private ArrayList<EnemyOne> enemies = new ArrayList<>();
+    public static Level level;
     private OptionsPanel optionsPanel;
 
     public PlayGame() {
         super();
-        
+
         initUI();
         revalidate();
         level.repaint();
@@ -34,7 +30,7 @@ public class PlayGame extends JFrame {
     }
 
     public void initUI() {
-        
+
         setSize(frameWidth, frameHeight);
         setVisible(true);
         level = new LevelOne();
@@ -43,7 +39,7 @@ public class PlayGame extends JFrame {
         setSize(frameWidth, frameHeight);
         constraints.weightx = .9;
         constraints.weighty = 1.0;
-        constraints.fill    = GridBagConstraints.BOTH;
+        constraints.fill = GridBagConstraints.BOTH;
         add(level, constraints);
         constraints.weightx = .1;
         constraints.weighty = 1.0;
@@ -51,39 +47,30 @@ public class PlayGame extends JFrame {
         setTitle("ISTower Defense");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
-    public void addActionListeners()
-    {
-        optionsPanel.startLevel(new ActionListener() {    
+
+    public void addActionListeners() {
+        optionsPanel.startLevel(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 level.startWaves();
                 optionsPanel.getWaveTimer().start();
                 optionsPanel.getStart().removeActionListener(this);
-                                   
+
             }
         });
         optionsPanel.pauseGame(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
-                if(optionsPanel.getPause() == true){
+            public void actionPerformed(ActionEvent e) {
+                if (optionsPanel.getPause() == true) {
                     optionsPanel.getWaveTimer().stop();
                     optionsPanel.setIsPaused();
-                }
-                else{
+                } else {
                     optionsPanel.getWaveTimer().start();
                     optionsPanel.setIsPaused();
                 }
             }
         });
-                
-    }
-    
-    
-    
-        
-    
-    
-}
 
+    }
+
+}
