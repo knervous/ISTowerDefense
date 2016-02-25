@@ -61,8 +61,16 @@ public class PlayGame extends JFrame {
                 level.startWaves();
                 optionsPanel.getWaveTimer().start();
                 optionsPanel.getStart().removeActionListener(this);
+                                   
             }
-        }); 
+        });
+        optionsPanel.pauseGame(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                optionsPanel.setIsPaused();
+            }
+        });
+                
     }
     
     

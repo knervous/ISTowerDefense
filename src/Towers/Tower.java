@@ -61,12 +61,6 @@ public abstract class Tower extends Rectangle{
     
     public void pickTarget() {}
 
-    /**
-     * @return the shouldFire
-     */
-    public boolean getShouldFire() {
-        return shouldFire;
-    }
     
     public abstract double getRange();
     

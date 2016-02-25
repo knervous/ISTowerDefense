@@ -27,6 +27,7 @@ public abstract class Level extends JPanel {
     private ArrayList<Thread> threads = new ArrayList<>();
     private Point startingPoint = new Point(0, 250);
     protected ArrayList<Rectangle> world = new ArrayList<>();
+    private OptionsPanel optionsPanel = new OptionsPanel();
     private String grass;
     private String path;
 
@@ -117,6 +118,22 @@ public abstract class Level extends JPanel {
         }
 
     }
+    public void pauseGame(){
+        if (optionsPanel.getPause() == true){
+            for (Thread thread : threads){
+                try{
+                    thread.wait();
+                }
+                catch(Exception e){}
+            }
+        }
+        else{
+            for (Thread thread : threads){
+                thread.notify();
+            }
+        }
+    }
+    
 
     public void createTowers() {
 
