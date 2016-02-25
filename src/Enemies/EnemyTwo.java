@@ -16,6 +16,14 @@ public class EnemyTwo extends Enemy {
         super();
         hitpoints = 75;
     }
+    
+    @Override
+    public boolean isAlive() {
+        return isAlive();
+    }
+
+
+
 }
 
 

@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
  * @author greg
  */
 public abstract class Tower extends Rectangle{
-    private boolean shouldFire = false; 
+    private boolean isFiring = false;
     protected String image;
     
     public Tower() {
@@ -58,11 +58,20 @@ public abstract class Tower extends Rectangle{
         return false;
     }
     
-    public void pickTarget() {}
-
+    public boolean isFiring()
+    {
+        return isFiring;
+    }
+    
+    public void setIsFiring(boolean firing)
+    {
+        isFiring = firing;
+    }
+    
+    
     
     public abstract double getRange();
-    
+    public abstract int getDamage();
     
     
 }

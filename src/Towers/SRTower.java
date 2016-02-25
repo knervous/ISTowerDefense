@@ -12,23 +12,26 @@ import javax.swing.ImageIcon;
  *
  * @author greg
  */
-public class SRTower extends Tower{
+public class SRTower extends Tower {
+
     private double range;
-    private int    damage;
-
-
+    private int damage;
 
     public SRTower() {
-        this.range    = 50;
-        this.damage   = 15;
+        this.range = 200;
+        this.damage = 15;
         this.width = new ImageIcon("Images/sr_tower.png").getImage().getWidth(null);
-        this.height= new ImageIcon("Images/sr_tower.png").getImage().getHeight(null);
-        
+        this.height = new ImageIcon("Images/sr_tower.png").getImage().getHeight(null);
+
         super.image = "Images/sr_tower.png";
     }
-    
-    public double getRange()
-    {
+
+    public double getRange() {
         return range;
+    }
+
+    @Override
+    public int getDamage() {
+        return damage;
     }
 }

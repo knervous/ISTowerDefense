@@ -7,7 +7,7 @@
 package Levels;
 
 //~--- non-JDK imports --------------------------------------------------------
-import Animations.EnemyAnimation;
+import Animations.*;
 import Enemies.*;
 import Towers.*;
 import istower.defense.v1.OptionsPanel;
@@ -24,6 +24,7 @@ public abstract class Level extends JPanel {
     protected ArrayList<Enemy> enemies = new ArrayList<>();
     private ArrayList<Enemy> enemyGroup = new ArrayList<>();
     private ArrayList<Tower> towers = new ArrayList<>();
+    private ArrayList<Projectile> projectiles = new ArrayList<>();
     private static ArrayList<Thread> threads = new ArrayList<>();
     private static ArrayList<Thread> allThreads = new ArrayList<>();
     private Point startingPoint = new Point(0, 250);
@@ -61,6 +62,11 @@ public abstract class Level extends JPanel {
 
         }
 
+        for (Projectile projectile : projectiles) {
+            g2d.drawImage(new ImageIcon("Images/energyball.png").getImage(), projectile.x, projectile.y, projectile.width, projectile.height, null);
+
+        }
+
         g2d.dispose();
     }
 
@@ -74,7 +80,17 @@ public abstract class Level extends JPanel {
         for (Enemy enemy : enemies) {
             for (Tower tower : towers) {
 
-                if (tower.whenToFire(tower.getRange(), enemy, tower)) {
+                if (tower.whenToFire(tower.getRange(), enemy, tower) && !tower.isFiring()) {
+                    
+                    if(!(enemies.indexOf(enemy)==(enemies.indexOf(enemies.size()-1))))
+                    {
+                        break;
+                    }
+                    tower.setIsFiring(true);
+                   
+                    projectiles.add(new Projectile());
+                    threads.add(new Thread(new TowerShootAnimation(projectiles.get(projectiles.size() - 1), enemy, tower, this, enemies)));
+                    threads.get(threads.size() - 1).start();
                     System.out.println("IN RANGE");
 
                 }
@@ -103,19 +119,20 @@ public abstract class Level extends JPanel {
             threads.get(enemyGroup.indexOf(enemy)).start();
 
         }
-        
+
         allThreads.addAll(threads);
 
     }
 
     public static void pauseGame() {
-        System.out.println("123");
+
         try {
             for (Thread thread : allThreads) {
-               if(!isPaused) 
-               thread.suspend();
-               else if (isPaused)
-               thread.resume();
+                if (!isPaused) {
+                    thread.suspend();
+                } else if (isPaused) {
+                    thread.resume();
+                }
             }
         } catch (Exception e) {
         }
@@ -150,14 +167,12 @@ public abstract class Level extends JPanel {
         System.out.println("Num Enemies: " + numEnemies);
 
     }
-    
-    public static void setIsPaused()
-    {
+
+    public static void setIsPaused() {
         isPaused = !isPaused;
     }
-    
-    public static boolean getIsPaused()
-    {
+
+    public static boolean getIsPaused() {
         return isPaused;
     }
 

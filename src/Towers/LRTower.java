@@ -1,8 +1,8 @@
 
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Towers;
 
@@ -13,27 +13,31 @@ import java.util.*;
 
 import javax.swing.*;
 import javax.swing.*;
+
 /**
  *
  * @author greg
  */
 public class LRTower extends Tower {
+
     private final double range;
     private final int damage;
 
-
-
     public LRTower() {
-        this.range    = 100;
-        this.damage   = 10;
+        this.range = 300;
+        this.damage = 10;
         this.width = new ImageIcon("Images/lr_tower.png").getImage().getWidth(null);
-        this.height= new ImageIcon("Images/lr_tower.png").getImage().getHeight(null);
+        this.height = new ImageIcon("Images/lr_tower.png").getImage().getHeight(null);
         super.image = "Images/lr_tower.png";
     }
-    
-    public double getRange()
-    {
+
+    public double getRange() {
         return range;
+    }
+
+    @Override
+    public int getDamage() {
+        return damage;
     }
 }
 

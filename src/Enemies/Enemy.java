@@ -20,6 +20,7 @@ import javax.swing.*;
  */
 public abstract class Enemy extends Rectangle {
     protected int hitpoints;
+    protected boolean isAlive;
 
     public Enemy() {
         super();
@@ -35,6 +36,23 @@ public abstract class Enemy extends Rectangle {
         this.width = width;
         this.height = height;
     }
+    
+    public void setHP(int damage) {
+        hitpoints = hitpoints - damage;
+        if(hitpoints <= 0)
+        {
+            isAlive = false;
+        }
+    }
+    
+    public int getHP() {
+        return hitpoints;
+    }
+    
+    public abstract boolean isAlive();
+    
+
+    
 }
 
 

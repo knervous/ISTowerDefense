@@ -7,11 +7,14 @@ package Animations;
 
 import java.awt.*;
 
+
 public class Projectile extends Rectangle{
     
     
     public Projectile()
     {
         super();
+        this.width = 15;
+        this.height = 15;
     }
 }

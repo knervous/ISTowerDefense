@@ -5,6 +5,7 @@ import Enemies.*;
 import Levels.*;
 import java.awt.*;
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,8 +37,10 @@ public class EnemyAnimation implements Runnable {
                 ydif = enemy.y - pathingPoint.y;
 
                 while ((Math.abs(xdif) > 0) || (Math.abs(ydif) > 0)) {
-                    
-                    System.out.println(parent.getIsPaused());
+                    if (!(enemy.getHP() > 0)) {
+                        killedEnemy();
+                        break;
+                    }
                     xdif = pathingPoint.x - enemy.x;
                     ydif = enemy.y - pathingPoint.y;
 
@@ -52,29 +55,32 @@ public class EnemyAnimation implements Runnable {
                     } else if (ydif < 0) {
                         enemy.setLocation(enemy.x, enemy.y + 1);
                     }
-                    Thread.sleep(25);
+                    Thread.sleep(35);
                     parent.repaint();
 
                 }
 
             }
+            enemy.setLocation(1000, 1000);
+            this.finalize();
 
         } catch (Exception e) {
+
+        } catch (Throwable ex) {
+
         }
 
+    }
+
+    public void killedEnemy() throws Throwable {
         enemy.setLocation(1000, 1000);
+        this.finalize();
     }
 
-    public void killedEnemy() {
-
-    }
-    
-    public void setPause() throws InterruptedException
-    {
+    public void setPause() throws InterruptedException {
         this.wait();
     }
-    
-    
+
 }
 
 
