@@ -43,20 +43,19 @@ public abstract class Level extends JPanel {
 
     public void drawObjects(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        
-        
-        
+
         for (Enemy enemy : enemies) {
-            
-            
-            
-            g2d.setColor(Color.black);
-            g2d.fillRect(enemy.x+2, enemy.y-17, enemy.width-10, 10);
-            g2d.setColor(new Color(100,20,20));
-            g2d.fillRect(enemy.x+2, enemy.y-17, (int)(((enemy.getHP()/enemy.getMaxHP())*(enemy.width-10))), 10);
+
+            if (!(enemy.getBackground().equals("Images/coin1.gif"))) {
+
+                g2d.setColor(Color.black);
+                g2d.fillRect(enemy.x + 2, enemy.y - 17, enemy.width - 10, 10);
+                g2d.setColor(new Color(100, 20, 20));
+                g2d.fillRect(enemy.x + 2, enemy.y - 17, (int) (((enemy.getHP() / enemy.getMaxHP()) * (enemy.width - 10))), 10);
+
+            }
             g2d.drawImage(new ImageIcon(enemy.getBackground()).getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
-            
-            
+
         }
 
         for (Tower tower : towers) {
@@ -90,14 +89,14 @@ public abstract class Level extends JPanel {
             g2d.drawImage(new ImageIcon(getGrass()).getImage(), world1.x, world1.y, world1.width,
                     world1.height, null);
         }
-        
+
         g2d.drawImage(new ImageIcon("Images/castle3.png").getImage(), 432, 0, 200, 147, null);
         g2d.fillRect(432, 167, 140, 30);
-        g2d.setColor(new Color(100,20,20));
-        g2d.fillRect(436, 171, (int)((castleHealth/200)*130), 22);
-        
+        g2d.setColor(new Color(100, 20, 20));
+        g2d.fillRect(436, 171, (int) ((castleHealth / 200) * 130), 22);
+
         g2d.setColor(Color.white);
-        g2d.drawString("HEALTH: "+(int)castleHealth, 464, 186);
+        g2d.drawString("HEALTH: " + (int) castleHealth, 464, 186);
 
         g2d.dispose();
     }
@@ -164,11 +163,11 @@ public abstract class Level extends JPanel {
         towers.add(new LRTower());
 
         towers.get(2).setLocation(520, 380);
-        
+
         towers.add(new LRTower());
 
         towers.get(3).setLocation(520, 230);
-        
+
         towers.add(new SRTower());
 
         towers.get(4).setLocation(150, 300);
@@ -195,12 +194,10 @@ public abstract class Level extends JPanel {
         System.out.println("Num Enemies: " + numEnemies);
 
     }
-    
-    public void damageCastle(Enemy enemy)
-    {
+
+    public void damageCastle(Enemy enemy) {
         castleHealth -= enemy.getDamage();
-        if(castleHealth <= 0)
-        {
+        if (castleHealth <= 0) {
             castleHealth = 200;
         }
     }

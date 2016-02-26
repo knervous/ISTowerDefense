@@ -62,6 +62,11 @@ public abstract class Enemy extends Rectangle {
         return background;
     }
     
+    public void setBackground(String background)
+    {
+        this.background = background;
+    }
+    
 
     
 }

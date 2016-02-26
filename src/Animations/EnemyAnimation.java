@@ -79,7 +79,11 @@ public class EnemyAnimation implements Runnable {
     }
 
     public void killedEnemy() throws Throwable {
+        enemy.setBackground("Images/coin1.gif");
+        enemy.setRect(enemy.x-12.5, enemy.y-12.5, 75, 75);
+        Thread.sleep(700);
         enemy.setLocation(1000, 1000);
+        
         this.finalize();
     }
 
