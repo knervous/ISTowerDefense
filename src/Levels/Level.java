@@ -228,7 +228,7 @@ public abstract class Level extends JPanel implements MouseListener {
             if (isBuilding && me.getX() >= worldPiece.getMinX()+10
                     && me.getX() <= worldPiece.getMaxX() -10
                     && me.getY() >= worldPiece.getMinY() +15
-                    && me.getY() <= worldPiece.getMaxY() -25) {
+                    && me.getY() <= worldPiece.getMaxY() -45) {
                 towers.add(towerPH);
                 towers.get(towers.size() - 1).setLocation(me.getLocationOnScreen().x - 25, me.getLocationOnScreen().y - 50);
                 isBuilt = true;
