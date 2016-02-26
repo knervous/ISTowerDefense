@@ -51,7 +51,7 @@ public class LevelOne extends Level {
         pathingPoints.add(new Point(300, 250));
         pathingPoints.add(new Point(300, 520));
         pathingPoints.add(new Point(575, 520));
-        pathingPoints.add(new Point(575, 50));
+        pathingPoints.add(new Point(575, 90));
     }
 
     @Override

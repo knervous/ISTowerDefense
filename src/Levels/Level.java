@@ -42,7 +42,7 @@ public abstract class Level extends JPanel {
 
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-
+        g2d.drawImage(new ImageIcon("Images/castle3.png").getImage(), 432, 0,200,147,null);
         for (Enemy enemy : enemies) {
             if (enemy instanceof EnemyOne) {
                 g2d.drawImage(new ImageIcon("Images/Orc_Berserker.gif").getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
@@ -66,6 +66,8 @@ public abstract class Level extends JPanel {
             g2d.drawImage(new ImageIcon("Images/energyball.png").getImage(), projectile.x, projectile.y, projectile.width, projectile.height, null);
 
         }
+        
+        
 
         g2d.dispose();
     }
