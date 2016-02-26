@@ -110,7 +110,7 @@ public abstract class Level extends JPanel {
                     tower.setIsFiring(true);
 
                     projectiles.add(new Projectile(tower));
-                    threads.add(new Thread(new TowerShootAnimation(projectiles.get(projectiles.size() - 1), enemy, tower, this, enemies)));
+                    threads.add(new Thread(new TowerShootAnimation(projectiles.get(projectiles.size() - 1), enemy, tower, this)));
                     threads.get(threads.size() - 1).start();
                     System.out.println("IN RANGE");
 
