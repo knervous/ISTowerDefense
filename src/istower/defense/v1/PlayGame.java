@@ -81,7 +81,7 @@ public class PlayGame extends JFrame {
         optionsPanel.srTower(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (OptionsPanel.gold >= 200) {
+                if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
                     /*setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
                      new ImageIcon("Images/sr_tower.png").getImage(),
                      new Point(0, 0), "custom cursor"));*/
@@ -96,7 +96,7 @@ public class PlayGame extends JFrame {
         optionsPanel.mrTower(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (OptionsPanel.gold >= 200) {
+                if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
                     /*setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
                      new ImageIcon("Images/mr_tower.png").getImage(),
                      new Point(0, 0), "custom cursor"));*/
@@ -110,7 +110,7 @@ public class PlayGame extends JFrame {
         optionsPanel.lrTower(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (OptionsPanel.gold >= 200) {
+                if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
 
                     /*setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
                      new ImageIcon("Images/lr_tower.png").getImage(),
