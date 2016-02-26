@@ -17,6 +17,7 @@ public abstract class Enemy extends Rectangle {
     protected double hitpoints;
     protected double maxHP;
     protected int damage;
+    protected int goldOnKill;
     protected boolean isAlive;
     protected String background;
 
@@ -60,6 +61,11 @@ public abstract class Enemy extends Rectangle {
     public String getBackground()
     {
         return background;
+    }
+    
+    public int getGoldOnKill()
+    {
+        return goldOnKill;
     }
     
     public void setBackground(String background)

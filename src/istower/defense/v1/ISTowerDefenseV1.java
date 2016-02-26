@@ -26,6 +26,7 @@ public class ISTowerDefenseV1 {
         PlayGame playGame = new PlayGame();
         
         
+        
         InputStream is;
         Sequencer sequencer = MidiSystem.getSequencer();
         sequencer.open();
@@ -33,6 +34,9 @@ public class ISTowerDefenseV1 {
         sequencer.setSequence(is);
         sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
         sequencer.start();
+        
+        
+        
         
     }
 }

@@ -3,6 +3,7 @@ package Animations;
 import Enemies.*;
 
 import Levels.*;
+import istower.defense.v1.OptionsPanel;
 import java.awt.*;
 import java.util.*;
 import java.util.logging.Logger;
@@ -18,6 +19,7 @@ public class EnemyAnimation implements Runnable {
     public Enemy enemy;
     private ArrayList<Point> pathingPoints;
     private Level parent;
+    private boolean gotGold = false;
 
     public EnemyAnimation(Enemy enemy, ArrayList<Point> pathingPoints, Level parent, Point start) {
         this.enemy = enemy;
@@ -38,6 +40,7 @@ public class EnemyAnimation implements Runnable {
 
                 while ((Math.abs(xdif) > 0) || (Math.abs(ydif) > 0)) {
                     if (!(enemy.getHP() > 0)) {
+                        
                         killedEnemy();
                         break;
                     }
@@ -60,11 +63,18 @@ public class EnemyAnimation implements Runnable {
                     parent.repaint();
 
                 }
-
+                
+                if(!gotGold && !(enemy.getHP() > 0))
+                {
+                    OptionsPanel.setGold(-1*enemy.getGoldOnKill());
+                    gotGold = true;
+                }
+                
             }
             if(enemy.getHP() > 0)
             {
             parent.damageCastle(enemy);
+            
             }
             enemy.setLocation(1000, 1000);
             
@@ -84,6 +94,7 @@ public class EnemyAnimation implements Runnable {
         Thread.sleep(700);
         enemy.setLocation(1000, 1000);
         
+        parent.repaint();
         this.finalize();
     }
 

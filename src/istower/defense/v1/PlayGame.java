@@ -1,6 +1,7 @@
 package istower.defense.v1;
 
 import Levels.*;
+import Towers.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -58,21 +59,65 @@ public class PlayGame extends JFrame {
 
             }
         });
+
         optionsPanel.pauseGame(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                
+
                 Level.pauseGame();
                 Level.setIsPaused();
                 System.out.println("pausing");
-                
+
                 if (Level.getIsPaused()) {
                     optionsPanel.getWaveTimer().stop();
-                   
+
                 } else {
                     optionsPanel.getWaveTimer().start();
-   
+
+                }
+            }
+        });
+
+        optionsPanel.srTower(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (OptionsPanel.gold >= 200) {
+                    /*setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
+                     new ImageIcon("Images/sr_tower.png").getImage(),
+                     new Point(0, 0), "custom cursor"));*/
+                    level.buildTower(new SRTower());
+                    OptionsPanel.setGold(200);
+                    optionsPanel.repaint();
+
+                }
+            }
+        });
+
+        optionsPanel.mrTower(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (OptionsPanel.gold >= 200) {
+                    /*setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
+                     new ImageIcon("Images/mr_tower.png").getImage(),
+                     new Point(0, 0), "custom cursor"));*/
+                    level.buildTower(new MRTower());
+                    OptionsPanel.setGold(200);
+                    optionsPanel.repaint();
+                }
+            }
+        });
+
+        optionsPanel.lrTower(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (OptionsPanel.gold >= 200) {
+
+                    /*setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
+                     new ImageIcon("Images/lr_tower.png").getImage(),
+                     new Point(0, 0), "custom cursor"));*/
+                    level.buildTower(new LRTower());
+                    OptionsPanel.setGold(200);
+                    optionsPanel.repaint();
                 }
             }
         });

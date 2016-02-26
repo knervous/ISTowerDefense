@@ -7,7 +7,9 @@
 package istower.defense.v1;
 
 //~--- JDK imports ------------------------------------------------------------
+import Levels.Level;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -32,7 +34,8 @@ public class OptionsPanel extends JPanel {
     private JButton towerOne, towerTwo, towerThree, start, pause, quit;
     private Timer waveTimer;
     private GridBagConstraints constraints;
-    private int level, wave, waveTime, gold;
+    private int level, wave, waveTime;
+    public static int gold;
     private boolean isPaused = false;
 
     public OptionsPanel() {
@@ -120,6 +123,8 @@ public class OptionsPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(new ImageIcon("Images/scroll.png").getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
+        goldDisplay.setText("Gold: " + gold);
+        
     }
 
     public void startLevel(ActionListener al) {
@@ -128,32 +133,51 @@ public class OptionsPanel extends JPanel {
     public void pauseGame(ActionListener al){
         pause.addActionListener(al);
     }
+    
+    public void srTower(ActionListener al) {
+        towerThree.addActionListener(al);
+    }
+    
+    public void mrTower(ActionListener al) {
+        towerTwo.addActionListener(al);
+    }
+    
+    public void lrTower(ActionListener al) {
+        towerOne.addActionListener(al);
+    }
 
     public JButton getStart() {
         return start;
+    }
+    
+    public JButton getSRTower()
+    {
+        return towerOne;
+    }
+    
+    public JButton getMRTower()
+    {
+        return towerTwo;
+    }
+    
+    public JButton getLRTower()
+    {
+        return towerThree;
     }
 
     public Timer getWaveTimer() {
         return waveTimer;
     }
 
-    /**
-     * @return the waveDisplay
-     */
+
     public JLabel getWaveDisplay() {
         return waveDisplay;
     }
 
-    /**
-     * @param waveDisplay the waveDisplay to set
-     */
     public void setWaveDisplay(JLabel waveDisplay) {
         this.waveDisplay = waveDisplay;
     }
 
-    /**
-     * @return the waveTime
-     */
     public int getWaveTime() {
         return waveTime;
     }
@@ -164,6 +188,11 @@ public class OptionsPanel extends JPanel {
 
     public boolean getPause() {
         return isPaused;
+    }
+    
+    public static void setGold(int amount)
+    {
+        gold -= amount;
     }
 
     public class WaveTimer implements ActionListener {

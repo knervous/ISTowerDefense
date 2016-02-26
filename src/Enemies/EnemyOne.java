@@ -19,6 +19,7 @@ public class EnemyOne extends Enemy {
         hitpoints = 150.0;
         maxHP = 150.0;
         damage = 20;
+        goldOnKill = 35;
         isAlive = true;
         background = "Images/Orc_Berserker.gif";
     }
