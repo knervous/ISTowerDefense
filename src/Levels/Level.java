@@ -42,7 +42,6 @@ public abstract class Level extends JPanel implements MouseListener {
         setLayout(null);
         setSize((800 * (4 / 5)), 600);
         setPathingPoints();
-        createTowers();
         this.addMouseListener(this);
         
     }
@@ -128,7 +127,7 @@ public abstract class Level extends JPanel implements MouseListener {
                 
                 if (tower.whenToFire(tower.getRange(), enemy, tower) && !tower.isFiring()) {
                     
-                    if ((enemies.indexOf(enemy) == (enemies.indexOf(enemies.size() - 1)))) {
+                   if ((enemies.indexOf(enemy) == (enemies.indexOf(enemies.size() - 1)))) {
                         break;
                     }
                     tower.setIsFiring(true);
@@ -156,29 +155,7 @@ public abstract class Level extends JPanel implements MouseListener {
         }
     }
     
-    public void createTowers() {
-        
-        towers.add(new SRTower());
-        
-        towers.get(0).setLocation(350, 390);
-        
-        towers.add(new MRTower());
-        
-        towers.get(1).setLocation(350, 230);
-        
-        towers.add(new LRTower());
-        
-        towers.get(2).setLocation(520, 380);
-        
-        towers.add(new LRTower());
-        
-        towers.get(3).setLocation(520, 230);
-        
-        towers.add(new SRTower());
-        
-        towers.get(4).setLocation(150, 300);
-        
-    }
+
     
     public void createEnemies() {
         
@@ -248,10 +225,10 @@ public abstract class Level extends JPanel implements MouseListener {
         System.out.println(isBuilding);
         System.out.println(towerPH);
         for (Rectangle worldPiece : world) {
-            if (isBuilding && me.getX() >= worldPiece.getMinX()
-                    && me.getX() <= worldPiece.getMaxX()
-                    && me.getY() >= worldPiece.getMinY()
-                    && me.getY() <= worldPiece.getMaxY()) {
+            if (isBuilding && me.getX() >= worldPiece.getMinX()+10
+                    && me.getX() <= worldPiece.getMaxX() -10
+                    && me.getY() >= worldPiece.getMinY() +15
+                    && me.getY() <= worldPiece.getMaxY() -25) {
                 towers.add(towerPH);
                 towers.get(towers.size() - 1).setLocation(me.getLocationOnScreen().x - 25, me.getLocationOnScreen().y - 50);
                 isBuilt = true;
@@ -261,7 +238,7 @@ public abstract class Level extends JPanel implements MouseListener {
         if (isBuilt) {
             isBuilding = false;
             System.out.println(OptionsPanel.gold);
-        } else {
+        } else if(!isBuilt && isBuilding){
             OptionsPanel.setGold(-200);
             System.out.println(OptionsPanel.gold);
         }

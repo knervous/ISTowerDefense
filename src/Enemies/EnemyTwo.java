@@ -14,8 +14,8 @@ public class EnemyTwo extends Enemy {
 
     public EnemyTwo() {
         super();
-        hitpoints = 250.0;
-        maxHP = 250.0;
+        hitpoints = 350;
+        maxHP = 350;
         damage = 30;
         goldOnKill = 50;
         background = "Images/Orc_Marauder.gif";

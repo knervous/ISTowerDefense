@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
  */
 public abstract class Tower extends Rectangle {
 
+    private boolean isFiring = false;
     protected String background;
     protected double range;
     protected int damage;
@@ -38,8 +39,8 @@ public abstract class Tower extends Rectangle {
 
     public boolean whenToFire(double range, Rectangle enemy, Rectangle tower) {
 
-        double xdistance = enemy.getCenterX() - tower.getCenterX();
-        double ydistance = enemy.getCenterY() - tower.getCenterY();
+        double xdistance = Math.abs(enemy.getCenterX() - tower.getCenterX());
+        double ydistance = Math.abs(enemy.getCenterY() - tower.getCenterY());
         double enemyDistance = Math.sqrt(Math.pow(xdistance, 2) + Math.pow(ydistance, 2));
 
         while (enemyDistance <= range) {
@@ -47,6 +48,14 @@ public abstract class Tower extends Rectangle {
         }
 
         return false;
+    }
+
+    public boolean isFiring() {
+        return isFiring;
+    }
+
+    public void setIsFiring(boolean firing) {
+        isFiring = firing;
     }
 
     public String getBackground() {

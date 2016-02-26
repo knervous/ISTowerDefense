@@ -124,6 +124,8 @@ public class OptionsPanel extends JPanel {
         super.paintComponent(g);
         g.drawImage(new ImageIcon("Images/scroll.png").getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
         goldDisplay.setText("Gold: " + gold);
+        waveTimerDisplay.setText("Ends in: " + waveTime + "s");
+        getWaveDisplay().setText("Wave: " + wave);
         
     }
 
@@ -200,8 +202,7 @@ public class OptionsPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent ae) {
             waveTime--;
-            waveTimerDisplay.setText("Ends in: " + waveTime + "s");
-            getWaveDisplay().setText("Wave: " + wave);
+            
             if (waveTime == 0) {
                 wave++;
                 waveTime = 20;
@@ -211,6 +212,7 @@ public class OptionsPanel extends JPanel {
             if (waveTime % 10 == 0) {
                 PlayGame.level.startWaves();
             }
+            repaint();
         }
     }
 }

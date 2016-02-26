@@ -16,8 +16,8 @@ public class EnemyOne extends Enemy {
 
     public EnemyOne() {
         super();
-        hitpoints = 150.0;
-        maxHP = 150.0;
+        hitpoints = 250;
+        maxHP = 250.0;
         damage = 20;
         goldOnKill = 35;
         isAlive = true;
