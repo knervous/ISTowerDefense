@@ -185,7 +185,7 @@ public abstract class Level extends JPanel {
         castleHealth -= enemy.getDamage();
         if(castleHealth <= 0)
         {
-            //game over here
+            castleHealth = 200;
         }
     }
 
