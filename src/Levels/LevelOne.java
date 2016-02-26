@@ -56,7 +56,7 @@ public class LevelOne extends Level {
 
     @Override
     public int getNumEnemies() {
-        return new Random().nextInt(4) + 1;
+        return new Random().nextInt(5) + 1;
     }
 
     @Override

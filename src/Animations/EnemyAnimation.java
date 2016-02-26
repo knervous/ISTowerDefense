@@ -41,6 +41,7 @@ public class EnemyAnimation implements Runnable {
                         killedEnemy();
                         break;
                     }
+                    
                     xdif = pathingPoint.x - enemy.x;
                     ydif = enemy.y - pathingPoint.y;
 
@@ -55,13 +56,15 @@ public class EnemyAnimation implements Runnable {
                     } else if (ydif < 0) {
                         enemy.setLocation(enemy.x, enemy.y + 1);
                     }
-                    Thread.sleep(30);
+                    Thread.sleep(5);
                     parent.repaint();
 
                 }
 
             }
+            parent.damageCastle(enemy);
             enemy.setLocation(1000, 1000);
+            
             this.finalize();
 
         } catch (Exception e) {

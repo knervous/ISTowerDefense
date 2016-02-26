@@ -17,6 +17,7 @@ public class EnemyOne extends Enemy {
     public EnemyOne() {
         super();
         hitpoints = 150;
+        damage = 20;
         isAlive = true;
         background = "Images/Orc_Berserker.gif";
     }

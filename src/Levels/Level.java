@@ -30,6 +30,7 @@ public abstract class Level extends JPanel {
     private Point startingPoint = new Point(0, 250);
     protected ArrayList<Rectangle> world = new ArrayList<>();
     private static boolean isPaused = false;
+    private double castleHealth = 200;
 
     public Level() {
         super();
@@ -40,9 +41,11 @@ public abstract class Level extends JPanel {
 
     }
 
-    public void draw(Graphics g) {
+    public void drawObjects(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(new ImageIcon("Images/castle3.png").getImage(), 432, 0, 200, 147, null);
+        
+        
+        
         for (Enemy enemy : enemies) {
 
             g2d.drawImage(new ImageIcon(enemy.getBackground()).getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
@@ -66,19 +69,27 @@ public abstract class Level extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(new ImageIcon(getPath()).getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
-        doDrawing(g);
-        draw(g);
+        drawWorld(g);
+        drawObjects(g);
         startProjectile(g);
 
     }
 
-    private void doDrawing(Graphics g) {
+    private void drawWorld(Graphics g) {
         Graphics2D g2d = (Graphics2D) g.create();
 
         for (Rectangle world1 : world) {
             g2d.drawImage(new ImageIcon(getGrass()).getImage(), world1.x, world1.y, world1.width,
                     world1.height, null);
         }
+        
+        g2d.drawImage(new ImageIcon("Images/castle3.png").getImage(), 432, 0, 200, 147, null);
+        g2d.fillRect(432, 167, 140, 30);
+        g2d.setColor(new Color(100,20,20));
+        g2d.fillRect(436, 171, (int)((castleHealth/200)*130), 22);
+        
+        g2d.setColor(Color.white);
+        g2d.drawString("HEALTH: "+(int)castleHealth, 464, 186);
 
         g2d.dispose();
     }
@@ -112,7 +123,6 @@ public abstract class Level extends JPanel {
                     projectiles.add(new Projectile(tower));
                     threads.add(new Thread(new TowerShootAnimation(projectiles.get(projectiles.size() - 1), enemy, tower, this)));
                     threads.get(threads.size() - 1).start();
-                    System.out.println("IN RANGE");
 
                 }
             }
@@ -168,6 +178,15 @@ public abstract class Level extends JPanel {
         System.out.println("Enemy Type: " + enemyType);
         System.out.println("Num Enemies: " + numEnemies);
 
+    }
+    
+    public void damageCastle(Enemy enemy)
+    {
+        castleHealth -= enemy.getDamage();
+        if(castleHealth <= 0)
+        {
+            //game over here
+        }
     }
 
     public static void setIsPaused() {
