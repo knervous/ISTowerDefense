@@ -44,26 +44,18 @@ public abstract class Level extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(new ImageIcon("Images/castle3.png").getImage(), 432, 0, 200, 147, null);
         for (Enemy enemy : enemies) {
-            if (enemy instanceof EnemyOne) {
-                g2d.drawImage(new ImageIcon("Images/Orc_Berserker.gif").getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
-            } else if (enemy instanceof EnemyTwo) {
-                g2d.drawImage(new ImageIcon("Images/Orc_Marauder.gif").getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
-            }
+
+            g2d.drawImage(new ImageIcon(enemy.getBackground()).getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
         }
 
         for (Tower tower : towers) {
-            if (tower instanceof LRTower) {
-                g2d.drawImage(new ImageIcon("Images/lr_tower.png").getImage(), tower.x, tower.y, tower.width, tower.height, null);
-            } else if (tower instanceof MRTower) {
-                g2d.drawImage(new ImageIcon("Images/mr_tower.png").getImage(), tower.x, tower.y, tower.width, tower.height, null);
-            } else if (tower instanceof SRTower) {
-                g2d.drawImage(new ImageIcon("Images/sr_tower.png").getImage(), tower.x, tower.y, tower.width, tower.height, null);
-            }
+
+            g2d.drawImage(new ImageIcon(tower.getBackground()).getImage(), tower.x, tower.y, tower.width, tower.height, null);
 
         }
 
         for (Projectile projectile : projectiles) {
-            g2d.drawImage(new ImageIcon("Images/energyball.png").getImage(), projectile.x, projectile.y, projectile.width, projectile.height, null);
+            g2d.drawImage(new ImageIcon(projectile.getBackground()).getImage(), projectile.x, projectile.y, projectile.width, projectile.height, null);
 
         }
 
@@ -117,7 +109,7 @@ public abstract class Level extends JPanel {
                     }
                     tower.setIsFiring(true);
 
-                    projectiles.add(new Projectile());
+                    projectiles.add(new Projectile(tower));
                     threads.add(new Thread(new TowerShootAnimation(projectiles.get(projectiles.size() - 1), enemy, tower, this, enemies)));
                     threads.get(threads.size() - 1).start();
                     System.out.println("IN RANGE");
@@ -150,10 +142,10 @@ public abstract class Level extends JPanel {
         towers.add(new MRTower());
 
         towers.get(1).setLocation(350, 230);
-        
+
         towers.add(new LRTower());
-        
-        towers.get(2).setLocation(520,380);
+
+        towers.get(2).setLocation(520, 380);
 
     }
 

@@ -1,13 +1,12 @@
 
 /*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Towers;
 
 //~--- JDK imports ------------------------------------------------------------
-
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -17,10 +16,13 @@ import javax.swing.ImageIcon;
  *
  * @author greg
  */
-public abstract class Tower extends Rectangle{
+public abstract class Tower extends Rectangle {
+
     private boolean isFiring = false;
-    protected String image;
-    
+    protected String background;
+    protected double range;
+    protected int damage;
+
     public Tower() {
         this.x = 0;
         this.y = 0;
@@ -34,46 +36,40 @@ public abstract class Tower extends Rectangle{
         this.width = width;
         this.height = height;
     }
-    
-    public void draw(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
 
-        g2d.drawImage(new ImageIcon(image).getImage(), this.x, this.y, this.width, this.height, null);
-        g2d.dispose();
-        
-    }
     public boolean whenToFire(double range, Rectangle enemy, Rectangle tower) {
-        
+
         double xdistance = Math.abs(enemy.getCenterX() - tower.getCenterX());
         double ydistance = Math.abs(enemy.getCenterY() - tower.getCenterY());
-        
-        
         double enemyDistance = Math.sqrt(Math.pow(xdistance, 2) + Math.pow(ydistance, 2));
 
-        
         while (enemyDistance <= range) {
             return true;
         }
 
         return false;
     }
-    
-    public boolean isFiring()
-    {
+
+    public boolean isFiring() {
         return isFiring;
     }
-    
-    public void setIsFiring(boolean firing)
-    {
+
+    public void setIsFiring(boolean firing) {
         isFiring = firing;
     }
-    
-    
-    
-    public abstract double getRange();
-    public abstract int getDamage();
-    
-    
+
+    public String getBackground() {
+        return background;
+    }
+
+    public double getRange() {
+        return range;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
 }
 
 

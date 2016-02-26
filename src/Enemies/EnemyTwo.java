@@ -15,12 +15,9 @@ public class EnemyTwo extends Enemy {
     public EnemyTwo() {
         super();
         hitpoints = 250;
+        background = "Images/Orc_Marauder.gif";
     }
     
-    @Override
-    public boolean isAlive() {
-        return isAlive();
-    }
 
 
 

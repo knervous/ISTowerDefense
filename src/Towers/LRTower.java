@@ -7,11 +7,6 @@
 package Towers;
 
 //~--- JDK imports ------------------------------------------------------------
-import java.awt.*;
-
-import java.util.*;
-
-import javax.swing.*;
 import javax.swing.*;
 
 /**
@@ -20,25 +15,15 @@ import javax.swing.*;
  */
 public class LRTower extends Tower {
 
-    private final double range;
-    private final int damage;
-
     public LRTower() {
         this.range = 300;
         this.damage = 10;
-        this.width = new ImageIcon("Images/lr_tower.png").getImage().getWidth(null);
-        this.height = new ImageIcon("Images/lr_tower.png").getImage().getHeight(null);
-        super.image = "Images/lr_tower.png";
+        background = "Images/lr_tower.png";
+        this.width = new ImageIcon(background).getImage().getWidth(null);
+        this.height = new ImageIcon(background).getImage().getHeight(null);
+
     }
 
-    public double getRange() {
-        return range;
-    }
-
-    @Override
-    public int getDamage() {
-        return damage;
-    }
 }
 
 

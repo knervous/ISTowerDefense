@@ -7,9 +7,6 @@
 package Enemies;
 
 //~--- JDK imports ------------------------------------------------------------
-import java.awt.*;
-
-import javax.swing.*;
 
 /**
  *
@@ -21,13 +18,8 @@ public class EnemyOne extends Enemy {
         super();
         hitpoints = 150;
         isAlive = true;
+        background = "Images/Orc_Berserker.gif";
     }
-
-    @Override
-    public boolean isAlive() {
-        return isAlive();
-    }
-
 
 
     

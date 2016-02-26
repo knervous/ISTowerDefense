@@ -8,11 +8,6 @@ package Enemies;
 
 //~--- JDK imports ------------------------------------------------------------
 import java.awt.*;
-import java.awt.image.*;
-import java.io.*;
-import java.io.File;
-import javax.imageio.*;
-import javax.swing.*;
 
 /**
  *
@@ -21,6 +16,7 @@ import javax.swing.*;
 public abstract class Enemy extends Rectangle {
     protected int hitpoints;
     protected boolean isAlive;
+    protected String background;
 
     public Enemy() {
         super();
@@ -49,7 +45,10 @@ public abstract class Enemy extends Rectangle {
         return hitpoints;
     }
     
-    public abstract boolean isAlive();
+    public String getBackground()
+    {
+        return background;
+    }
     
 
     

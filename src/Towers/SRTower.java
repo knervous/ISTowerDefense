@@ -14,24 +14,16 @@ import javax.swing.ImageIcon;
  */
 public class SRTower extends Tower {
 
-    private double range;
-    private int damage;
 
     public SRTower() {
         this.range = 100;
         this.damage = 15;
-        this.width = new ImageIcon("Images/sr_tower.png").getImage().getWidth(null);
-        this.height = new ImageIcon("Images/sr_tower.png").getImage().getHeight(null);
-
-        super.image = "Images/sr_tower.png";
+        background = "Images/sr_tower.png";
+        this.width = new ImageIcon(background).getImage().getWidth(null);
+        this.height = new ImageIcon(background).getImage().getHeight(null);
+        
+        
     }
 
-    public double getRange() {
-        return range;
-    }
 
-    @Override
-    public int getDamage() {
-        return damage;
-    }
 }
