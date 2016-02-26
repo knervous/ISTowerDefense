@@ -214,7 +214,7 @@ public abstract class Level extends JPanel implements MouseListener {
     
     @Override
     public void mouseEntered(MouseEvent me) {
-        System.out.println(me.getLocationOnScreen());
+        
     }
     
     @Override
@@ -239,10 +239,10 @@ public abstract class Level extends JPanel implements MouseListener {
         
         if (isBuilt) {
             isBuilding = false;
-            System.out.println(OptionsPanel.gold);
+            
         } else if(!isBuilt && isBuilding){
             OptionsPanel.setGold(-200);
-            System.out.println(OptionsPanel.gold);
+            
         }
     
 
