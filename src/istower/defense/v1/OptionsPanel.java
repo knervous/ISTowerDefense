@@ -23,6 +23,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.Writer;
+
 
 /**
  *
@@ -30,7 +34,7 @@ import javax.swing.Timer;
  */
 public class OptionsPanel extends JPanel {
 
-    private JLabel levelDisplay, waveDisplay, waveTimerDisplay, goldDisplay;
+    private JLabel levelDisplay, waveDisplay, waveTimerDisplay, goldDisplay, textDisplay;
     private JButton towerOne, towerTwo, towerThree, start, pause, quit;
     private Timer waveTimer;
     private GridBagConstraints constraints;
@@ -75,6 +79,7 @@ public class OptionsPanel extends JPanel {
         setWaveDisplay(new JLabel("Wave: " + wave));
         waveTimerDisplay = new JLabel("Ends in: " + getWaveTime() + "s");
         goldDisplay = new JLabel("Gold: " + gold);
+        textDisplay = new JLabel("cost: 200 Gold");
     }
 
     private void setupComponents() {
@@ -100,11 +105,13 @@ public class OptionsPanel extends JPanel {
         add(this.waveTimerDisplay, constraints);
         constraints.gridy = 3;
         add(this.goldDisplay, constraints);
-        constraints.weighty = .10;
+        constraints.weighty =0.1;   
 
         // constraints.insets = new Insets(10,0,0,10);
         constraints.gridy = 4;
         add(towerOne, constraints);
+       
+        add(textDisplay,constraints);
         constraints.gridy = 5;
         add(towerTwo, constraints);
         constraints.gridy = 6;
@@ -112,10 +119,12 @@ public class OptionsPanel extends JPanel {
         constraints.weighty = .05;
         constraints.insets = new Insets(2, 2, 2, 2);
         constraints.gridy = 7;
-        add(start, constraints);
+        add(this.textDisplay, constraints);
         constraints.gridy = 8;
-        add(pause, constraints);
+        add(start, constraints);
         constraints.gridy = 9;
+        add(pause, constraints);
+        constraints.gridy = 10;
         add(quit, constraints);
     }
 
