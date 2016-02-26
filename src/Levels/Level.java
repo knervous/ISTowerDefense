@@ -164,6 +164,14 @@ public abstract class Level extends JPanel {
         towers.add(new LRTower());
 
         towers.get(2).setLocation(520, 380);
+        
+        towers.add(new LRTower());
+
+        towers.get(3).setLocation(520, 230);
+        
+        towers.add(new SRTower());
+
+        towers.get(4).setLocation(150, 300);
 
     }
 

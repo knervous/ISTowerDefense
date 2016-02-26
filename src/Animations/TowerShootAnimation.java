@@ -34,20 +34,19 @@ public class TowerShootAnimation implements Runnable {
         this.parent = parent;
         this.tower = tower;
         this.infEnemies = infEnemies;
-        projectile.setLocation((int)tower.getCenterX(), (int)tower.getCenterY()-20);
+        projectile.setLocation((int) tower.getCenterX(), (int) tower.getCenterY() - 20);
     }
 
     @Override
     public void run() {
 
         try {
-            
-              
-              Point p = new Point(projectile.x, projectile.y);  
+
+            Point p = new Point(projectile.x, projectile.y);
 
             while (enemy.getHP() > 0 && tower.whenToFire(tower.getRange(), enemy, tower)) {
-                
-                angle = getAngle(new Point((int)tower.getCenterX(), (int) tower.getCenterY()), new Point((int)enemy.getCenterX(), (int) enemy.getCenterY()));
+
+                angle = getAngle(new Point((int) tower.getCenterX(), (int) tower.getCenterY()), new Point((int) enemy.getCenterX(), (int) enemy.getCenterY()));
                 yscale = Math.cos(Math.toRadians(angle));
                 xscale = Math.sin(Math.toRadians(angle));
                 p.setLocation(projectile.x + xscale * 2, projectile.y - yscale * 3.5);
@@ -60,13 +59,10 @@ public class TowerShootAnimation implements Runnable {
                     projectile.setLocation(1000, 1000);
                     enemy.setHP(tower.getDamage());
                     Thread.sleep(400);
-                    projectile.setLocation((int)tower.getCenterX(), (int)tower.getCenterY()-20);
+                    projectile.setLocation((int) tower.getCenterX(), (int) tower.getCenterY() - 20);
                 }
-                
-                
-                
-                if(projectile.getCenterX() > 600 || projectile.getCenterX() < 0 || projectile.getCenterY() > 600 || projectile.getCenterY() < 0)
-                {
+
+                if (projectile.getCenterX() > 600 || projectile.getCenterX() < 0 || projectile.getCenterY() > 600 || projectile.getCenterY() < 0) {
                     finishProjectile();
                     break;
                 }
@@ -74,7 +70,7 @@ public class TowerShootAnimation implements Runnable {
                 parent.repaint();
             }
             projectile.setLocation(2000, 2000);
-            
+
             finishProjectile();
 
         } catch (Exception e) {
@@ -91,9 +87,8 @@ public class TowerShootAnimation implements Runnable {
         }
         return angle;
     }
-    
-    public void finishProjectile() throws Throwable
-    {
+
+    public void finishProjectile() throws Throwable {
         tower.setIsFiring(false);
         this.finalize();
     }
