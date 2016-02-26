@@ -188,7 +188,9 @@ public abstract class Level extends JPanel implements MouseListener {
     public void damageCastle(Enemy enemy) {
         castleHealth -= enemy.getDamage();
         if (castleHealth <= 0) {
-            castleHealth = 200;
+            Component gameover = null;
+            JOptionPane.showMessageDialog(gameover,
+            "Gameover.");     
         }
     }
     

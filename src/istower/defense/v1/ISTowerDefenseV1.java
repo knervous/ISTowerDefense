@@ -34,8 +34,7 @@ public class ISTowerDefenseV1 {
         sequencer.setSequence(is);
         sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
         sequencer.start();
-        
-        
+      
         
         
     }

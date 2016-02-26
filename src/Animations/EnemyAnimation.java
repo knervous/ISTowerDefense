@@ -100,6 +100,7 @@ public class EnemyAnimation implements Runnable {
 
     public void setPause() throws InterruptedException {
         this.wait();
+        
     }
 
 }
