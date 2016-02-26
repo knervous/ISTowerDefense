@@ -47,8 +47,16 @@ public abstract class Level extends JPanel {
         
         
         for (Enemy enemy : enemies) {
-
+            
+            
+            
+            g2d.setColor(Color.black);
+            g2d.fillRect(enemy.x+2, enemy.y-17, enemy.width-10, 10);
+            g2d.setColor(new Color(100,20,20));
+            g2d.fillRect(enemy.x+2, enemy.y-17, (int)(((enemy.getHP()/enemy.getMaxHP())*(enemy.width-10))), 10);
             g2d.drawImage(new ImageIcon(enemy.getBackground()).getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
+            
+            
         }
 
         for (Tower tower : towers) {

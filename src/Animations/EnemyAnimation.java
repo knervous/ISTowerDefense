@@ -62,7 +62,10 @@ public class EnemyAnimation implements Runnable {
                 }
 
             }
+            if(enemy.getHP() > 0)
+            {
             parent.damageCastle(enemy);
+            }
             enemy.setLocation(1000, 1000);
             
             this.finalize();

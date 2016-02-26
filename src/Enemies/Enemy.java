@@ -14,7 +14,8 @@ import java.awt.*;
  * @author Paul
  */
 public abstract class Enemy extends Rectangle {
-    protected int hitpoints;
+    protected double hitpoints;
+    protected double maxHP;
     protected int damage;
     protected boolean isAlive;
     protected String background;
@@ -42,8 +43,13 @@ public abstract class Enemy extends Rectangle {
         }
     }
     
-    public int getHP() {
+    public double getHP() {
         return hitpoints;
+    }
+    
+    public double getMaxHP()
+    {
+        return maxHP;
     }
     
     public int getDamage()
