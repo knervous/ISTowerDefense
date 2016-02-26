@@ -57,6 +57,11 @@ public abstract class Tower extends Rectangle {
     public void setIsFiring(boolean firing) {
         isFiring = firing;
     }
+    
+    public boolean getIsFiring()
+    {
+        return isFiring;
+    }
 
     public String getBackground() {
         return background;

@@ -34,8 +34,8 @@ public class PlayGame extends JFrame {
 
         setSize(frameWidth, frameHeight);
         setVisible(true);
-        level = new LevelOne();
         optionsPanel = new OptionsPanel(frameWidth, frameHeight);
+        level = new LevelOne();
         setLayout(new GridBagLayout());
         setSize(frameWidth, frameHeight);
         constraints.weightx = .9;
