@@ -42,7 +42,7 @@ public abstract class Level extends JPanel {
 
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(new ImageIcon("Images/castle3.png").getImage(), 432, 0,200,147,null);
+        g2d.drawImage(new ImageIcon("Images/castle3.png").getImage(), 432, 0, 200, 147, null);
         for (Enemy enemy : enemies) {
             if (enemy instanceof EnemyOne) {
                 g2d.drawImage(new ImageIcon("Images/Orc_Berserker.gif").getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);
@@ -66,8 +66,6 @@ public abstract class Level extends JPanel {
             g2d.drawImage(new ImageIcon("Images/energyball.png").getImage(), projectile.x, projectile.y, projectile.width, projectile.height, null);
 
         }
-        
-        
 
         g2d.dispose();
     }
@@ -78,25 +76,8 @@ public abstract class Level extends JPanel {
         g.drawImage(new ImageIcon(getPath()).getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
         doDrawing(g);
         draw(g);
+        startProjectile(g);
 
-        for (Enemy enemy : enemies) {
-            for (Tower tower : towers) {
-
-                if (tower.whenToFire(tower.getRange(), enemy, tower) && !tower.isFiring()) {
-
-                    if ((enemies.indexOf(enemy) == (enemies.indexOf(enemies.size() - 1)))) {
-                        break;
-                    }
-                    tower.setIsFiring(true);
-
-                    projectiles.add(new Projectile());
-                    threads.add(new Thread(new TowerShootAnimation(projectiles.get(projectiles.size() - 1), enemy, tower, this, enemies)));
-                    threads.get(threads.size() - 1).start();
-                    System.out.println("IN RANGE");
-
-                }
-            }
-        }
     }
 
     private void doDrawing(Graphics g) {
@@ -125,6 +106,27 @@ public abstract class Level extends JPanel {
 
     }
 
+    private void startProjectile(Graphics g) {
+        for (Enemy enemy : enemies) {
+            for (Tower tower : towers) {
+
+                if (tower.whenToFire(tower.getRange(), enemy, tower) && !tower.isFiring()) {
+
+                    if ((enemies.indexOf(enemy) == (enemies.indexOf(enemies.size() - 1)))) {
+                        break;
+                    }
+                    tower.setIsFiring(true);
+
+                    projectiles.add(new Projectile());
+                    threads.add(new Thread(new TowerShootAnimation(projectiles.get(projectiles.size() - 1), enemy, tower, this, enemies)));
+                    threads.get(threads.size() - 1).start();
+                    System.out.println("IN RANGE");
+
+                }
+            }
+        }
+    }
+
     public static void pauseGame() {
 
         try {
@@ -143,12 +145,15 @@ public abstract class Level extends JPanel {
 
         towers.add(new SRTower());
 
-        towers.get(0).setLocation(350, 350);
-        
+        towers.get(0).setLocation(350, 390);
+
         towers.add(new MRTower());
+
+        towers.get(1).setLocation(350, 230);
         
-        towers.get(1).setLocation(350,230);
-        //towers.add(new MRTower());
+        towers.add(new LRTower());
+        
+        towers.get(2).setLocation(520,380);
 
     }
 

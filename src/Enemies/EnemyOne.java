@@ -19,7 +19,7 @@ public class EnemyOne extends Enemy {
 
     public EnemyOne() {
         super();
-        hitpoints = 500;
+        hitpoints = 150;
         isAlive = true;
     }
 

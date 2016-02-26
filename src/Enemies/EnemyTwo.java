@@ -14,7 +14,7 @@ public class EnemyTwo extends Enemy {
 
     public EnemyTwo() {
         super();
-        hitpoints = 750;
+        hitpoints = 250;
     }
     
     @Override

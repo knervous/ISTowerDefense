@@ -55,7 +55,7 @@ public class EnemyAnimation implements Runnable {
                     } else if (ydif < 0) {
                         enemy.setLocation(enemy.x, enemy.y + 1);
                     }
-                    Thread.sleep(12);
+                    Thread.sleep(30);
                     parent.repaint();
 
                 }

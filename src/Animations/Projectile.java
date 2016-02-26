@@ -14,7 +14,7 @@ public class Projectile extends Rectangle{
     public Projectile()
     {
         super();
-        this.width = 15;
-        this.height = 15;
+        this.width = 20;
+        this.height = 20;
     }
 }
