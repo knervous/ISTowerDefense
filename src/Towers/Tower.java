@@ -39,8 +39,8 @@ public abstract class Tower extends Rectangle {
 
     public boolean whenToFire(double range, Rectangle enemy, Rectangle tower) {
 
-        double xdistance = Math.abs(enemy.getCenterX() - tower.getCenterX());
-        double ydistance = Math.abs(enemy.getCenterY() - tower.getCenterY());
+        double xdistance = enemy.getCenterX() - tower.getCenterX();
+        double ydistance = enemy.getCenterY() - tower.getCenterY();
         double enemyDistance = Math.sqrt(Math.pow(xdistance, 2) + Math.pow(ydistance, 2));
 
         while (enemyDistance <= range) {
