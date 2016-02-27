@@ -167,7 +167,9 @@ public class OptionsPanel extends JPanel {
         return start;
     }
     
-  /*  public void getquit(){
+  /* public JButton getquit(){
+        return quit;
+        
         System.exit(0);
     }
     */
