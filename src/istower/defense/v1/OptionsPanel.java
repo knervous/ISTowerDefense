@@ -141,6 +141,12 @@ public class OptionsPanel extends JPanel {
     public void startLevel(ActionListener al) {
         start.addActionListener(al);
     }
+    
+    public void quit(ActionListener al) {
+        quit.addActionListener(al);
+        
+    }
+            
     public void pauseGame(ActionListener al){
         pause.addActionListener(al);
     }
@@ -161,6 +167,10 @@ public class OptionsPanel extends JPanel {
         return start;
     }
     
+  /*  public void getquit(){
+        System.exit(0);
+    }
+    */
     public JButton getSRTower()
     {
         return towerOne;
@@ -223,6 +233,7 @@ public class OptionsPanel extends JPanel {
             }
             repaint();
         }
+        
     }
 }
 
