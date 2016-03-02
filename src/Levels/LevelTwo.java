@@ -7,13 +7,11 @@
 package Levels;
 
 //~--- non-JDK imports --------------------------------------------------------
-import Enemies.*;
 import istower.defense.v1.ISTowerDefenseV1;
 
 //~--- JDK imports ------------------------------------------------------------
 import java.awt.*;
 import java.awt.Color;
-import java.awt.event.MouseEvent;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,8 +21,6 @@ import java.util.*;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequencer;
 
-import javax.swing.*;
-
 /**
  *
  *
@@ -33,8 +29,10 @@ public class LevelTwo extends Level {
 
     private int level = 2;
     private ArrayList<Point> pathingPoints;
+    private Point startingPoint;
     private String grass;
     private String path;
+    private int pathNum = 1;
 
     public LevelTwo() {
         super();
@@ -59,9 +57,10 @@ public class LevelTwo extends Level {
     }
 
     private void initWorld() {
-        world.add(new Rectangle(0, 0, 350, 250));      // top left
-        world.add(new Rectangle(0, 300, 300, 300));    // bottom  left
-        world.add(new Rectangle(350, 0, 225, 510));    // top right
+        world.add(new Rectangle(0, 50, 300, 470));      // top left
+
+        world.add(new Rectangle(350, 0, 225, 220));    // top right
+        world.add(new Rectangle(350, 270, 225, 250)); // mid right
 
     }
 
@@ -71,10 +70,7 @@ public class LevelTwo extends Level {
 
     public void setPathingPoints() {
         pathingPoints = new ArrayList<>();
-        pathingPoints.add(new Point(300, 250));
-        pathingPoints.add(new Point(300, 520));
-        pathingPoints.add(new Point(575, 520));
-        pathingPoints.add(new Point(575, 90));
+
     }
 
     @Override
@@ -85,10 +81,17 @@ public class LevelTwo extends Level {
     @Override
     public int getEnemyType() {
         int rand = new Random().nextInt(8) + 1;
-        if (rand > 3) {
+        if(rand >= 1 && rand <= 3)
+        {
             return 1;
-        } else {
+        }
+        else if(rand >= 4 && rand <= 6)
+        {
             return 2;
+        }
+        else
+        {
+            return 3;
         }
     }
 
@@ -109,13 +112,38 @@ public class LevelTwo extends Level {
 
     @Override
     public Point getStartingPoint() {
-        Point startingPoint = new Point(0, 250);
         return startingPoint;
     }
 
     @Override
     public void setStartingPoint() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int rand = new Random().nextInt(2) + 1;
+        if (rand == 1) {
+            startingPoint = new Point(0, 0);
+            pathingPoints = new ArrayList<>();
+            pathingPoints.add(new Point(300, 0));
+
+            int rand1 = new Random().nextInt(2) + 1;
+            if (rand1 == 1) {
+                pathingPoints.add(new Point(300, 520));
+                pathingPoints.add(new Point(575, 520));
+                pathingPoints.add(new Point(575, 90));
+                pathingPoints.add(new Point(525, 90));
+            } else if (rand1 == 2) {
+                pathingPoints.add(new Point(300, 220));
+                pathingPoints.add(new Point(575, 220));
+                pathingPoints.add(new Point(575, 90));
+                pathingPoints.add(new Point(525, 90));
+            }
+
+        } else if (rand == 2) {
+            startingPoint = new Point(0, 520);
+            pathingPoints = new ArrayList<>();
+            pathingPoints.add(new Point(575, 520));
+            pathingPoints.add(new Point(575, 90));
+            pathingPoints.add(new Point(525, 90));
+
+        }
     }
 
 }

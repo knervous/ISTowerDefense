@@ -96,8 +96,14 @@ public abstract class Level extends JPanel implements MouseListener {
             g2d.drawImage(new ImageIcon(getGrass()).getImage(), world1.x, world1.y, world1.width,
                     world1.height, null);
         }
-        
+        if(this instanceof LevelOne)
+        {
         g2d.drawImage(new ImageIcon("Images/castle3.png").getImage(), 432, 0, 200, 147, null);
+        }
+        else if(this instanceof LevelTwo)
+        {
+            g2d.drawImage(new ImageIcon("Images/castle4.png").getImage(), 380, 0, 200, 147, null);
+        }
         g2d.fillRect(432, 167, 140, 30);
         g2d.setColor(new Color(100, 20, 20));
         g2d.fillRect(436, 171, (int) ((castleHealth / 200) * 130), 22);
@@ -114,8 +120,26 @@ public abstract class Level extends JPanel implements MouseListener {
         enemies.addAll(enemyGroup);
         
         for (Enemy enemy : enemyGroup) {
+            setStartingPoint();
             threads.add(new Thread(new EnemyAnimation(enemy, getPathingPoints(), this, new Point((getStartingPoint().x + enemyGroup.indexOf(enemy) * 50), getStartingPoint().y))));
-            threads.get(enemyGroup.indexOf(enemy)).start();
+            
+            if((threads.get(enemyGroup.indexOf(enemy)).getState() == Thread.State.NEW))
+            {
+                threads.get(enemyGroup.indexOf(enemy)).start();
+                System.out.println(threads.get(enemyGroup.indexOf(enemy)).getState());
+                System.out.println("ALIVE THREAD: "+threads.get(enemyGroup.indexOf(enemy)).isInterrupted());
+            }
+            else
+            {
+                threads.add(new Thread(new EnemyAnimation(enemy, getPathingPoints(), this, new Point((getStartingPoint().x + enemyGroup.indexOf(enemy) * 50), getStartingPoint().y))));
+                System.out.println("DEAD THREAD: "+threads.get(enemyGroup.indexOf(enemy)).isInterrupted());
+                System.out.println(threads);
+                threads.get(enemyGroup.indexOf(enemy)+1).start();
+                
+                break;
+                
+            }
+            
             
         }
         
@@ -172,6 +196,11 @@ public abstract class Level extends JPanel implements MouseListener {
         } else if (enemyType == 2) {
             for (int i = 0; i < numEnemies; i++) {
                 enemyGroup.add(new EnemyTwo());
+            }
+        }
+        else if (enemyType == 3) {
+            for (int i = 0; i < numEnemies; i++) {
+                enemyGroup.add(new EnemyThree());
             }
         }
         

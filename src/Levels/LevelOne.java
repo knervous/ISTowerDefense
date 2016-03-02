@@ -24,6 +24,7 @@ public class LevelOne extends Level {
 
     private int level = 1;
     private ArrayList<Point> pathingPoints;
+    private Point startingPoint;
     private String grass;
     private String path;
 
@@ -82,16 +83,15 @@ public class LevelOne extends Level {
 
     @Override
     public Point getStartingPoint() {
-        Point startingPoint = new Point(0, 250);
+
         return startingPoint;
     }
 
     @Override
     public void setStartingPoint() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        startingPoint = new Point(0, 250);
     }
 
-    
 }
 
 
