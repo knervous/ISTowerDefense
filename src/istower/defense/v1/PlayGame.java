@@ -14,13 +14,12 @@ import javax.swing.*;
  */
 public class PlayGame extends JFrame {
 
-    private static int frameWidth = 800;
-    private static int frameHeight = 600;
-    private static int frameLocationX = 0;
-    private static int frameLocationY = 100;
+    protected int frameWidth = 800;
+    protected int frameHeight = 600;
     private GridBagConstraints constraints = new GridBagConstraints();
     public static Level level;
     private OptionsPanel optionsPanel;
+    private JPanel content = new JPanel();
 
 
     public PlayGame() {
@@ -28,7 +27,8 @@ public class PlayGame extends JFrame {
 
         initUI();
         revalidate();
-        setLocation(frameLocationX, frameLocationY);
+        setLocation(200, 100);
+        
         level.repaint();
         optionsPanel.repaint();
         setResizable(false);
@@ -39,34 +39,62 @@ public class PlayGame extends JFrame {
     {
         return level;
     }
+    
+    public OptionsPanel getOptionsPanel()
+    {
+        return optionsPanel;
+    }
 
     public void initUI() {
 
-        setSize(getFrameWidth(), getFrameHeight());
+        setSize(frameWidth, frameHeight);
         setVisible(true);
-        optionsPanel = new OptionsPanel(getFrameWidth(), getFrameHeight());
+        content.setSize(this.getSize());
+        setLayout(new GridLayout());
+        add(content);
+        content.setLayout(new GridBagLayout());
+        
+        optionsPanel = new OptionsPanel(frameWidth, frameHeight);
 
         level = new LevelOne();
-        setLayout(new GridBagLayout());
-        setSize(getFrameWidth(), getFrameHeight());
+        
+        setSize(frameWidth, frameHeight);
         constraints.weightx = .9;
         constraints.weighty = 1.0;
         constraints.fill = GridBagConstraints.BOTH;
-        add(level, constraints);
+        content.add(level, constraints);
         constraints.weightx = .1;
         constraints.weighty = 1.0;
-        add(optionsPanel, constraints);
+        content.add(optionsPanel, constraints);
         setTitle("ISTower Defense");
+        setContentPane(content);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+    
+    public void nextLevel(Level infLevel)
+    {
+        level = infLevel;
+        content.removeAll();
+        content.repaint();
+        revalidate();
+        
+        constraints.weightx = .9;
+        constraints.weighty = 1.0;
+        constraints.fill = GridBagConstraints.BOTH;
+        content.add(level, constraints);
+        
+        constraints.weightx = .1;
+        constraints.weighty = 1.0;
+        content.add(optionsPanel, constraints);
+    }
+    
     public void addActionListeners() {
         optionsPanel.startLevel(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 level.startWaves();
                 optionsPanel.getWaveTimer().start();
-                optionsPanel.getStart().removeActionListener(this);
+                //optionsPanel.getStart().removeActionListener(this);
 
             }
         });
@@ -89,6 +117,8 @@ public class PlayGame extends JFrame {
                
             }
         });
+        
+        
 
         
         
@@ -152,30 +182,4 @@ public class PlayGame extends JFrame {
 
     }
 
-    /**
-     * @return the frameLocationX
-     */
-    public static int getFrameLocationX() {
-        return frameLocationX;
-    }
-
-    /**
-     * @return the frameLocationY
-     */
-    public static int getFrameLocationY() {
-        return frameLocationY;
-    }
-/**
-     * @return the frameWidth
-     */
-    public static int getFrameWidth() {
-        return frameWidth;
-    }
-
-    /**
-     * @return the frameHeight
-     */
-    public static int getFrameHeight() {
-        return frameHeight;
-    }
 }
