@@ -31,7 +31,6 @@ public abstract class Level extends JPanel implements MouseListener {
     private ArrayList<Projectile> projectiles = new ArrayList<>();
     private static ArrayList<Thread> threads = new ArrayList<>();
     private static ArrayList<Thread> allThreads = new ArrayList<>();
-    private Point startingPoint = new Point(0, 250);
     protected ArrayList<Rectangle> world = new ArrayList<>();
     private static boolean isPaused = false;
     public static boolean isBuilding = false;
@@ -115,7 +114,7 @@ public abstract class Level extends JPanel implements MouseListener {
         enemies.addAll(enemyGroup);
         
         for (Enemy enemy : enemyGroup) {
-            threads.add(new Thread(new EnemyAnimation(enemy, getPathingPoints(), this, new Point((startingPoint.x + enemyGroup.indexOf(enemy) * 50), startingPoint.y))));
+            threads.add(new Thread(new EnemyAnimation(enemy, getPathingPoints(), this, new Point((getStartingPoint().x + enemyGroup.indexOf(enemy) * 50), getStartingPoint().y))));
             threads.get(enemyGroup.indexOf(enemy)).start();
             
         }
@@ -299,6 +298,10 @@ public abstract void setPathingPoints();
     public abstract String getGrass();
 
     public abstract String getPath();
+    
+    public abstract Point getStartingPoint();
+    
+    public abstract void setStartingPoint();
 
     //public abstract void addPH(EnemyOne infEnemy);
 }

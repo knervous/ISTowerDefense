@@ -80,6 +80,17 @@ public class LevelOne extends Level {
         return path;
     }
 
+    @Override
+    public Point getStartingPoint() {
+        Point startingPoint = new Point(0, 250);
+        return startingPoint;
+    }
+
+    @Override
+    public void setStartingPoint() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }
 

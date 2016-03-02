@@ -22,18 +22,21 @@ public class ISTowerDefenseV1 {
     /**
      * @param args the command line arguments
      */
+    
+    public static Sequencer sequence; 
+    
     public static void main(String[] args) throws Exception{
         PlayGame playGame = new PlayGame();
         playGame.getLevel().setPlayGame(playGame);
         playGame.getOptionsPanel().setPlayGame(playGame);
         
         InputStream is;
-        Sequencer sequencer = MidiSystem.getSequencer();
-        sequencer.open();
+        sequence = MidiSystem.getSequencer();
+        sequence.open();
         is = new BufferedInputStream(new FileInputStream(new File("src/GwenStefani_Hollaback-girl.mid")));
-        sequencer.setSequence(is);
-        sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
-        sequencer.start();
+        sequence.setSequence(is);
+        sequence.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+        sequence.start();
         is.close();
       
         

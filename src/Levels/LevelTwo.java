@@ -8,6 +8,7 @@ package Levels;
 
 //~--- non-JDK imports --------------------------------------------------------
 import Enemies.*;
+import istower.defense.v1.ISTowerDefenseV1;
 
 //~--- JDK imports ------------------------------------------------------------
 import java.awt.*;
@@ -40,20 +41,21 @@ public class LevelTwo extends Level {
         this.setBackground(Color.white);
         setLayout(null);
         path = "Images/snow.jpg";
-        grass = "Images/rockmountain.png";
+        grass = "Images/rockmountain1.png";
         initWorld();
-        
-        try{
-        InputStream is;
-        Sequencer sequencer = MidiSystem.getSequencer();
-        sequencer.open();
-        is = new BufferedInputStream(new FileInputStream(new File("src/Necrophagist_-_Seven.mid")));
-        sequencer.setSequence(is);
-        sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
-        sequencer.start();
-        is.close();
+
+        try {
+            ISTowerDefenseV1.sequence.stop();
+            InputStream is;
+            Sequencer sequencer = MidiSystem.getSequencer();
+            sequencer.open();
+            is = new BufferedInputStream(new FileInputStream(new File("src/Necrophagist_-_Seven.mid")));
+            sequencer.setSequence(is);
+            sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+            sequencer.start();
+            is.close();
+        } catch (Exception e) {
         }
-        catch(Exception e){}
     }
 
     private void initWorld() {
@@ -67,24 +69,32 @@ public class LevelTwo extends Level {
         return level;
     }
 
-    @Override
     public void setPathingPoints() {
         pathingPoints = new ArrayList<>();
+        pathingPoints.add(new Point(300, 250));
+        pathingPoints.add(new Point(300, 520));
+        pathingPoints.add(new Point(575, 520));
+        pathingPoints.add(new Point(575, 90));
+    }
+
+    @Override
+    public int getNumEnemies() {
+        return new Random().nextInt(4) + 1;
+    }
+
+    @Override
+    public int getEnemyType() {
+        int rand = new Random().nextInt(8) + 1;
+        if (rand > 3) {
+            return 1;
+        } else {
+            return 2;
+        }
     }
 
     @Override
     public ArrayList<Point> getPathingPoints() {
         return pathingPoints;
-    }
-
-    @Override
-    public int getNumEnemies() {
-        return 3;
-    }
-
-    @Override
-    public int getEnemyType() {
-        return 2;
     }
 
     @Override
@@ -97,7 +107,16 @@ public class LevelTwo extends Level {
         return path;
     }
 
+    @Override
+    public Point getStartingPoint() {
+        Point startingPoint = new Point(0, 250);
+        return startingPoint;
+    }
 
+    @Override
+    public void setStartingPoint() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
 
