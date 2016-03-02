@@ -25,6 +25,7 @@ public class ISTowerDefenseV1 {
     public static void main(String[] args) throws Exception{
         PlayGame playGame = new PlayGame();
         playGame.getLevel().setPlayGame(playGame);
+        playGame.getOptionsPanel().setPlayGame(playGame);
         
         InputStream is;
         Sequencer sequencer = MidiSystem.getSequencer();
@@ -33,6 +34,7 @@ public class ISTowerDefenseV1 {
         sequencer.setSequence(is);
         sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
         sequencer.start();
+        is.close();
       
         
         

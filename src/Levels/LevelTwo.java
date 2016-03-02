@@ -13,8 +13,14 @@ import Enemies.*;
 import java.awt.*;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 import java.util.*;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Sequencer;
 
 import javax.swing.*;
 
@@ -34,8 +40,20 @@ public class LevelTwo extends Level {
         this.setBackground(Color.white);
         setLayout(null);
         path = "Images/snow.jpg";
-        grass = "Images/snow_mountain.jpg";
+        grass = "Images/rockmountain.png";
         initWorld();
+        
+        try{
+        InputStream is;
+        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        is = new BufferedInputStream(new FileInputStream(new File("src/Necrophagist_-_Seven.mid")));
+        sequencer.setSequence(is);
+        sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+        sequencer.start();
+        is.close();
+        }
+        catch(Exception e){}
     }
 
     private void initWorld() {
@@ -79,30 +97,7 @@ public class LevelTwo extends Level {
         return path;
     }
 
-    @Override
-    public void mousePressed(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    public void mouseReleased(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseExited(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent me) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }
 

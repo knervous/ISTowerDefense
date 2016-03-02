@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import Levels.*;
 
 
 /**
@@ -36,6 +37,7 @@ public class OptionsPanel extends JPanel {
     private int level, wave, waveTime;
     public static int gold;
     private boolean isPaused = false;
+    private PlayGame playGame;
 
     public OptionsPanel() {
     }
@@ -75,6 +77,11 @@ public class OptionsPanel extends JPanel {
         waveTimerDisplay = new JLabel("Ends in: " + getWaveTime() + "s");
         goldDisplay = new JLabel("Gold: " + gold);
         textDisplay = new JLabel("cost: 200 Gold");
+    }
+    
+    public void setPlayGame(PlayGame infPlayGame)
+    {
+        playGame = infPlayGame;
     }
 
     private void setupComponents() {
@@ -231,6 +238,21 @@ public class OptionsPanel extends JPanel {
                 PlayGame.level.startWaves();
             }
             repaint();
+            
+            if(wave % 2 == 0)
+            {
+                waveTimer.stop();
+                wave = 1;
+
+                
+
+                if(PlayGame.level instanceof LevelOne)
+                {
+                    PlayGame.level = new LevelTwo();
+                    playGame.nextLevel(PlayGame.level);
+                    javax.swing.JOptionPane.showMessageDialog(null, "You made it to the next level!");
+                }
+            }
         }
         
     }

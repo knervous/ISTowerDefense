@@ -19,6 +19,7 @@ public class PlayGame extends JFrame {
     private GridBagConstraints constraints = new GridBagConstraints();
     public static Level level;
     private OptionsPanel optionsPanel;
+    private JPanel content = new JPanel();
 
 
     public PlayGame() {
@@ -27,6 +28,7 @@ public class PlayGame extends JFrame {
         initUI();
         revalidate();
         setLocation(200, 100);
+        
         level.repaint();
         optionsPanel.repaint();
         setResizable(false);
@@ -37,34 +39,62 @@ public class PlayGame extends JFrame {
     {
         return level;
     }
+    
+    public OptionsPanel getOptionsPanel()
+    {
+        return optionsPanel;
+    }
 
     public void initUI() {
 
         setSize(frameWidth, frameHeight);
         setVisible(true);
+        content.setSize(this.getSize());
+        setLayout(new GridLayout());
+        add(content);
+        content.setLayout(new GridBagLayout());
+        
         optionsPanel = new OptionsPanel(frameWidth, frameHeight);
 
         level = new LevelOne();
-        setLayout(new GridBagLayout());
+        
         setSize(frameWidth, frameHeight);
         constraints.weightx = .9;
         constraints.weighty = 1.0;
         constraints.fill = GridBagConstraints.BOTH;
-        add(level, constraints);
+        content.add(level, constraints);
         constraints.weightx = .1;
         constraints.weighty = 1.0;
-        add(optionsPanel, constraints);
+        content.add(optionsPanel, constraints);
         setTitle("ISTower Defense");
+        setContentPane(content);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+    
+    public void nextLevel(Level infLevel)
+    {
+        level = infLevel;
+        content.removeAll();
+        content.repaint();
+        revalidate();
+        
+        constraints.weightx = .9;
+        constraints.weighty = 1.0;
+        constraints.fill = GridBagConstraints.BOTH;
+        content.add(level, constraints);
+        
+        constraints.weightx = .1;
+        constraints.weighty = 1.0;
+        content.add(optionsPanel, constraints);
+    }
+    
     public void addActionListeners() {
         optionsPanel.startLevel(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 level.startWaves();
                 optionsPanel.getWaveTimer().start();
-                optionsPanel.getStart().removeActionListener(this);
+                //optionsPanel.getStart().removeActionListener(this);
 
             }
         });
@@ -87,6 +117,8 @@ public class PlayGame extends JFrame {
                
             }
         });
+        
+        
 
         
         
