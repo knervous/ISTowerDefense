@@ -16,7 +16,7 @@ public class ObjectFrame extends JFrame{
     
     public ObjectFrame(JPanel panel){
         setSize(200,600);
-        setLocation(1000, 100);
+        setLocation(PlayGame.getFrameLocationX() + PlayGame.getFrameWidth(), PlayGame.getFrameLocationY());
         setVisible(true);
         setContentPane(panel);
     }
