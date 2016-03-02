@@ -229,27 +229,6 @@ public abstract class Level extends JPanel implements MouseListener {
     
     @Override
     public void mouseClicked(MouseEvent me) {
-        boolean isBuilt = false;
-        System.out.println(isBuilding);
-        System.out.println(towerPH);
-        for (Rectangle worldPiece : world) {
-            if (isBuilding && me.getX() >= worldPiece.getMinX()+10
-                    && me.getX() <= worldPiece.getMaxX() -10
-                    && me.getY() >= worldPiece.getMinY() +15
-                    && me.getY() <= worldPiece.getMaxY() -45) {
-                towers.add(towerPH);
-                towers.get(towers.size() - 1).setLocation(me.getX() - 25, me.getY() - 50); 
-                isBuilt = true;
-            }
-        }
-        if (isBuilt) {
-            isBuilding = false;
-            
-        } else if(!isBuilt && isBuilding){
-            OptionsPanel.setGold(-200);
-            
-        }
-        
         
         for(Enemy enemy : enemies)
         {
@@ -274,6 +253,30 @@ public abstract class Level extends JPanel implements MouseListener {
                 ObjectFrame oF = new ObjectFrame(oP);
             }
         }
+        
+        boolean isBuilt = false;
+        System.out.println(isBuilding);
+        System.out.println(towerPH);
+        for (Rectangle worldPiece : world) {
+            if (isBuilding && me.getX() >= worldPiece.getMinX()+10
+                    && me.getX() <= worldPiece.getMaxX() -10
+                    && me.getY() >= worldPiece.getMinY() +15
+                    && me.getY() <= worldPiece.getMaxY() -45) {
+                towers.add(towerPH);
+                towers.get(towers.size() - 1).setLocation(me.getX() - 25, me.getY() - 50); 
+                isBuilt = true;
+            }
+        }
+        if (isBuilt) {
+            isBuilding = false;
+            
+        } else if(!isBuilt && isBuilding){
+            OptionsPanel.setGold(-200);
+            
+        }
+        
+        
+        
     
 
     repaint();
