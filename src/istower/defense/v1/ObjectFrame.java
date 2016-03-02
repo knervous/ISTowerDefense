@@ -18,5 +18,6 @@ public class ObjectFrame extends JFrame{
         setSize(200,600);
         setLocation(1000, 100);
         setVisible(true);
+        setContentPane(panel);
     }
 }
