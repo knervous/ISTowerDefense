@@ -39,10 +39,6 @@ public class OptionsPanel extends JPanel {
     private boolean isPaused = false;
     private PlayGame playGame;
 
-    public OptionsPanel() {
-    }
-
-    ;
 
     public OptionsPanel(int frameWidth, int frameHeight) {
         super();
