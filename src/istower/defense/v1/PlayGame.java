@@ -26,6 +26,7 @@ public class PlayGame extends JFrame {
 
         initUI();
         revalidate();
+        setLocation(200, 100);
         level.repaint();
         optionsPanel.repaint();
         setResizable(false);

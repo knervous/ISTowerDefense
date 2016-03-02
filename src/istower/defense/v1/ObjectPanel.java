@@ -10,13 +10,13 @@ package istower.defense.v1;
  * @author Paul
  */
 import javax.swing.*;
-public class ObjectPanel extends JPanel{
+public class ObjectPanel extends JFrame{
     
     
     public ObjectPanel()
     {
         super();
-        setSize(200,600);
+        
     }
     
     
