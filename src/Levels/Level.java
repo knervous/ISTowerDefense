@@ -11,7 +11,7 @@ import Animations.*;
 import Enemies.*;
 import Towers.*;
 import istower.defense.v1.OptionsPanel;
-import static istower.defense.v1.PlayGame.level;
+
 
 //~--- JDK imports ------------------------------------------------------------
 import java.awt.*;
@@ -236,13 +236,32 @@ public abstract class Level extends JPanel implements MouseListener {
                 isBuilt = true;
             }
         }
-        
         if (isBuilt) {
             isBuilding = false;
             
         } else if(!isBuilt && isBuilding){
             OptionsPanel.setGold(-200);
             
+        }
+        
+        
+        for(Enemy enemy : enemies)
+        {
+            if(enemy.contains(me.getPoint()))
+            {
+                System.out.println("ENEMY FOUND");
+                ///jframe pops up
+            }
+        }
+        
+        for(Tower tower : towers)
+        {
+            if(tower.contains(me.getPoint()))
+            {
+                System.out.println("TOWER FOUND");
+                
+                ////jframe pops up
+            }
         }
     
 

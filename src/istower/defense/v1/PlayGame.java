@@ -3,6 +3,7 @@ package istower.defense.v1;
 import Levels.*;
 import Towers.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -18,6 +19,7 @@ public class PlayGame extends JFrame {
     private GridBagConstraints constraints = new GridBagConstraints();
     public static Level level;
     private OptionsPanel optionsPanel;
+
 
     public PlayGame() {
         super();
@@ -35,6 +37,7 @@ public class PlayGame extends JFrame {
         setSize(frameWidth, frameHeight);
         setVisible(true);
         optionsPanel = new OptionsPanel(frameWidth, frameHeight);
+
         level = new LevelOne();
         setLayout(new GridBagLayout());
         setSize(frameWidth, frameHeight);
@@ -79,49 +82,65 @@ public class PlayGame extends JFrame {
             }
         });
 
-        optionsPanel.srTower(new ActionListener() {
+        
+        
+        optionsPanel.mouseMrTower(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
-                    /*setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
-                     new ImageIcon("Images/sr_tower.png").getImage(),
-                     new Point(0, 0), "custom cursor"));*/
-                    level.buildTower(new SRTower());
-                    OptionsPanel.setGold(200);
-                    optionsPanel.repaint();
+               public void mousePressed(MouseEvent e) {
+                  if (e.getButton() == MouseEvent.BUTTON3) {
+                     //pop up jframe with medium range tower information
+                  }
+                  else if(e.getButton() == MouseEvent.BUTTON1)
+                  {
+                       if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
 
-                }
-            }
+                        level.buildTower(new MRTower());
+                        OptionsPanel.setGold(200);
+                        optionsPanel.repaint();
+                       }
+                  }
+               }
+            
+        });
+        
+        optionsPanel.mouseSrTower(new MouseAdapter() {
+            @Override
+               public void mousePressed(MouseEvent e) {
+                  if (e.getButton() == MouseEvent.BUTTON3) {
+                     //pop up jframe with short range tower information
+                  }
+                  else if(e.getButton() == MouseEvent.BUTTON1)
+                  {
+                       if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
+
+                        level.buildTower(new SRTower());
+                        OptionsPanel.setGold(200);
+                        optionsPanel.repaint();
+                       }
+                  }
+               }
+            
+        });
+        
+        optionsPanel.mouseLrTower(new MouseAdapter() {
+            @Override
+               public void mousePressed(MouseEvent e) {
+                  if (e.getButton() == MouseEvent.BUTTON3) {
+                     //pop up jframe with long range tower information
+                  }
+                  else if(e.getButton() == MouseEvent.BUTTON1)
+                  {
+                       if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
+
+                        level.buildTower(new LRTower());
+                        OptionsPanel.setGold(200);
+                        optionsPanel.repaint();
+                       }
+                  }
+               }
+            
         });
 
-        optionsPanel.mrTower(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
-                    /*setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
-                     new ImageIcon("Images/mr_tower.png").getImage(),
-                     new Point(0, 0), "custom cursor"));*/
-                    level.buildTower(new MRTower());
-                    OptionsPanel.setGold(200);
-                    optionsPanel.repaint();
-                }
-            }
-        });
-
-        optionsPanel.lrTower(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
-
-                    /*setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
-                     new ImageIcon("Images/lr_tower.png").getImage(),
-                     new Point(0, 0), "custom cursor"));*/
-                    level.buildTower(new LRTower());
-                    OptionsPanel.setGold(200);
-                    optionsPanel.repaint();
-                }
-            }
-        });
 
     }
 

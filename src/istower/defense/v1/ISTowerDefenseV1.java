@@ -30,7 +30,7 @@ public class ISTowerDefenseV1 {
         InputStream is;
         Sequencer sequencer = MidiSystem.getSequencer();
         sequencer.open();
-        is = new BufferedInputStream(new FileInputStream(new File("src/lady_gaga-bad_romance.mid")));
+        is = new BufferedInputStream(new FileInputStream(new File("src/GwenStefani_Hollaback-girl.mid")));
         sequencer.setSequence(is);
         sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
         sequencer.start();

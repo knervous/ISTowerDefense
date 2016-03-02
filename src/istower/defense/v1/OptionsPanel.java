@@ -7,9 +7,7 @@
 package istower.defense.v1;
 
 //~--- JDK imports ------------------------------------------------------------
-import Levels.Level;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -17,15 +15,12 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.*;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.Writer;
 
 
 /**
@@ -151,16 +146,18 @@ public class OptionsPanel extends JPanel {
         pause.addActionListener(al);
     }
     
-    public void srTower(ActionListener al) {
-        towerThree.addActionListener(al);
+    public void mouseSrTower(MouseAdapter al) {
+        towerThree.addMouseListener(al);
     }
     
-    public void mrTower(ActionListener al) {
-        towerTwo.addActionListener(al);
+    public void mouseMrTower(MouseAdapter ma)
+    {
+        towerTwo.addMouseListener(ma);
     }
     
-    public void lrTower(ActionListener al) {
-        towerOne.addActionListener(al);
+    
+    public void mouseLrTower(MouseAdapter al) {
+        towerOne.addMouseListener(al);
     }
 
     public JButton getStart() {
