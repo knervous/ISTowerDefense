@@ -266,7 +266,8 @@ public abstract class Level extends JPanel implements MouseListener {
                 ///jframe pops up
                 ObjectPanel oP = new ObjectPanel();
                 oP.addImage(enemy.getBackground());
-                ObjectFrame oF = new ObjectFrame(oP);
+                EnemyPanel eP = new EnemyPanel(enemy);
+                ObjectFrame oF = new ObjectFrame(eP);
             }
         }
         
