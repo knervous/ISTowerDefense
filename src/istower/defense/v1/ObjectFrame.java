@@ -6,18 +6,17 @@
 package istower.defense.v1;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
  * @author greg
  */
-public class ObjectFrame{
-    JFrame objectFrame = new JFrame();
+public class ObjectFrame extends JFrame{
     
-    public ObjectFrame(){
-        objectFrame.setSize(200,600);
-        objectFrame.setLocation(1000, 100);
-        objectFrame.setDefaultCloseOperation(objectFrame.EXIT_ON_CLOSE);
-        objectFrame.setVisible(true);
+    public ObjectFrame(JPanel panel){
+        setSize(200,600);
+        setLocation(1000, 100);
+        setVisible(true);
     }
 }

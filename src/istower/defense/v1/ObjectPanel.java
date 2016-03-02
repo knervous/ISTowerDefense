@@ -10,7 +10,7 @@ package istower.defense.v1;
  * @author Paul
  */
 import javax.swing.*;
-public class ObjectPanel extends JFrame{
+public class ObjectPanel extends JPanel{
     
     
     public ObjectPanel()
