@@ -23,20 +23,17 @@ public class EnemyPanel extends JPanel{
     private JLabel backgorund; 
     
     
-
-    
-    
     
     public EnemyPanel(Enemy enemy){
     JPanel JPanel = null;
     ObjectFrame objectFrame = new ObjectFrame(JPanel);
     setSize(200, 600);
-//    enemy.damage();
-//    enemy.background();
-//    enemy.goldOnKill();
-//    enemy.isAlive();
-//    enemy.maxHP();
-//    enemy.hitpoints();
+    enemy.damage();
+    enemy.background();
+    enemy.goldOnKill();
+    enemy.isAlive();
+    enemy.maxHP();
+    enemy.hitpoints();
     }
     
      
