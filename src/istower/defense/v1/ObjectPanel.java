@@ -19,6 +19,7 @@ public class ObjectPanel extends JPanel{
         super();
     }
     public void addImage(String imgsrc){
+     
         objectPic = new JButton(new ImageIcon(imgsrc));
         add(objectPic);
     }
