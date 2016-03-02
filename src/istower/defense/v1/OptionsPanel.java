@@ -137,6 +137,7 @@ public class OptionsPanel extends JPanel {
         goldDisplay.setText("Gold: " + gold);
         waveTimerDisplay.setText("Ends in: " + waveTime + "s");
         getWaveDisplay().setText("Wave: " + wave);
+        levelDisplay.setText("Level: " + level);
         
     }
 
@@ -249,6 +250,8 @@ public class OptionsPanel extends JPanel {
                 if(PlayGame.level instanceof LevelOne)
                 {
                     PlayGame.level = new LevelTwo();
+                    level++;
+                    gold = 1000;
                     playGame.nextLevel(PlayGame.level);
                     javax.swing.JOptionPane.showMessageDialog(null, "You made it to the next level!");
                 }
