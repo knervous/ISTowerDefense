@@ -6,6 +6,7 @@
 package Enemies;
 
 import istower.defense.v1.ObjectFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -13,6 +14,17 @@ import javax.swing.JPanel;
  * @author lmo5113
  */
 public class EnemyPanel extends JPanel{
+    
+    private JLabel damage; 
+    private JLabel goldOnKill; 
+    private JLabel Alive; 
+    private JLabel maxHP; 
+    private JLabel hitpoints; 
+    private JLabel backgorund; 
+    
+    
+
+    
     
     
     public EnemyPanel(Enemy enemy){
