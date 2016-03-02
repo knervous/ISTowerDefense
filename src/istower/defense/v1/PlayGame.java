@@ -14,8 +14,10 @@ import javax.swing.*;
  */
 public class PlayGame extends JFrame {
 
-    protected int frameWidth = 800;
-    protected int frameHeight = 600;
+    private static int frameWidth = 800;
+    private static int frameHeight = 600;
+    private static int frameLocationX = 0;
+    private static int frameLocationY = 100;
     private GridBagConstraints constraints = new GridBagConstraints();
     public static Level level;
     private OptionsPanel optionsPanel;
@@ -27,7 +29,7 @@ public class PlayGame extends JFrame {
 
         initUI();
         revalidate();
-        setLocation(200, 100);
+        setLocation(frameLocationX, frameLocationY);
         
         level.repaint();
         optionsPanel.repaint();
@@ -46,7 +48,7 @@ public class PlayGame extends JFrame {
     }
 
     public void initUI() {
-
+        
         setSize(frameWidth, frameHeight);
         setVisible(true);
         content.setSize(this.getSize());
@@ -180,6 +182,32 @@ public class PlayGame extends JFrame {
         });
 
 
+    }
+    /**
+     * @return the frameLocationX
+     */
+    public static int getFrameLocationX() {
+        return frameLocationX;
+    }
+
+    /**
+     * @return the frameLocationY
+     */
+    public static int getFrameLocationY() {
+        return frameLocationY;
+    }
+    /**
+     * @return the frameWidth
+     */
+    public static int getFrameWidth() {
+        return frameWidth;
+    }
+
+    /**
+     * @return the frameHeight
+     */
+    public static int getFrameHeight() {
+        return frameHeight;
     }
 
 }

@@ -31,12 +31,12 @@ public class EnemyPanel extends JPanel{
     JPanel JPanel = null;
     ObjectFrame objectFrame = new ObjectFrame(JPanel);
     setSize(200, 600);
-    enemy.damage();
-    enemy.background();
-    enemy.goldOnKill();
-    enemy.isAlive();
-    enemy.maxHP();
-    enemy.hitpoints();
+//    enemy.damage();
+//    enemy.background();
+//    enemy.goldOnKill();
+//    enemy.isAlive();
+//    enemy.maxHP();
+//    enemy.hitpoints();
     }
     
      
