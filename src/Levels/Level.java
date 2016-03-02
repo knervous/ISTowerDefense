@@ -221,7 +221,7 @@ public abstract class Level extends JPanel implements MouseListener {
         if (castleHealth <= 0) {
             
             
-            playGame.dispose();
+            //playGame.dispose();
 //            Component gameover = null;
 //            JOptionPane.showMessageDialog(gameover,
 //            "Gameover.");     
