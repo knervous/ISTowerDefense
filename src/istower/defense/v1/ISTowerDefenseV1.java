@@ -24,8 +24,7 @@ public class ISTowerDefenseV1 {
      */
     public static void main(String[] args) throws Exception{
         PlayGame playGame = new PlayGame();
-        
-        
+        playGame.getLevel().setPlayGame(playGame);
         
         InputStream is;
         Sequencer sequencer = MidiSystem.getSequencer();

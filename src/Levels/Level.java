@@ -21,6 +21,7 @@ import java.awt.event.*;
 import java.util.*;
 
 import javax.swing.*;
+import istower.defense.v1.*;
 
 public abstract class Level extends JPanel implements MouseListener {
     
@@ -36,6 +37,8 @@ public abstract class Level extends JPanel implements MouseListener {
     public static boolean isBuilding = false;
     private double castleHealth = 200;
     private Tower towerPH;
+    
+    private PlayGame playGame;
     
     public Level() {
         super();
@@ -188,9 +191,12 @@ public abstract class Level extends JPanel implements MouseListener {
     public void damageCastle(Enemy enemy) {
         castleHealth -= enemy.getDamage();
         if (castleHealth <= 0) {
-            Component gameover = null;
-            JOptionPane.showMessageDialog(gameover,
-            "Gameover.");     
+            
+            
+            playGame.dispose();
+//            Component gameover = null;
+//            JOptionPane.showMessageDialog(gameover,
+//            "Gameover.");     
         }
     }
     
@@ -267,6 +273,12 @@ public abstract class Level extends JPanel implements MouseListener {
 
     repaint();
 }
+    
+    
+    public void setPlayGame(PlayGame infPlayGame)
+    {
+        playGame = infPlayGame;
+    }
 
 public abstract void setPathingPoints();
 

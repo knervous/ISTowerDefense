@@ -31,6 +31,11 @@ public class PlayGame extends JFrame {
         setResizable(false);
         addActionListeners();
     }
+    
+    public Level getLevel()
+    {
+        return level;
+    }
 
     public void initUI() {
 
