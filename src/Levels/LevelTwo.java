@@ -47,7 +47,7 @@ public class LevelTwo extends Level {
             InputStream is;
             Sequencer sequencer = MidiSystem.getSequencer();
             sequencer.open();
-            is = new BufferedInputStream(new FileInputStream(new File("src/Necrophagist_-_Seven.mid")));
+            is = new BufferedInputStream(new FileInputStream(new File("src/Phil_Collins_-_In_the_Air_Tonight.mid")));
             sequencer.setSequence(is);
             sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
             sequencer.start();
@@ -58,7 +58,6 @@ public class LevelTwo extends Level {
 
     private void initWorld() {
         world.add(new Rectangle(0, 50, 300, 470));      // top left
-
         world.add(new Rectangle(350, 0, 225, 220));    // top right
         world.add(new Rectangle(350, 270, 225, 250)); // mid right
 
