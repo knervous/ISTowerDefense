@@ -9,15 +9,22 @@ package Levels;
 //~--- non-JDK imports --------------------------------------------------------
 
 import Enemies.EnemyOne;
+import istower.defense.v1.ISTowerDefenseV1;
 
 //~--- JDK imports ------------------------------------------------------------
 
 import java.awt.Color;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 import java.util.ArrayList;
 import java.util.Random;
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Sequencer;
 
 /**
  *
@@ -38,6 +45,20 @@ public class LevelThree extends Level {
         initWorld();
         path = "Images/lava.png";
         grass = "Images/lava_ground.jpg";
+        
+        try {
+            ISTowerDefenseV1.sequence.stop();
+            InputStream is;
+            Sequencer sequencer = MidiSystem.getSequencer();
+            sequencer.open();
+            is = new BufferedInputStream(new FileInputStream(new File("src/Necrophagist_-_Seven.mid")));
+            sequencer.setSequence(is);
+            sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+            sequencer.start();
+            is.close();
+        } catch (Exception e) {
+        }
+        
     }
 
     private void initializeComponents() {

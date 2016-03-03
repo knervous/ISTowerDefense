@@ -30,11 +30,11 @@ public abstract class Level extends JPanel implements MouseListener {
     protected ArrayList<Tower> towers = new ArrayList<>();
     protected ArrayList<Projectile> projectiles = new ArrayList<>();
     protected static ArrayList<Thread> threads = new ArrayList<>();
-    protected static ArrayList<Thread> allThreads = new ArrayList<>();
+    public static ArrayList<Thread> allThreads = new ArrayList<>();
     protected ArrayList<Rectangle> world = new ArrayList<>();
     public static boolean isPaused = false;
     public static boolean isBuilding = false;
-    protected double castleHealth = 200;
+    public static double castleHealth = 200;
     protected Tower towerPH;
     protected Graphics g2dObj;
     
@@ -228,11 +228,12 @@ public abstract class Level extends JPanel implements MouseListener {
         castleHealth -= enemy.getDamage();
         if (castleHealth <= 0) {
             
+            JOptionPane.showMessageDialog(this,
+            "Gameover.");  
+            playGame.dispose();
+            System.exit(0);
             
-            //playGame.dispose();
-//            Component gameover = null;
-//            JOptionPane.showMessageDialog(gameover,
-//            "Gameover.");     
+           
         }
     }
     

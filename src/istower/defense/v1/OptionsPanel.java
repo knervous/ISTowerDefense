@@ -236,7 +236,7 @@ public class OptionsPanel extends JPanel {
             }
             repaint();
             
-            if(wave % 2 == 0)
+            if(wave % 5 == 0)
             {
                 waveTimer.stop();
                 wave = 1;
@@ -248,6 +248,12 @@ public class OptionsPanel extends JPanel {
                     PlayGame.level = new LevelTwo();
                     level++;
                     gold = 1000;
+                    Level.castleHealth = 200;
+                    for(Thread thread : Level.allThreads)
+                    {
+                        thread.stop();
+                    }
+                    Level.allThreads.clear();
                     playGame.nextLevel(PlayGame.level);
                     javax.swing.JOptionPane.showMessageDialog(null, "You made it to the next level!");
                 }
@@ -257,6 +263,12 @@ public class OptionsPanel extends JPanel {
                     PlayGame.level = new LevelThree();
                     level++;
                     gold = 1200;
+                    Level.castleHealth = 200;
+                    for(Thread thread : Level.allThreads)
+                    {
+                        thread.stop();
+                    }
+                    Level.allThreads.clear();
                     playGame.nextLevel(PlayGame.level);
                     javax.swing.JOptionPane.showMessageDialog(null, "You made it to the next level!");
                 }
