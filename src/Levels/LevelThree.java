@@ -17,21 +17,23 @@ import java.awt.Point;
 import java.awt.Rectangle;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author Paul
  */
-public abstract class LevelThree extends Level {
+public class LevelThree extends Level {
     private int level = 3;
     private ArrayList<Point> pathingPoints; 
+    private Point startingPoint;
     private String grass;
     private String path;
     
 
     public LevelThree() {
         super();
-        this.setBackground(Color.blue);
+        this.setBackground(Color.orange);
         setLayout(null);
         initWorld();
         path = "Images/lava_ground.jpg";
@@ -53,11 +55,11 @@ public abstract class LevelThree extends Level {
         world.add(new Rectangle(350, 0, 225, 510));    //top right 
     }
 
-    public void setBackground(Color blue) {
-        throw new UnsupportedOperationException("");  }
-
-    private void setLayout(Object object) {
-        throw new UnsupportedOperationException(""); }
+//    public void setBackground(Color orange) {
+//        throw new UnsupportedOperationException("");  }
+//
+//    private void setLayout(Object object) {
+//        throw new UnsupportedOperationException(""); }
  
     private  ArrayList<Rectangle> world = new ArrayList<>();
         
@@ -76,12 +78,24 @@ public abstract class LevelThree extends Level {
 
     @Override
     public int getNumEnemies() {
-        return 3;
+        return new Random().nextInt(4) + 1;
     }
 
     @Override
     public int getEnemyType() {
-        return 2;
+        int rand = new Random().nextInt(8) + 1;
+        if(rand >= 1 && rand <= 3)
+        {
+            return 1;
+        }
+        else if(rand >= 4 && rand <= 6)
+        {
+            return 2;
+        }
+        else
+        {
+            return 3;
+        }
     }
 
     @Override
@@ -93,9 +107,15 @@ public abstract class LevelThree extends Level {
     public String getPath() {
         return path;
     }
-    
-    
 
+    @Override
+    public Point getStartingPoint() {
+        return startingPoint;
+    }
+    @Override
+    public void setStartingPoint() {
+        startingPoint = new Point(0, 250);
+    }
 
 }
 
