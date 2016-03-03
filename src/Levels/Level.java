@@ -104,6 +104,10 @@ public abstract class Level extends JPanel implements MouseListener {
         {
             g2d.drawImage(new ImageIcon("Images/castle4.png").getImage(), 380, 0, 200, 147, null);
         }
+        else if(this instanceof LevelThree)
+        {
+            g2d.drawImage(new ImageIcon("Images/castle4.png").getImage(), 380, 0, 200, 147, null);
+        }
         g2d.fillRect(432, 167, 140, 30);
         g2d.setColor(new Color(100, 20, 20));
         g2d.fillRect(436, 171, (int) ((castleHealth / 200) * 130), 22);
