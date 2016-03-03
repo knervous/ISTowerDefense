@@ -5,6 +5,12 @@
  */
 package Towers;
 
+import Enemies.Enemy;
+import istower.defense.v1.ObjectFrame;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,13 +20,15 @@ import javax.swing.JPanel;
  *
  * @author yvc5283
  */
-public class TowerPanel {
-public class ObjectPanel extends JPanel{
+
+public class TowerPanel extends JPanel{
      private JLabel NameDisplay, RangeDisplay, DamageDisplay, CostDisplay;
-     private JButton LRimage, MRimage, SRimage;
+     private JButton LRimage, MRimage, SRimage, Displayimage;
      private int Range, Damage, Cost;
      private String Name;
+     private GridBagConstraints layoutConst = new GridBagConstraints();
      
+    
      public void LRTower() {
          Name = "LRTower";
          Range = 300;
@@ -47,10 +55,38 @@ public class ObjectPanel extends JPanel{
      
      
      public void Display() {
-     NameDisplay = new JLabel("Name: " + Name);
-     RangeDisplay = new JLabel("Range: " + Range);
-     DamageDisplay = new JLabel ("Damage: " + Damage);
-     CostDisplay = new JLabel ("Cost: " + Cost);
-}
-}
+  
+        this.setLayout(new GridBagLayout());
+        layoutConst.insets = new Insets(10, 10, 10, 10);
+        ObjectFrame oF = new ObjectFrame(this);
+        
+        /*Displayimage = new JButton(new ImageIcon(Tower.background));
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 0;
+        oF.add(DisplayImage, layoutConst);
+       */ 
+        NameDisplay = new JLabel("Name: " + Name);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 1;
+        oF.add(NameDisplay, layoutConst);
+
+        DamageDisplay = new JLabel ("Damage: " + Damage);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 2;
+        oF.add(DamageDisplay, layoutConst);
+
+        CostDisplay = new JLabel ("Cost: " + Cost);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 3;
+        oF.add(CostDisplay, layoutConst);       
+ oF.setTitle("Enemy Info");
+        oF.setVisible(true);
+    }
+    
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(new ImageIcon("Images/scroll.png").getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
+        
+    }
 }
