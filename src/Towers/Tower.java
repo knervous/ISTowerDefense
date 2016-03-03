@@ -20,8 +20,10 @@ public abstract class Tower extends Rectangle {
 
     private boolean isFiring = false;
     protected String background;
+    protected String name;
     protected double range;
     protected int damage;
+    
 
     public Tower() {
         this.x = 0;
@@ -74,6 +76,11 @@ public abstract class Tower extends Rectangle {
     public int getDamage() {
         return damage;
     }
+     public String getName()
+    {
+        return name;
+    }
+
 
 }
 

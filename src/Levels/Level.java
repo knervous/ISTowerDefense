@@ -38,6 +38,7 @@ public abstract class Level extends JPanel implements MouseListener {
     private Tower towerPH;
     
     private PlayGame playGame;
+  
     
     public Level() {
         super();
@@ -280,7 +281,7 @@ public abstract class Level extends JPanel implements MouseListener {
                 System.out.println("TOWER FOUND");
                 //jframe pops up
                   TowerPanel tP = new TowerPanel(tower);
- //                 ObjectFrame oF = new ObjectFrame(oP);
+ 
             }
         }
         

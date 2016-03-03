@@ -21,17 +21,11 @@ import javax.swing.JPanel;
 
 public class TowerPanel extends JPanel{
      private JLabel NameDisplay, RangeDisplay, DamageDisplay, CostDisplay;
-     private JButton LRimage, MRimage, SRimage, Displayimage;
-     private int Range, Damage, Cost;
-     private String Name;
+     private JButton  Displayimage;
+     private int Cost = 200;
      private GridBagConstraints layoutConst = new GridBagConstraints();
 
     public TowerPanel(Tower tower) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-   
-     public void TowerPanel(Tower tower) {
-  
         this.setLayout(new GridBagLayout());
         layoutConst.insets = new Insets(10, 10, 10, 10);
         ObjectFrame oF = new ObjectFrame(this);
@@ -41,21 +35,26 @@ public class TowerPanel extends JPanel{
         layoutConst.gridy = 0;
         oF.add(Displayimage, layoutConst);
        
-        NameDisplay = new JLabel("Name: " + Name);
+        NameDisplay = new JLabel("Name: " + tower.name);
         layoutConst.gridx = 0;
         layoutConst.gridy = 1;
         oF.add(NameDisplay, layoutConst);
-
-        DamageDisplay = new JLabel ("Damage: " + Damage);
+        
+        RangeDisplay = new JLabel ("Range: " + tower.range);
         layoutConst.gridx = 0;
         layoutConst.gridy = 2;
+        oF.add(RangeDisplay, layoutConst);
+
+        DamageDisplay = new JLabel ("Damage: " + tower.damage);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 3;
         oF.add(DamageDisplay, layoutConst);
 
         CostDisplay = new JLabel ("Cost: " + Cost);
         layoutConst.gridx = 0;
-        layoutConst.gridy = 3;
+        layoutConst.gridy = 4;
         oF.add(CostDisplay, layoutConst);       
- oF.setTitle("Enemy Info");
+ oF.setTitle("Tower Info");
         oF.setVisible(true);
     }
     

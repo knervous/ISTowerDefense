@@ -21,7 +21,7 @@ public class LRTower extends Tower {
         background = "Images/lr_tower.png";
         this.width = new ImageIcon(background).getImage().getWidth(null);
         this.height = new ImageIcon(background).getImage().getHeight(null);
-
+        this.name = "LRTower";
     }
 
 }
