@@ -26,18 +26,19 @@ import istower.defense.v1.*;
 public abstract class Level extends JPanel implements MouseListener {
     
     protected ArrayList<Enemy> enemies = new ArrayList<>();
-    private ArrayList<Enemy> enemyGroup = new ArrayList<>();
-    private ArrayList<Tower> towers = new ArrayList<>();
-    private ArrayList<Projectile> projectiles = new ArrayList<>();
-    private static ArrayList<Thread> threads = new ArrayList<>();
-    private static ArrayList<Thread> allThreads = new ArrayList<>();
+    protected ArrayList<Enemy> enemyGroup = new ArrayList<>();
+    protected ArrayList<Tower> towers = new ArrayList<>();
+    protected ArrayList<Projectile> projectiles = new ArrayList<>();
+    protected static ArrayList<Thread> threads = new ArrayList<>();
+    protected static ArrayList<Thread> allThreads = new ArrayList<>();
     protected ArrayList<Rectangle> world = new ArrayList<>();
-    private static boolean isPaused = false;
+    public static boolean isPaused = false;
     public static boolean isBuilding = false;
-    private double castleHealth = 200;
-    private Tower towerPH;
+    protected double castleHealth = 200;
+    protected Tower towerPH;
+    protected Graphics g2dObj;
     
-    private PlayGame playGame;
+    protected PlayGame playGame;
   
     
     public Level() {
@@ -82,7 +83,9 @@ public abstract class Level extends JPanel implements MouseListener {
     
     @Override
     public void paintComponent(Graphics g) {
+        
         super.paintComponent(g);
+        g2dObj = g.create();
         g.drawImage(new ImageIcon(getPath()).getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
         drawWorld(g);
         drawObjects(g);
@@ -292,7 +295,7 @@ public abstract class Level extends JPanel implements MouseListener {
             if (isBuilding && me.getX() >= worldPiece.getMinX()+10
                     && me.getX() <= worldPiece.getMaxX() -10
                     && me.getY() >= worldPiece.getMinY() +15
-                    && me.getY() <= worldPiece.getMaxY() -45) {
+                    && me.getY() <= worldPiece.getMaxY() -35) {
                 towers.add(towerPH);
                 towers.get(towers.size() - 1).setLocation(me.getX() - 25, me.getY() - 50); 
                 isBuilt = true;
