@@ -25,44 +25,22 @@ public class TowerPanel extends JPanel{
      private int Range, Damage, Cost;
      private String Name;
      private GridBagConstraints layoutConst = new GridBagConstraints();
-     
-    
-     public void LRTower() {
-         Name = "LRTower";
-         Range = 300;
-         Damage = 10;
-         Cost = 200;
-         LRimage = new JButton(new ImageIcon("Images/lr_tower.png"));
-     }
-     
-      public void MRTower() {
-         Name = "MRTower";
-         Range = 200;
-         Damage = 12;
-         Cost = 200;
-         MRimage = new JButton(new ImageIcon("Images/mr_tower.png"));
-     }
-      
-       public void SRTower() {
-         Name = "SRTower";
-         Range = 100;
-         Damage = 15;
-         Cost = 200;
-         SRimage = new JButton(new ImageIcon("Images/sr_tower.png"));
-     }
-     
-     
-     public void Display() {
+
+    public TowerPanel(Tower tower) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+   
+     public void TowerPanel(Tower tower) {
   
         this.setLayout(new GridBagLayout());
         layoutConst.insets = new Insets(10, 10, 10, 10);
         ObjectFrame oF = new ObjectFrame(this);
         
-        /*Displayimage = new JButton(new ImageIcon(Tower.background));
+        Displayimage = new JButton(new ImageIcon(tower.background));
         layoutConst.gridx = 0;
         layoutConst.gridy = 0;
-        oF.add(DisplayImage, layoutConst);
-       */ 
+        oF.add(Displayimage, layoutConst);
+       
         NameDisplay = new JLabel("Name: " + Name);
         layoutConst.gridx = 0;
         layoutConst.gridy = 1;
