@@ -33,6 +33,7 @@ public class LevelTwo extends Level {
     private String grass;
     private String path;
     private int pathNum = 1;
+    public static Sequencer seqTwo;
 
     public LevelTwo() {
         super();
@@ -45,12 +46,12 @@ public class LevelTwo extends Level {
         try {
             ISTowerDefenseV1.sequence.stop();
             InputStream is;
-            Sequencer sequencer = MidiSystem.getSequencer();
-            sequencer.open();
+            seqTwo = MidiSystem.getSequencer();
+            seqTwo.open();
             is = new BufferedInputStream(new FileInputStream(new File("src/Phil_Collins_-_In_the_Air_Tonight.mid")));
-            sequencer.setSequence(is);
-            sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
-            sequencer.start();
+            seqTwo.setSequence(is);
+            seqTwo.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
+            seqTwo.start();
             is.close();
         } catch (Exception e) {
         }

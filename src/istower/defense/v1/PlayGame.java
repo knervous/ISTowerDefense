@@ -139,7 +139,7 @@ public class PlayGame extends JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 if (e.getButton() == MouseEvent.BUTTON3) {
-                    //pop up jframe with medium range tower information
+                    TowerPanel tP = new TowerPanel(new MRTower());
                 } else if (e.getButton() == MouseEvent.BUTTON1) {
                     if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
 
@@ -156,7 +156,7 @@ public class PlayGame extends JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 if (e.getButton() == MouseEvent.BUTTON3) {
-                    //pop up jframe with short range tower information
+                    TowerPanel tP = new TowerPanel(new SRTower());
                 } else if (e.getButton() == MouseEvent.BUTTON1) {
                     if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
 
@@ -173,7 +173,7 @@ public class PlayGame extends JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 if (e.getButton() == MouseEvent.BUTTON3) {
-                    //pop up jframe with long range tower information
+                    TowerPanel tP = new TowerPanel(new LRTower());
                 } else if (e.getButton() == MouseEvent.BUTTON1) {
                     if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
 

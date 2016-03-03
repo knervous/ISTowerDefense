@@ -47,7 +47,7 @@ public class LevelThree extends Level {
         grass = "Images/lava_ground.jpg";
         
         try {
-            ISTowerDefenseV1.sequence.stop();
+            LevelTwo.seqTwo.stop();
             InputStream is;
             Sequencer sequencer = MidiSystem.getSequencer();
             sequencer.open();
