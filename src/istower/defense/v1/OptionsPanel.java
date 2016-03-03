@@ -251,6 +251,21 @@ public class OptionsPanel extends JPanel {
                     playGame.nextLevel(PlayGame.level);
                     javax.swing.JOptionPane.showMessageDialog(null, "You made it to the next level!");
                 }
+                
+                else if(PlayGame.level instanceof LevelTwo)
+                {
+                    PlayGame.level = new LevelThree();
+                    level++;
+                    gold = 1200;
+                    playGame.nextLevel(PlayGame.level);
+                    javax.swing.JOptionPane.showMessageDialog(null, "You made it to the next level!");
+                }
+                
+                else if(PlayGame.level instanceof LevelThree)
+                {
+                    
+                    javax.swing.JOptionPane.showMessageDialog(null, "You beat the game! Congratulations!");
+                }
             }
         }
         

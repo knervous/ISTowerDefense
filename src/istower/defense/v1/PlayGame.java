@@ -88,6 +88,16 @@ public class PlayGame extends JFrame {
         constraints.weightx = .1;
         constraints.weighty = 1.0;
         content.add(optionsPanel, constraints);
+        
+        optionsPanel.startLevel(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                level.startWaves();
+                optionsPanel.getWaveTimer().start();
+                optionsPanel.getStart().removeActionListener(this);
+
+            }
+        });
     }
     
     public void addActionListeners() {
@@ -96,7 +106,7 @@ public class PlayGame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 level.startWaves();
                 optionsPanel.getWaveTimer().start();
-                //optionsPanel.getStart().removeActionListener(this);
+                optionsPanel.getStart().removeActionListener(this);
 
             }
         });

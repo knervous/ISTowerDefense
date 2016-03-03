@@ -79,19 +79,21 @@ public class LevelTwo extends Level {
 
     @Override
     public int getEnemyType() {
-        int rand = new Random().nextInt(8) + 1;
-        if(rand >= 1 && rand <= 3)
+        int rand = new Random().nextInt(4) + 1;
+        if(rand == 1 || rand == 2)
         {
             return 1;
         }
-        else if(rand >= 4 && rand <= 6)
+        else if(rand == 3)
         {
             return 2;
         }
-        else
+        else if(rand == 4)
         {
             return 3;
         }
+        
+        return 1;
     }
 
     @Override
