@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package Towers;
-
-import Enemies.Enemy;
 import istower.defense.v1.ObjectFrame;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
