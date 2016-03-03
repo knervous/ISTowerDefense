@@ -58,7 +58,7 @@ public class PlayGame extends JFrame {
         
         optionsPanel = new OptionsPanel(frameWidth, frameHeight);
 
-        level = new LevelThree();
+        level = new LevelOne();
         
         setSize(frameWidth, frameHeight);
         constraints.weightx = .9;

@@ -36,8 +36,8 @@ public class LevelThree extends Level {
         this.setBackground(Color.orange);
         setLayout(null);
         initWorld();
-        path = "Images/lava_ground.jpg";
-        grass = "Images/lava.jpg";
+        path = "Images/lava.png";
+        grass = "Images/lava_ground.jpg";
     }
 
     private void initializeComponents() {
@@ -61,8 +61,6 @@ public class LevelThree extends Level {
 //    private void setLayout(Object object) {
 //        throw new UnsupportedOperationException(""); }
  
-    private  ArrayList<Rectangle> world = new ArrayList<>();
-        
     
     public ArrayList<Point> getPathingPoints(){
         return pathingPoints;
@@ -78,7 +76,7 @@ public class LevelThree extends Level {
 
     @Override
     public int getNumEnemies() {
-        return new Random().nextInt(4) + 1;
+        return new Random().nextInt(5) + 1;
     }
 
     @Override
