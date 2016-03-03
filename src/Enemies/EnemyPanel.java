@@ -46,25 +46,21 @@ public class EnemyPanel extends JPanel{
         oF.add(Damage, layoutConst);
 
         GoldOnKill = new JLabel("Gold on Kill: " + enemy.goldOnKill);
-        oF.add(GoldOnKill);
         layoutConst.gridx = 0;
         layoutConst.gridy = 2;
         oF.add(GoldOnKill, layoutConst);
 
         isLiving = new JLabel("Alive?: " + enemy.isAlive);
-        oF.add(isLiving);
         layoutConst.gridx = 0;
         layoutConst.gridy = 3;
         oF.add(isLiving, layoutConst);
 
         MaxHP = new JLabel("Maximum HP: " + enemy.maxHP);
-        oF.add(MaxHP);
         layoutConst.gridx = 0;
         layoutConst.gridy = 4;
         oF.add(MaxHP, layoutConst);
 
         Hitpoints = new JLabel("Hit Points:" + enemy.hitpoints);
-        oF.add(Hitpoints);
         layoutConst.gridx = 0;
         layoutConst.gridy = 5;
         oF.add(Hitpoints, layoutConst);
