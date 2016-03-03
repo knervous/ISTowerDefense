@@ -52,9 +52,12 @@ public class LevelThree extends Level {
       
         world.add(new Rectangle(0, 50, 200, 200));      // top left
         world.add(new Rectangle(50, 300, 250, 220));    // bottom  left
-        world.add(new Rectangle(350, 50, 225, 470));    //top right
-        world.add(new Rectangle(400, 0, 250, 50));
-        world.add(new Rectangle(250, 50, 100, 200));     // top middle
+        world.add(new Rectangle(350, 50, 225, 235));    //top right
+        world.add(new Rectangle(350, 285, 225, 235));    //top right
+        world.add(new Rectangle(515, 0, 250, 50));
+        world.add(new Rectangle(560, 0, 125, 50));
+        world.add(new Rectangle(250, 50, 100, 100));     // top middle
+        world.add(new Rectangle(250, 150, 100, 100));
     }
 
 //    public void setBackground(Color orange) {
