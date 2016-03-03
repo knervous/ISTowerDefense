@@ -39,36 +39,36 @@ public class EnemyPanel extends JPanel{
         layoutConst.gridx = 0;
         layoutConst.gridy = 0;
         oF.add(EnemyImage, layoutConst);
+        
+        name = new JLabel("Name: "+enemy.name);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 1;
+        oF.add(name, layoutConst);
 
         Damage = new JLabel("Damage: " + enemy.damage);
         layoutConst.gridx = 0;
-        layoutConst.gridy = 1;
+        layoutConst.gridy = 2;
         oF.add(Damage, layoutConst);
 
         GoldOnKill = new JLabel("Gold on Kill: " + enemy.goldOnKill);
         layoutConst.gridx = 0;
-        layoutConst.gridy = 2;
+        layoutConst.gridy = 3;
         oF.add(GoldOnKill, layoutConst);
 
         isLiving = new JLabel("Alive?: " + enemy.isAlive);
         layoutConst.gridx = 0;
-        layoutConst.gridy = 3;
+        layoutConst.gridy = 4;
         oF.add(isLiving, layoutConst);
 
         MaxHP = new JLabel("Maximum HP: " + enemy.maxHP);
         layoutConst.gridx = 0;
-        layoutConst.gridy = 4;
+        layoutConst.gridy = 5;
         oF.add(MaxHP, layoutConst);
 
         Hitpoints = new JLabel("Hit Points:" + enemy.hitpoints);
         layoutConst.gridx = 0;
-        layoutConst.gridy = 5;
-        oF.add(Hitpoints, layoutConst);
-        
-        name = new JLabel("Name: "+enemy.name);
-        layoutConst.gridx = 0;
         layoutConst.gridy = 6;
-        oF.add(name, layoutConst);
+        oF.add(Hitpoints, layoutConst);
 
         oF.setTitle("Enemy Info");
         oF.setVisible(true);
