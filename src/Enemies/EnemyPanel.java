@@ -6,6 +6,10 @@
 package Enemies;
 
 import istower.defense.v1.ObjectFrame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,47 +19,56 @@ import javax.swing.JPanel;
  * @author lmo5113
  */
 public class EnemyPanel extends JPanel{
-    private String enemyName; 
-    
-    private JLabel damage; 
-    private JLabel goldOnKill; 
-    private JLabel isAlive; 
-    private JLabel maxHP; 
+    private JButton EnemyImage;
+    private JLabel Damage; 
+    private JLabel GoldOnKill; 
+    private JLabel isLiving; 
+    private JLabel MaxHP; 
     private JLabel Hitpoints; 
-    private JLabel backgorund; 
-    
-    private JButton Damage; 
-    private JButton GoldOnKill; 
-    private JButton Alive;
-    private JButton MaximumHP;
-    private JButton HitPoints; 
-    private JButton Background; 
-    
+    private GridBagConstraints layoutConst = new GridBagConstraints();
     
     public EnemyPanel(Enemy enemy){
-    JPanel JPanel = null;
-    ObjectFrame objectFrame = new ObjectFrame(JPanel);
-    setSize(200, 600);
-    enemy.damage();
-    enemy.background();
-    enemy.goldOnKill();
-    enemy.isAlive();
-    enemy.maxHP();
-    enemy.hitpoints();
-    }
-    
-    public void Display(JLabel Hitpoints) {
+        this.setLayout(new GridBagLayout());
+        layoutConst.insets = new Insets(10, 10, 10, 10);
+        ObjectFrame oF = new ObjectFrame(this);
         
-     Damage = new JButton("Damage: " + damage);
-     GoldOnKill = new JButton("Gold on Kill: " + goldOnKill);
-     Alive = new JButton ("Alive?: " + isAlive);
-     MaximumHP = new JButton ("Maximum HP: " + maxHP);
-     Hitpoints = new JLabel("Hit Points:" + Hitpoints);
-    
+        EnemyImage = new JButton(new ImageIcon(enemy.background));
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 0;
+        oF.add(EnemyImage, layoutConst);
+
+        Damage = new JLabel("Damage: " + enemy.damage);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 1;
+        oF.add(Damage, layoutConst);
+
+        GoldOnKill = new JLabel("Gold on Kill: " + enemy.goldOnKill);
+        oF.add(GoldOnKill);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 2;
+        oF.add(GoldOnKill, layoutConst);
+
+        isLiving = new JLabel("Alive?: " + enemy.isAlive);
+        oF.add(isLiving);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 3;
+        oF.add(isLiving, layoutConst);
+
+        MaxHP = new JLabel("Maximum HP: " + enemy.maxHP);
+        oF.add(MaxHP);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 4;
+        oF.add(MaxHP, layoutConst);
+
+        Hitpoints = new JLabel("Hit Points:" + enemy.hitpoints);
+        oF.add(Hitpoints);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 5;
+        oF.add(Hitpoints, layoutConst);
+
+        oF.setTitle("Enemy Info");
+        oF.setVisible(true);
     }
-     
-    
-    
 }
 
 
