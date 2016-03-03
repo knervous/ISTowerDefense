@@ -6,6 +6,8 @@
 package Enemies;
 
 import istower.defense.v1.ObjectFrame;
+import static istower.defense.v1.OptionsPanel.gold;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -25,6 +27,7 @@ public class EnemyPanel extends JPanel{
     private JLabel isLiving; 
     private JLabel MaxHP; 
     private JLabel Hitpoints; 
+    private JLabel name;
     private GridBagConstraints layoutConst = new GridBagConstraints();
     
     public EnemyPanel(Enemy enemy){
@@ -65,9 +68,21 @@ public class EnemyPanel extends JPanel{
         layoutConst.gridx = 0;
         layoutConst.gridy = 5;
         oF.add(Hitpoints, layoutConst);
+        
+        name = new JLabel("Name: "+enemy.name);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 6;
+        oF.add(name, layoutConst);
 
         oF.setTitle("Enemy Info");
         oF.setVisible(true);
+    }
+    
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(new ImageIcon("Images/scroll.png").getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
+        
     }
 }
 

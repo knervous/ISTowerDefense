@@ -18,6 +18,7 @@ public class EnemyTwo extends Enemy {
         maxHP = 350;
         damage = 30;
         goldOnKill = 50;
+        name = "Orc Shaman";
         background = "Images/Orc_Marauder.gif";
     }
     

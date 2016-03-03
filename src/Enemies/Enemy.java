@@ -20,6 +20,7 @@ public abstract class Enemy extends Rectangle {
     protected int goldOnKill;
     protected boolean isAlive;
     protected String background;
+    protected String name;
 
     public Enemy() {
         super();
@@ -71,6 +72,11 @@ public abstract class Enemy extends Rectangle {
     public void setBackground(String background)
     {
         this.background = background;
+    }
+    
+    public String getName()
+    {
+        return name;
     }
 
     void damage() {

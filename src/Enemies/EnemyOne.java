@@ -21,6 +21,7 @@ public class EnemyOne extends Enemy {
         damage = 20;
         goldOnKill = 35;
         isAlive = true;
+        name = "Orc Peon";
         background = "Images/Orc_Berserker.gif";
     }
 

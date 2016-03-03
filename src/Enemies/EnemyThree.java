@@ -18,6 +18,7 @@ public class EnemyThree extends Enemy {
         maxHP = 450;
         damage = 40;
         goldOnKill = 75;
+        name = "Orc Raider";
         background = "Images/Orc_Raider.gif";
     }
     

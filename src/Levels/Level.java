@@ -265,7 +265,7 @@ public abstract class Level extends JPanel implements MouseListener {
                 System.out.println("ENEMY FOUND");
                 ///jframe pops up
                 EnemyPanel eP = new EnemyPanel(enemy);
-                ObjectFrame oF = new ObjectFrame(eP);
+                
             }
         }
         
