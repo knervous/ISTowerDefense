@@ -175,7 +175,6 @@ public class LevelTest {
         System.out.println("mouseClicked");
         
         Level instance = new LevelOne();
-        LRTower tower = new LRTower();
         instance.repaint();
         
         int startGold = OptionsPanel.gold;
@@ -191,8 +190,6 @@ public class LevelTest {
         
         
     }
-
-
 
 
     /**
