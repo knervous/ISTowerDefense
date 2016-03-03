@@ -50,9 +50,11 @@ public class LevelThree extends Level {
 
     private void initWorld() {
       
-        world.add(new Rectangle(0, 0, 350, 250));      // top left
-        world.add(new Rectangle(0, 300, 300, 300));    // bottom  left
-        world.add(new Rectangle(350, 0, 225, 510));    //top right 
+        world.add(new Rectangle(0, 50, 200, 200));      // top left
+        world.add(new Rectangle(50, 300, 250, 220));    // bottom  left
+        world.add(new Rectangle(350, 50, 225, 470));    //top right
+        world.add(new Rectangle(400, 0, 250, 50));
+        world.add(new Rectangle(250, 50, 100, 200));     // top middle
     }
 
 //    public void setBackground(Color orange) {
@@ -66,12 +68,12 @@ public class LevelThree extends Level {
         return pathingPoints;
     }
     
-    public void setPathingPoints(){
+    public void setPathingPoints() {
         pathingPoints = new ArrayList<>();
-        pathingPoints.add(new Point(250, 100));
-        pathingPoints.add(new Point(250, 520));
-        pathingPoints.add(new Point(675, 400));
-        pathingPoints.add(new Point(575, 20));
+//        pathingPoints.add(new Point(300, 250));
+//        pathingPoints.add(new Point(300, 520));
+//        pathingPoints.add(new Point(575, 520));
+//        pathingPoints.add(new Point(575, 90));
     }
 
     @Override
@@ -112,9 +114,55 @@ public class LevelThree extends Level {
     }
     @Override
     public void setStartingPoint() {
-        startingPoint = new Point(0, 250);
-    }
 
+        int rand = new Random().nextInt(5) + 1;
+        pathingPoints = new ArrayList<>();
+        if (rand == 1){
+            startingPoint = new Point(0, 0);
+            pathingPoints.add(new Point(375, 0));
+        }
+        else if (rand == 2){
+            startingPoint = new Point(0, 0);
+            pathingPoints.add(new Point(200, 0));
+            pathingPoints.add(new Point(200, 250));
+            pathingPoints.add(new Point(300, 250));
+            pathingPoints.add(new Point(300, 520));
+            pathingPoints.add(new Point(575, 520));
+            pathingPoints.add(new Point(575, 90));
+            pathingPoints.add(new Point(550, 90));
+        }
+        else if (rand == 3){
+            startingPoint = new Point(0, 0);
+            pathingPoints.add(new Point(200, 0));
+            pathingPoints.add(new Point(200, 250));
+            pathingPoints.add(new Point(0, 250));
+            pathingPoints.add(new Point(0, 520));
+            pathingPoints.add(new Point(575, 520));
+            pathingPoints.add(new Point(575, 90));
+            pathingPoints.add(new Point(550, 90));
+        }
+        else if (rand == 4){
+            startingPoint = new Point(0, 250);
+            pathingPoints.add(new Point(300, 250));
+            pathingPoints.add(new Point(300, 520));
+            pathingPoints.add(new Point(575, 520));
+            pathingPoints.add(new Point(575, 90));
+            pathingPoints.add(new Point(550, 90));
+        }
+        else if (rand == 5){
+            startingPoint = new Point(0, 250);
+            pathingPoints.add(new Point(0, 520));
+            pathingPoints.add(new Point(575, 520));
+            pathingPoints.add(new Point(575, 90));
+            pathingPoints.add(new Point(550, 90));
+        }
+        else {
+            startingPoint = new Point(0, 250);
+            pathingPoints.add(new Point(200, 250));
+            pathingPoints.add(new Point(200, 0));
+            pathingPoints.add(new Point(375, 0));
+        }
+    }
 }
 
 

@@ -54,7 +54,8 @@ public class TowerPanel extends JPanel{
         layoutConst.gridx = 0;
         layoutConst.gridy = 4;
         oF.add(CostDisplay, layoutConst);       
- oF.setTitle("Tower Info");
+        
+        oF.setTitle("Tower Info");
         oF.setVisible(true);
     }
     
