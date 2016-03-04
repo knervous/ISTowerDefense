@@ -16,8 +16,8 @@ public class PlayGame extends JFrame {
 
     private static int frameWidth = 800;
     private static int frameHeight = 600;
-    private static int frameLocationX = 0;
-    private static int frameLocationY = 100;
+    private static int frameLocationX = 200;
+    private static int frameLocationY = 50;
     private GridBagConstraints constraints = new GridBagConstraints();
     public static Level level;
     private OptionsPanel optionsPanel;
