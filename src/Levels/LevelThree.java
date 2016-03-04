@@ -80,24 +80,12 @@ public class LevelThree extends Level {
         world.add(new Rectangle(250, 50, 100, 100));     // top middle
         world.add(new Rectangle(250, 150, 100, 100));
     }
-
-//    public void setBackground(Color orange) {
-//        throw new UnsupportedOperationException("");  }
-//
-//    private void setLayout(Object object) {
-//        throw new UnsupportedOperationException(""); }
- 
-    
     public ArrayList<Point> getPathingPoints(){
         return pathingPoints;
     }
     
     public void setPathingPoints() {
         pathingPoints = new ArrayList<>();
-//        pathingPoints.add(new Point(300, 250));
-//        pathingPoints.add(new Point(300, 520));
-//        pathingPoints.add(new Point(575, 520));
-//        pathingPoints.add(new Point(575, 90));
     }
 
     @Override
