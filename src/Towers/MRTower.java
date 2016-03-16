@@ -20,7 +20,7 @@ public class MRTower extends Tower {
         background = "Images/mr_tower.png";
         this.width = new ImageIcon(background).getImage().getWidth(null);
         this.height = new ImageIcon(background).getImage().getHeight(null);
-         this.name = "Medium Range Tower";
+        this.name = "Medium Range Tower";
         
     }
 

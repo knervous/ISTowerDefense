@@ -38,6 +38,11 @@ public abstract class Level extends JPanel implements MouseListener {
     protected Tower towerPH;
     protected Graphics g2dObj;
     protected PlayGame playGame;
+    private final int XPADLEFT = 10;
+    private final int XPADRIGHT = 10;
+    private final int YPADBOTTOM = 15;
+    private final int YPADTOP = 35;
+
   
     
     public Level() {
@@ -282,14 +287,15 @@ public abstract class Level extends JPanel implements MouseListener {
         System.out.println(isBuilding);
         System.out.println(towerPH);
         for (Rectangle worldPiece : world) {
-            if (isBuilding && me.getX() >= worldPiece.getMinX()+10
-                    && me.getX() <= worldPiece.getMaxX() -10
-                    && me.getY() >= worldPiece.getMinY() +15
-                    && me.getY() <= worldPiece.getMaxY() -35) {
+            if (isBuilding && me.getX() >= worldPiece.getMinX()+XPADRIGHT
+                    && me.getX() <= worldPiece.getMaxX() - XPADLEFT
+                    && me.getY() >= worldPiece.getMinY() + YPADBOTTOM
+                    && me.getY() <= worldPiece.getMaxY() - YPADTOP) {
                 towers.add(towerPH);
-                towers.get(towers.size() - 1).setLocation(me.getX() - 25, me.getY() - 50); 
+                towers.get(towers.size() - 1).setLocation((int)(me.getX() - (towers.get(towers.size() - 1).width) * .5), 
+                        (int)(me.getY() - (towers.get(towers.size() - 1).height) * .666)); 
                 isBuilt = true;
-                // add a variable call here that has the value of the tower rectangle's size
+                // Added equations here that take into account towers of different sizes instead of using hardcoded values. - George
             }
         }
         if (isBuilt) {
