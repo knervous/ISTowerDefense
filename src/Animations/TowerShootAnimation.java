@@ -76,6 +76,7 @@ public class TowerShootAnimation implements Runnable {
         } catch (Exception e) {
         } catch (Throwable ex) {
         }
+        // Are two catch statements necessary here?
     }
 
     public double getAngle(Point center, Point target) {

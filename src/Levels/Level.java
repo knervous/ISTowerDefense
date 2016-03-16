@@ -37,7 +37,6 @@ public abstract class Level extends JPanel implements MouseListener {
     public static double castleHealth = 200;
     protected Tower towerPH;
     protected Graphics g2dObj;
-    
     protected PlayGame playGame;
   
     
@@ -90,7 +89,6 @@ public abstract class Level extends JPanel implements MouseListener {
         drawWorld(g);
         drawObjects(g);
         startProjectile(g);
-        
     }
     
     private void drawWorld(Graphics g) {
@@ -136,6 +134,7 @@ public abstract class Level extends JPanel implements MouseListener {
                 threads.get(enemyGroup.indexOf(enemy)).start();
                 System.out.println(threads.get(enemyGroup.indexOf(enemy)).getState());
                 System.out.println("ALIVE THREAD: "+threads.get(enemyGroup.indexOf(enemy)).isInterrupted());
+                //get rid of needless prints
             }
             else
             {
@@ -143,16 +142,11 @@ public abstract class Level extends JPanel implements MouseListener {
                 System.out.println("DEAD THREAD: "+threads.get(enemyGroup.indexOf(enemy)).isInterrupted());
                 System.out.println(threads);
                 threads.get(enemyGroup.indexOf(enemy)+1).start();
-                
+                //get rid of needless prints
                 break;
-                
             }
-            
-            
         }
-        
         allThreads.addAll(threads);
-        
     }
     
     private void startProjectile(Graphics g) {
@@ -184,6 +178,7 @@ public abstract class Level extends JPanel implements MouseListener {
                 } else if (isPaused) {
                     thread.resume();
                 }
+                // use non-deprecated methods here if possible
             }
         } catch (Exception e) {
         }
@@ -300,6 +295,7 @@ public abstract class Level extends JPanel implements MouseListener {
                 towers.add(towerPH);
                 towers.get(towers.size() - 1).setLocation(me.getX() - 25, me.getY() - 50); 
                 isBuilt = true;
+                // add a variable call here that has the value of the tower rectangle's size
             }
         }
         if (isBuilt) {
@@ -307,13 +303,7 @@ public abstract class Level extends JPanel implements MouseListener {
             
         } else if(!isBuilt && isBuilding){
             OptionsPanel.setGold(-200);
-            
         }
-        
-        
-        
-    
-
     repaint();
 }
     

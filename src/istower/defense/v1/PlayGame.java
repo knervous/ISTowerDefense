@@ -149,6 +149,7 @@ public class PlayGame extends JFrame {
                     }
                 }
             }
+            // Could a constant be used here for the starting amount of Gold?
 
         });
 

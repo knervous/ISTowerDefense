@@ -29,6 +29,8 @@ public class ISTowerDefenseV1 {
         PlayGame playGame = new PlayGame();
         playGame.getLevel().setPlayGame(playGame);
         playGame.getOptionsPanel().setPlayGame(playGame);
+        // Is there a way to restructure this without a class instance taking a parameter of itself?
+        // This might go some distance toward future readability.
         
         InputStream is;
         sequence = MidiSystem.getSequencer();

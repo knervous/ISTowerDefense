@@ -64,6 +64,7 @@ public class LevelThree extends Level {
     private void initializeComponents() {
         level = 3;
     }
+    // Is this method necessary?
 
     public int getLevel() {
         return level;
@@ -80,6 +81,7 @@ public class LevelThree extends Level {
         world.add(new Rectangle(250, 50, 100, 100));     // top middle
         world.add(new Rectangle(250, 150, 100, 100));
     }
+    // Could add more comments to better communicate each leg of the enemy trail
     public ArrayList<Point> getPathingPoints(){
         return pathingPoints;
     }
@@ -127,7 +129,7 @@ public class LevelThree extends Level {
     @Override
     public void setStartingPoint() {
 
-        int rand = new Random().nextInt(5) + 1;
+        int rand = new Random().nextInt(6) + 1;
         pathingPoints = new ArrayList<>();
         if (rand == 1){
             startingPoint = new Point(0, 0);
@@ -169,10 +171,10 @@ public class LevelThree extends Level {
             pathingPoints.add(new Point(550, 90));
         }
         else {
-            startingPoint = new Point(0, 250);
-            pathingPoints.add(new Point(200, 250));
-            pathingPoints.add(new Point(200, 0));
-            pathingPoints.add(new Point(375, 0));
+            startingPoint = new Point(0, 520);
+            pathingPoints.add(new Point(575, 520));
+            pathingPoints.add(new Point(575, 90));
+            pathingPoints.add(new Point(550, 90));
         }
     }
 }

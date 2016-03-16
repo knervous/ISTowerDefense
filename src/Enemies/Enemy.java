@@ -98,7 +98,7 @@ public abstract class Enemy extends Rectangle {
     void hitpoints() {
         throw new UnsupportedOperationException("");  }
 
-   
+//   delete these
 
     
     

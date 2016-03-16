@@ -89,6 +89,7 @@ public class OptionsPanel extends JPanel {
         towerThree.setPreferredSize(new Dimension(75, 75));
         levelDisplay.setBackground(Color.white);
     }
+    // Could we add a constant here for tower dimensions?
 
     public void addComponents() {
         constraints.gridx = 0;
