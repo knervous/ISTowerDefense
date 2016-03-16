@@ -84,9 +84,10 @@ public class OptionsPanel extends JPanel {
 
         // System.out.println(this.getSize());
         System.out.println((Double.valueOf(this.getSize().width * .90).intValue()));
-        towerOne.setPreferredSize(new Dimension(75, 75));
-        towerTwo.setPreferredSize(new Dimension(75, 75));
-        towerThree.setPreferredSize(new Dimension(75, 75));
+//        deleted grundle
+//        towerOne.setPreferredSize(new Dimension(75, 75));
+//        towerTwo.setPreferredSize(new Dimension(75, 75));
+//        towerThree.setPreferredSize(new Dimension(75, 75));
         levelDisplay.setBackground(Color.white);
     }
     // Could we add a constant here for tower dimensions?

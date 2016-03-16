@@ -79,27 +79,6 @@ public abstract class Enemy extends Rectangle {
         return name;
     }
 
-    void damage() {
-        throw new UnsupportedOperationException("");  }
-
-    void background() {
-        throw new UnsupportedOperationException(""); 
-    }
-
-    void goldOnKill() {
-        throw new UnsupportedOperationException(""); }
-
-    void isAlive() {
-        throw new UnsupportedOperationException("");  }
-
-    void maxHP() {
-        throw new UnsupportedOperationException("");  }
-
-    void hitpoints() {
-        throw new UnsupportedOperationException("");  }
-
-//   delete these
-
     
     
 

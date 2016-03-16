@@ -18,6 +18,7 @@ public class PlayGame extends JFrame {
     private static int frameHeight = 600;
     private static int frameLocationX = 200;
     private static int frameLocationY = 50;
+    private final int GOLDAMOUNT = 200;
     private GridBagConstraints constraints = new GridBagConstraints();
     public static Level level;
     private OptionsPanel optionsPanel;
@@ -141,10 +142,10 @@ public class PlayGame extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON3) {
                     TowerPanel tP = new TowerPanel(new MRTower());
                 } else if (e.getButton() == MouseEvent.BUTTON1) {
-                    if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
+                    if (OptionsPanel.gold >= GOLDAMOUNT && !Level.isBuilding) {
 
                         level.buildTower(new MRTower());
-                        OptionsPanel.setGold(200);
+                        OptionsPanel.setGold(GOLDAMOUNT);
                         optionsPanel.repaint();
                     }
                 }
@@ -159,10 +160,10 @@ public class PlayGame extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON3) {
                     TowerPanel tP = new TowerPanel(new SRTower());
                 } else if (e.getButton() == MouseEvent.BUTTON1) {
-                    if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
+                    if (OptionsPanel.gold >= GOLDAMOUNT && !Level.isBuilding) {
 
                         level.buildTower(new SRTower());
-                        OptionsPanel.setGold(200);
+                        OptionsPanel.setGold(GOLDAMOUNT);
                         optionsPanel.repaint();
                     }
                 }
@@ -176,10 +177,10 @@ public class PlayGame extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON3) {
                     TowerPanel tP = new TowerPanel(new LRTower());
                 } else if (e.getButton() == MouseEvent.BUTTON1) {
-                    if (OptionsPanel.gold >= 200 && !Level.isBuilding) {
+                    if (OptionsPanel.gold >= GOLDAMOUNT && !Level.isBuilding) {
 
                         level.buildTower(new LRTower());
-                        OptionsPanel.setGold(200);
+                        OptionsPanel.setGold(GOLDAMOUNT);
                         optionsPanel.repaint();
                     }
                 }

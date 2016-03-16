@@ -132,17 +132,11 @@ public abstract class Level extends JPanel implements MouseListener {
             if((threads.get(enemyGroup.indexOf(enemy)).getState() == Thread.State.NEW))
             {
                 threads.get(enemyGroup.indexOf(enemy)).start();
-                System.out.println(threads.get(enemyGroup.indexOf(enemy)).getState());
-                System.out.println("ALIVE THREAD: "+threads.get(enemyGroup.indexOf(enemy)).isInterrupted());
-                //get rid of needless prints
             }
             else
             {
                 threads.add(new Thread(new EnemyAnimation(enemy, getPathingPoints(), this, new Point((getStartingPoint().x + enemyGroup.indexOf(enemy) * 50), getStartingPoint().y))));
-                System.out.println("DEAD THREAD: "+threads.get(enemyGroup.indexOf(enemy)).isInterrupted());
-                System.out.println(threads);
                 threads.get(enemyGroup.indexOf(enemy)+1).start();
-                //get rid of needless prints
                 break;
             }
         }

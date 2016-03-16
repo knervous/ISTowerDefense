@@ -60,12 +60,6 @@ public class LevelThree extends Level {
         }
         
     }
-
-    private void initializeComponents() {
-        level = 3;
-    }
-    // Is this method necessary?
-
     public int getLevel() {
         return level;
     }
