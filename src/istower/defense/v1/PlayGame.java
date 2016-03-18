@@ -18,7 +18,7 @@ public class PlayGame extends JFrame {
     private static int frameHeight = 600;
     private static int frameLocationX = 200;
     private static int frameLocationY = 50;
-    private final int GOLDAMOUNT = 200;
+    private static final int GOLDAMOUNT = 200;  //Refactoring: a constant be used for the starting amount of Gold. Yangyuqi Chang
     private GridBagConstraints constraints = new GridBagConstraints();
     public static Level level;
     private OptionsPanel optionsPanel;
@@ -150,7 +150,6 @@ public class PlayGame extends JFrame {
                     }
                 }
             }
-            // Could a constant be used here for the starting amount of Gold?
 
         });
 
