@@ -265,8 +265,10 @@ public abstract class Level extends JPanel implements MouseListener {
         {
             if(enemy.contains(me.getPoint()))
             {
-                System.out.println("ENEMY FOUND");
-                ///jframe pops up
+                 //Refactor: jframe pops up  Yangyuqi Chang
+                Component eFound = null;
+                JOptionPane.showMessageDialog(eFound, "Enemy Found.");
+                //System.out.println("ENEMY FOUND");
                 EnemyPanel eP = new EnemyPanel(enemy);
                 
             }
@@ -276,8 +278,10 @@ public abstract class Level extends JPanel implements MouseListener {
         {
             if(tower.contains(me.getPoint()))
             {
-                System.out.println("TOWER FOUND");
-                //jframe pops up
+                //Refactor: jframe pops up  Yangyuqi Chang
+                Component tFound = null;
+                JOptionPane.showMessageDialog(tFound, "Tower Found.");
+                //System.out.println("TOWER FOUND");
                   TowerPanel tP = new TowerPanel(tower);
  
             }
