@@ -123,6 +123,10 @@ public abstract class Level extends JPanel implements MouseListener {
         
         g2d.dispose();
     }
+    // This method (among others in this class that I can't remember) was originally
+    // found in each of the child tower classes. It was moved to the parent and
+    // reconfigured to apply to every instance of a tower. This fits with the Fowler's
+    // move method refactoring suggestion along with DRY. - George
     
     public void startWaves() {
         threads.clear();
