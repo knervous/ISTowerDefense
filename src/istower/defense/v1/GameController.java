@@ -6,17 +6,20 @@
 package istower.defense.v1;
 import Towers.*;
 import Levels.*;
+import javax.swing.Action;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
-public class GameController {
+public class GameController implements KeyListener {
     
     private int frameWidth = 800;
     private int frameHeight = 600;
@@ -69,7 +72,13 @@ public class GameController {
      
      public void addActionListeners() {
         
-        optionsPanel.quit(new ActionListener() {
+        playGame.setFocusable(true);
+        playGame.addKeyListener(this);
+        
+        
+         
+         
+         optionsPanel.quit(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
@@ -187,6 +196,25 @@ public class GameController {
 
             }
         });
+    }
+
+    @Override
+    public void keyTyped(KeyEvent ke) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent ke) {
+        if(ke.getKeyChar() == 'g')
+        {
+            optionsPanel.setupGold(optionsPanel.getGold() + 200);
+            optionsPanel.repaint();
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
+        
     }
     
     

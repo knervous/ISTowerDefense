@@ -1,7 +1,9 @@
 
 package istower.defense.v1;
 
+import java.awt.event.KeyEvent;
 import javax.swing.*;
+import java.awt.event.KeyListener;
 
 public class PlayGame extends JFrame {
 
@@ -14,6 +16,7 @@ public class PlayGame extends JFrame {
     public PlayGame() {
         super();
         setContentPane(content);
+        
     }
 
 
@@ -42,4 +45,5 @@ public class PlayGame extends JFrame {
         return frameHeight;
     }
 
+ 
 }
