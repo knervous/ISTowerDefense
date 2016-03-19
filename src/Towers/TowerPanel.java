@@ -31,11 +31,8 @@ public class TowerPanel extends JPanel{
         ObjectFrame oF = new ObjectFrame(this);
         
         
-        /*
-        OLIVE: Change each of these this.something to this.getRange() or this.getDamage()
-        once you change the parent class
-        */
-        //Refactoring: Encapsulate Field refactor
+       
+        //Refactoring: Encapsulate Field refactor, Yangyuqi Chang
         
         
         Displayimage = new JButton(new ImageIcon(tower.getBackground()));

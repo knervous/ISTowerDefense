@@ -45,7 +45,7 @@ public class LevelThree extends Level {
         
     }
     public int getLevel() {
-        return level;
+       return level;
     }
 
     private void initWorld() {

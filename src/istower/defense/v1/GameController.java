@@ -26,7 +26,7 @@ public class GameController implements KeyListener {
     private int frameLocationX = 200;
     private int frameLocationY = 50;
     private Timer waveTimer;
-    private final int GOLDAMOUNT = 200;  //Refactoring: a constant be used for the starting amount of Gold. Yangyuqi Chang
+    private final int GOLDAMOUNT = 200;  //Refactoring: replace a magic number with symbolic constant, a constant be used for the starting amount of Gold. Yangyuqi Chang
     private GridBagConstraints constraints = new GridBagConstraints(); 
     private PlayGame playGame;
     private Level level;

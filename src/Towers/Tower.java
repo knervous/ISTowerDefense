@@ -6,26 +6,14 @@ import java.awt.Rectangle;
 
 
 public abstract class Tower extends Rectangle {
-
-    
-    
-    /*
-    
-    OLIVE:
-    
-    Change these protected members to private,
-    then create get and set methods for them.
-    Document all these changes as "Encapsulate Field refactor"
-    
-    
-    */
     
     private boolean isFiring = false;
-    protected String background;
-    protected String name;
-    protected double range;
-    protected int damage;
+    private String background;
+    private String name;
+    private double range;
+    private int damage;
     
+    // Refactor: Encapsulate Field refactor, change protected members to private, created getTower method. Yangyuqi Chang 
 
     public Tower() {
         this.x = 0;
@@ -39,6 +27,13 @@ public abstract class Tower extends Rectangle {
         this.y = y;
         this.width = width;
         this.height = height;
+    }
+    
+    public void getTower (String background, String name, double range, int damage) {
+        this.background = background;
+        this.name = name;
+        this.range = range;
+        this.damage = damage;
     }
 
     public boolean whenToFire(double range, Rectangle enemy, Rectangle tower) {
@@ -55,32 +50,32 @@ public abstract class Tower extends Rectangle {
     }
 
     public boolean isFiring() {
-        return isFiring;
+        return this.isFiring;
     }
 
     public void setIsFiring(boolean firing) {
-        isFiring = firing;
+        this.isFiring = firing;
     }
     
     public boolean getIsFiring()
     {
-        return isFiring;
+        return this.isFiring;
     }
 
     public String getBackground() {
-        return background;
+        return this.background;
     }
 
     public double getRange() {
-        return range;
+        return this.range;
     }
 
     public int getDamage() {
-        return damage;
+        return this.damage;
     }
      public String getName()
     {
-        return name;
+        return this.name;
     }
 
 
