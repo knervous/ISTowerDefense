@@ -35,25 +35,25 @@ public class TowerPanel extends JPanel{
         OLIVE: Change each of these this.something to this.getRange() or this.getDamage()
         once you change the parent class
         */
+        //Refactoring: Encapsulate Field refactor
         
         
-        
-        Displayimage = new JButton(new ImageIcon(tower.background));
+        Displayimage = new JButton(new ImageIcon(tower.getBackground()));
         layoutConst.gridx = 0;
         layoutConst.gridy = 0;
         oF.add(Displayimage, layoutConst);
        
-        NameDisplay = new JLabel("Name: " + tower.name);
+        NameDisplay = new JLabel("Name: " + tower.getName());
         layoutConst.gridx = 0;
         layoutConst.gridy = 1;
         oF.add(NameDisplay, layoutConst);
         
-        RangeDisplay = new JLabel ("Range: " + tower.range);
+        RangeDisplay = new JLabel ("Range: " + tower.getRange());
         layoutConst.gridx = 0;
         layoutConst.gridy = 2;
         oF.add(RangeDisplay, layoutConst);
 
-        DamageDisplay = new JLabel ("Damage: " + tower.damage);
+        DamageDisplay = new JLabel ("Damage: " + tower.getDamage());
         layoutConst.gridx = 0;
         layoutConst.gridy = 3;
         oF.add(DamageDisplay, layoutConst);
