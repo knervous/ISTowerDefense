@@ -76,6 +76,7 @@ public class GameController implements KeyListener {
         playGame.addKeyListener(this);
         
         
+        
          
          
          optionsPanel.quit(new ActionListener() {
