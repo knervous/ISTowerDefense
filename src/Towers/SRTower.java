@@ -11,12 +11,12 @@ public class SRTower extends Tower {
   
         // Refactor: Encapsulate Field refactor, change variable to this.get methods Yangyuqi Chang 
 
-        this.getRange();
-        this.getDamage();
-        this.getBackground();
-        this.width = new ImageIcon(this.getBackground()).getImage().getWidth(null);
-        this.height = new ImageIcon(this.getBackground()).getImage().getHeight(null);
-        this.getName();
+          this.range = 100;
+          this.damage = 15;
+          background = "Images/sr_tower.png";
+          this.width = new ImageIcon(background).getImage().getWidth(null);
+          this.height = new ImageIcon(background).getImage().getHeight(null);
+          this.name = "Short Range Tower";
         
           }
 

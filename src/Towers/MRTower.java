@@ -14,13 +14,13 @@ public class MRTower extends Tower {
         
        // Refactor: Encapsulate Field refactor, change variable to this.get methods Yangyuqi Chang 
 
+          this.range = 200;
+          this.damage = 12;
+          background = "Images/mr_tower.png";
+          this.width = new ImageIcon(background).getImage().getWidth(null);
+          this.height = new ImageIcon(background).getImage().getHeight(null);
+          this.name = "Medium Range Tower";
         
-        this.getRange();
-        this.getDamage();
-        this.getBackground();
-        this.width= new ImageIcon(this.getBackground()).getImage().getWidth(null);
-        this.height = new ImageIcon(this.getBackground()).getImage().getHeight(null);
-        this.getName();
         
     }
 

@@ -3,6 +3,7 @@ package Towers;
 
 //~--- JDK imports ------------------------------------------------------------
 import java.awt.Rectangle;
+import javax.swing.ImageIcon;
 
 
 public abstract class Tower extends Rectangle {
@@ -29,13 +30,14 @@ public abstract class Tower extends Rectangle {
         this.height = height;
     }
     
-    public void getTower (String background, String name, double range, int damage) {
-        this.background = background;
+    public void setTower(String name, double range, int damage, String background){
         this.name = name;
         this.range = range;
         this.damage = damage;
+        this.background = background;        
     }
 
+  
     public boolean whenToFire(double range, Rectangle enemy, Rectangle tower) {
 
         double xdistance = Math.abs(enemy.getCenterX() - tower.getCenterX());
@@ -50,7 +52,7 @@ public abstract class Tower extends Rectangle {
     }
 
     public boolean isFiring() {
-        return this.isFiring;
+        return isFiring;
     }
 
     public void setIsFiring(boolean firing) {
@@ -59,23 +61,23 @@ public abstract class Tower extends Rectangle {
     
     public boolean getIsFiring()
     {
-        return this.isFiring;
+        return isFiring;
     }
 
     public String getBackground() {
-        return this.background;
+        return background;
     }
 
     public double getRange() {
-        return this.range;
+        return range;
     }
 
     public int getDamage() {
-        return this.damage;
+        return damage;
     }
      public String getName()
     {
-        return this.name;
+        return name;
     }
 
 
