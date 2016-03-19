@@ -337,7 +337,7 @@ public abstract class Level extends JPanel implements MouseListener {
         Paul Johnson
         */
         for (Rectangle worldPiece : world) {
-            if (isBuilding && me.getX() >= worldPiece.getMinX()+XPADRIGHT
+            if (isBuilding && me.getX() >= worldPiece.getMinX()+ XPADRIGHT
                     && me.getX() <= worldPiece.getMaxX() - XPADLEFT
                     && me.getY() >= worldPiece.getMinY() + YPADBOTTOM
                     && me.getY() <= worldPiece.getMaxY() - YPADTOP) {
@@ -345,7 +345,13 @@ public abstract class Level extends JPanel implements MouseListener {
                 towers.get(towers.size() - 1).setLocation((int)(me.getX() - (towers.get(towers.size() - 1).width) * .5), 
                         (int)(me.getY() - (towers.get(towers.size() - 1).height) * .666)); 
                 isBuilt = true;
-                // Added equations here that take into account towers of different sizes instead of using hardcoded values. - George
+//                 Added equations here that take into account towers of different 
+//                 sizes instead of using hardcoded values. This allows for expansion of the program
+//                 as towers of different dimension could be created in the future
+//                 and this method would factor in their proper map placement without
+//                 needing magic numbers. Additionally, constants relating to enemy trail
+//                 padding have been assigned meaningful constants. 
+//                 Replace Magic Number with Symbolic Constant - George
             }
         }
         if (isBuilt) {
