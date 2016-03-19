@@ -182,7 +182,7 @@ public class GameController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 level.startWaves();
-                optionsPanel.getWaveTimer().start();
+                waveTimer.start();
                 optionsPanel.getStart().removeActionListener(this);
 
             }

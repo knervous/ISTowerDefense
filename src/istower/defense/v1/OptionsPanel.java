@@ -29,7 +29,6 @@ public class OptionsPanel extends JPanel {
 
     private JLabel levelDisplay, waveDisplay, waveTimerDisplay, goldDisplay, textDisplay;
     private JButton towerOne, towerTwo, towerThree, start, pause, quit;
-    private Timer waveTimer;
     private GridBagConstraints constraints;
     private int level, wave, waveTime;
     private static int gold;
@@ -182,10 +181,6 @@ public class OptionsPanel extends JPanel {
 
     public JButton getLRTower() {
         return towerThree;
-    }
-
-    public Timer getWaveTimer() {
-        return waveTimer;
     }
 
     public JLabel getWaveDisplay() {
