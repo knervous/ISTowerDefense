@@ -1,17 +1,5 @@
 
-/*
-* To change this license header, choose License Headers in Project Properties.
-* To change this template file, choose Tools | Templates
-* and open the template in the editor.
- */
 package Levels;
-
-//~--- non-JDK imports --------------------------------------------------------
-
-import Enemies.EnemyOne;
-import istower.defense.v1.ISTowerDefenseV1;
-
-//~--- JDK imports ------------------------------------------------------------
 
 import java.awt.Color;
 import java.awt.Point;
@@ -20,16 +8,12 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.Random;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequencer;
 
-/**
- *
- * @author Paul
- */
+
 public class LevelThree extends Level {
     private int level = 3;
     private ArrayList<Point> pathingPoints; 
@@ -66,15 +50,17 @@ public class LevelThree extends Level {
 
     private void initWorld() {
       
-        world.add(new Rectangle(0, 50, 200, 200));      // top left
-        world.add(new Rectangle(50, 300, 250, 220));    // bottom  left
-        world.add(new Rectangle(350, 50, 225, 235));    //top right
-        world.add(new Rectangle(350, 285, 225, 235));    //top right
-        world.add(new Rectangle(515, 0, 250, 50));
-        world.add(new Rectangle(560, 0, 125, 50));
-        world.add(new Rectangle(250, 50, 100, 100));     // top middle
-        world.add(new Rectangle(250, 150, 100, 100));
+        getWorld().add(new Rectangle(0, 50, 200, 200));      // top left
+        getWorld().add(new Rectangle(50, 300, 250, 220));    // bottom  left
+        getWorld().add(new Rectangle(350, 50, 225, 235));    //top right
+        getWorld().add(new Rectangle(350, 285, 225, 235));    //top right
+        getWorld().add(new Rectangle(515, 0, 250, 50));
+        getWorld().add(new Rectangle(560, 0, 125, 50));
+        getWorld().add(new Rectangle(250, 50, 100, 100));     // top middle
+        getWorld().add(new Rectangle(250, 150, 100, 100));
     }
+    
+    
     // Could add more comments to better communicate each leg of the enemy trail
     public ArrayList<Point> getPathingPoints(){
         return pathingPoints;

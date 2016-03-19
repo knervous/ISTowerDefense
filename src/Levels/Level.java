@@ -1,43 +1,41 @@
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Levels;
 
-//~--- non-JDK imports --------------------------------------------------------
+
 import Animations.*;
 import Enemies.*;
 import Towers.*;
-import istower.defense.v1.OptionsPanel;
-
-
-//~--- JDK imports ------------------------------------------------------------
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.*;
-
 import java.util.*;
-
 import javax.swing.*;
 import istower.defense.v1.*;
 
 public abstract class Level extends JPanel implements MouseListener {
     
-    protected ArrayList<Enemy> enemies = new ArrayList<>();
-    protected ArrayList<Enemy> enemyGroup = new ArrayList<>();
-    protected ArrayList<Tower> towers = new ArrayList<>();
-    protected ArrayList<Projectile> projectiles = new ArrayList<>();
-    protected static ArrayList<Thread> threads = new ArrayList<>();
-    public static ArrayList<Thread> allThreads = new ArrayList<>();
-    protected ArrayList<Rectangle> world = new ArrayList<>();
-    public static boolean isPaused = false;
-    public static boolean isBuilding = false;
-    public static double castleHealth = 200;
-    protected Tower towerPH;
-    protected Graphics g2dObj;
-    protected PlayGame playGame;
+    
+    /*
+    I changed all the members here to private and used proper encapsulation in order to fit this into the MVC model
+    
+    
+    Paul Johnson
+    
+    
+    */
+    
+    private ArrayList<Enemy> enemies = new ArrayList<>();
+    private ArrayList<Enemy> enemyGroup = new ArrayList<>();
+    private ArrayList<Tower> towers = new ArrayList<>();
+    private ArrayList<Projectile> projectiles = new ArrayList<>();
+    private ArrayList<Thread> threads = new ArrayList<>();
+    private ArrayList<Thread> allThreads = new ArrayList<>();
+    private ArrayList<Rectangle> world = new ArrayList<>();
+    private boolean isPaused = false;
+    private boolean isBuilding = false;
+    private double castleHealth;
+    private Tower towerPH;
+    private Graphics g2dObj;
+    private PlayGame playGame;
     private final int XPADLEFT = 10;
     private final int XPADRIGHT = 10;
     private final int YPADBOTTOM = 15;
@@ -49,6 +47,7 @@ public abstract class Level extends JPanel implements MouseListener {
         super();
         setLayout(null);
         setSize((800 * (4 / 5)), 600);
+        castleHealth = 200;
         setPathingPoints();
         this.addMouseListener(this);
         
@@ -168,7 +167,7 @@ public abstract class Level extends JPanel implements MouseListener {
         }
     }
     
-    public static void pauseGame() {
+    public void pauseGame() {
         
         try {
             for (Thread thread : allThreads) {
@@ -206,8 +205,10 @@ public abstract class Level extends JPanel implements MouseListener {
             }
         }
         
-        System.out.println("Enemy Type: " + enemyType);
-        System.out.println("Num Enemies: " + numEnemies);
+        /*
+        Removed echo
+        Paul Johnson
+        */
         
     }
     
@@ -231,12 +232,51 @@ public abstract class Level extends JPanel implements MouseListener {
         }
     }
     
-    public static void setIsPaused() {
+    public void setIsPaused() {
         isPaused = !isPaused;
     }
     
-    public static boolean getIsPaused() {
+    public boolean getIsPaused() {
         return isPaused;
+    }
+    
+    public boolean getIsBuilding() {
+        return isBuilding;
+    }
+    
+    public ArrayList<Rectangle> getWorld()
+    {
+        return world;
+    }
+    
+    public void setCastleHealth(int set)
+    {
+        castleHealth = set;
+    }
+    
+    public ArrayList<Thread> getAllThread()
+    {
+        return allThreads;
+    }
+    
+    public ArrayList<Enemy> getEnemyGroup()
+    {
+        return enemyGroup;
+    }
+    
+    public ArrayList<Enemy> getEnemies()
+    {
+        return enemies;
+    }
+    
+    public double getCastleHealth()
+    {
+        return castleHealth;
+    }
+    
+    public void setIsBuilding(boolean set)
+    {
+        isBuilding = set;
     }
     
     @Override
@@ -268,7 +308,7 @@ public abstract class Level extends JPanel implements MouseListener {
                  //Refactor: jframe pops up  Yangyuqi Chang
                 Component eFound = null;
                 JOptionPane.showMessageDialog(eFound, "Enemy Found.");
-                //System.out.println("ENEMY FOUND");
+                
                 EnemyPanel eP = new EnemyPanel(enemy);
                 
             }
@@ -281,15 +321,17 @@ public abstract class Level extends JPanel implements MouseListener {
                 //Refactor: jframe pops up  Yangyuqi Chang
                 Component tFound = null;
                 JOptionPane.showMessageDialog(tFound, "Tower Found.");
-                //System.out.println("TOWER FOUND");
+               
                   TowerPanel tP = new TowerPanel(tower);
  
             }
         }
         
         boolean isBuilt = false;
-        System.out.println(isBuilding);
-        System.out.println(towerPH);
+        /*
+        Removed echo
+        Paul Johnson
+        */
         for (Rectangle worldPiece : world) {
             if (isBuilding && me.getX() >= worldPiece.getMinX()+XPADRIGHT
                     && me.getX() <= worldPiece.getMaxX() - XPADLEFT
@@ -305,9 +347,7 @@ public abstract class Level extends JPanel implements MouseListener {
         if (isBuilt) {
             isBuilding = false;
             
-        } else if(!isBuilt && isBuilding){
-            OptionsPanel.setGold(-200);
-        }
+        } 
     repaint();
 }
     
@@ -317,7 +357,15 @@ public abstract class Level extends JPanel implements MouseListener {
         playGame = infPlayGame;
     }
 
-public abstract void setPathingPoints();
+    /*
+    
+    All these abstract methods were implemented instead of having unique methods in every subclass. This helped OO and organization
+    
+    Paul Johnson
+    
+    
+    */
+    public abstract void setPathingPoints();
 
     public abstract ArrayList<Point> getPathingPoints();
 
@@ -333,7 +381,6 @@ public abstract void setPathingPoints();
     
     public abstract void setStartingPoint();
 
-    //public abstract void addPH(EnemyOne infEnemy);
 }
 
 

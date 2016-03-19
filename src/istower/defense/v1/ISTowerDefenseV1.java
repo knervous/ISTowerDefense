@@ -26,9 +26,13 @@ public class ISTowerDefenseV1 {
     public static Sequencer sequence; 
     
     public static void main(String[] args) throws Exception{
-        PlayGame playGame = new PlayGame();
-        playGame.getLevel().setPlayGame(playGame);
-        playGame.getOptionsPanel().setPlayGame(playGame);
+        
+        GameController gameController = new GameController();
+        
+        
+//        PlayGame playGame = new PlayGame();
+//        playGame.getLevel().setPlayGame(playGame);
+//        playGame.getOptionsPanel().setPlayGame(playGame);
         // Is there a way to restructure this without a class instance taking a parameter of itself?
         // This might go some distance toward future readability.
         

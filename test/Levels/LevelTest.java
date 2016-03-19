@@ -56,7 +56,7 @@ public class LevelTest {
         instance.startWaves();
         instance.startWaves();
         
-        int expDifference = (instance.enemies.size()-instance.enemyGroup.size());
+        int expDifference = (instance.getEnemies().size()-instance.getEnemyGroup().size());
         
         boolean isInRange;
         
@@ -79,14 +79,14 @@ public class LevelTest {
     @Test
     public void testPauseGame() {
         Level instance = new LevelOne();
-        Level.isPaused = true;
+        instance.setIsPaused();
         instance.startWaves();
-        Level.pauseGame();
+        instance.pauseGame();
         
         
         boolean expState = false;
         
-        for(Thread thread : Level.allThreads)
+        for(Thread thread : instance.getAllThread())
         {
             if(thread.getState() == Thread.State.TIMED_WAITING || thread.getState() == Thread.State.RUNNABLE)
             {
@@ -113,8 +113,11 @@ public class LevelTest {
         instance.createEnemies();
         
         boolean expResult;
-        
-        for(Enemy enemy : instance.enemyGroup)
+        /*
+        Refactored rest to reflect encapsulation
+        Paul Johnson
+        */
+        for(Enemy enemy : instance.getEnemyGroup())
         {
             if (enemy instanceof EnemyThree)
             {
@@ -125,8 +128,11 @@ public class LevelTest {
                 expResult = true;
             }
         }
-        
-        if(instance.enemyGroup.size() > 0 && instance.enemyGroup.size() < 5)
+        /*
+        Refactored test to reflect encapsulation
+        Paul Johnson
+        */
+        if(instance.getEnemyGroup().size() > 0 && instance.getEnemyGroup().size() < 5)
         {
             expResult = true;
         }
@@ -155,7 +161,7 @@ public class LevelTest {
         
         instance.damageCastle(enemy);
         
-        int infDifference =  (int) instance.castleHealth - enemy.getDamage();
+        int infDifference =  (int) instance.getCastleHealth() - enemy.getDamage();
         
         Assert.assertEquals(expDifference, infDifference);
         
@@ -175,16 +181,17 @@ public class LevelTest {
         System.out.println("mouseClicked");
         
         Level instance = new LevelOne();
+        OptionsPanel panel = new OptionsPanel(100,100);
         instance.repaint();
         
-        int startGold = OptionsPanel.gold;
-        Level.isBuilding = true;
+        int startGold = panel.getGold();
+        instance.setIsBuilding(true);
         MouseEvent me = new MouseEvent((Component) instance, 21, 0L, 12, 12, 12, 12, false);
         
         instance.mouseClicked(me);
         
         int expDifference = 200;
-        int infResult = OptionsPanel.gold - startGold;
+        int infResult = panel.getGold() - startGold;
         
         Assert.assertEquals(expDifference, infResult);
         

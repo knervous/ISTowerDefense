@@ -7,22 +7,21 @@
 package Levels;
 
 //~--- non-JDK imports --------------------------------------------------------
-import Animations.*;
 import java.util.Random;
-import Enemies.*;
 
 //~--- JDK imports ------------------------------------------------------------
 import java.awt.*;
 import java.awt.Color;
-import java.awt.event.MouseEvent;
 
 import java.util.ArrayList;
 
-import javax.swing.*;
-
 public class LevelOne extends Level {
 
-    private int level = 1;
+    /*
+    Removing crunk
+    
+    Paul Johnson
+    */
     private ArrayList<Point> pathingPoints;
     private Point startingPoint;
     private String grass;
@@ -38,9 +37,15 @@ public class LevelOne extends Level {
     }
 
     private void initWorld() {
-        world.add(new Rectangle(0, 0, 350, 250));      // top left
-        world.add(new Rectangle(0, 300, 300, 300));    // bottom  left
-        world.add(new Rectangle(350, 0, 225, 510));    // top right
+        /*
+        Encapsulated fields by changing protected to private and using accessor methods instead of accessing parent members
+        
+        Paul Johnson
+        */
+        
+        getWorld().add(new Rectangle(0, 0, 350, 250));      // top left
+        getWorld().add(new Rectangle(0, 300, 300, 300));    // bottom  left
+        getWorld().add(new Rectangle(350, 0, 225, 510));    // top right
 
     }
 

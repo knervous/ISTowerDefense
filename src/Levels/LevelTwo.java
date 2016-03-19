@@ -32,7 +32,11 @@ public class LevelTwo extends Level {
     private Point startingPoint;
     private String grass;
     private String path;
-    private int pathNum = 1;
+    /*
+    Removed krungus
+    
+    Paul Johnson
+    */
     public static Sequencer seqTwo;
 
     public LevelTwo() {
@@ -58,9 +62,9 @@ public class LevelTwo extends Level {
     }
 
     private void initWorld() {
-        world.add(new Rectangle(0, 50, 300, 470));      // top left
-        world.add(new Rectangle(350, 0, 225, 220));    // top right
-        world.add(new Rectangle(350, 270, 225, 250)); // mid right
+        getWorld().add(new Rectangle(0, 50, 300, 470));      // top left
+        getWorld().add(new Rectangle(350, 0, 225, 220));    // top right
+        getWorld().add(new Rectangle(350, 270, 225, 250)); // mid right
 
     }
 
