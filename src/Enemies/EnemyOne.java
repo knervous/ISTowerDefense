@@ -16,6 +16,15 @@ public class EnemyOne extends Enemy {
 
     public EnemyOne() {
         super();
+        
+        /*
+        LUKE: Change each of these variables to getHitpoints() or getDamage()
+        once you change the parent class
+        
+        ex. instead of hitpoints = 250;   it would be     getHitpoints() = 250;
+        
+        */
+        
         hitpoints = 250;
         maxHP = 250.0;
         damage = 20;

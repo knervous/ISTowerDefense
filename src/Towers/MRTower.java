@@ -5,16 +5,18 @@
  */
 package Towers;
 
-import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author greg
- */
+
 public class MRTower extends Tower {
 
     public MRTower() {
+        
+        /*
+        OLIVE: Change each of these this.something to this.getRange() or this.getDamage()
+        once you change the parent class
+        */
+        
         this.range = 200;
         this.damage = 12;
         background = "Images/mr_tower.png";

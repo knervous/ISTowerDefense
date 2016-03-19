@@ -6,14 +6,20 @@
  */
 package Enemies;
 
-/**
- *
- * @author Paul
- */
 public class EnemyThree extends Enemy {
 
     public EnemyThree() {
         super();
+        
+        /*
+        LUKE: Change each of these variables to getHitpoints() or getDamage()
+        once you change the parent class
+        
+        ex. instead of hitpoints = 250;   it would be     getHitpoints() = 250;
+        
+        */
+        
+        
         hitpoints = 450;
         maxHP = 450;
         damage = 40;

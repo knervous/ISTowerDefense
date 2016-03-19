@@ -30,6 +30,14 @@ public class TowerPanel extends JPanel{
         layoutConst.insets = new Insets(10, 10, 10, 10);
         ObjectFrame oF = new ObjectFrame(this);
         
+        
+        /*
+        OLIVE: Change each of these this.something to this.getRange() or this.getDamage()
+        once you change the parent class
+        */
+        
+        
+        
         Displayimage = new JButton(new ImageIcon(tower.background));
         layoutConst.gridx = 0;
         layoutConst.gridy = 0;

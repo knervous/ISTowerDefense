@@ -46,6 +46,15 @@ public class OptionsPanel extends JPanel {
         setPreferredSize(new Dimension(200, 600));
         setBackground(Color.red);
         setLayout(new GridBagLayout());
+        
+        /*
+        
+        I used the extract method refactoring technique to isolate each part of how the variable is treated,
+        first instantiated, then set up, then added to the component.
+        
+        Paul Johnson
+        
+        */
         initializeComponents();
         setupComponents();
         addComponents();

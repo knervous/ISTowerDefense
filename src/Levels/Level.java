@@ -69,8 +69,8 @@ public abstract class Level extends JPanel implements MouseListener {
                 
                 g2d.setColor(Color.black);
                 g2d.fillRect(enemy.x + 2, enemy.y - 17, enemy.width - 10, 10);
-                g2d.setColor(new Color((int)((enemy.getHP() / enemy.getMaxHP())*100)+30, 0, 40));
-                g2d.fillRect(enemy.x + 2, enemy.y - 17, (int) (((enemy.getHP() / enemy.getMaxHP()) * (enemy.width - 10))), 10);
+                g2d.setColor(new Color((int)((enemy.getHitpoints() / enemy.getMaxHP())*100)+30, 0, 40));
+                g2d.fillRect(enemy.x + 2, enemy.y - 17, (int) (((enemy.getHitpoints() / enemy.getMaxHP()) * (enemy.width - 10))), 10);
                 
             }
             g2d.drawImage(new ImageIcon(enemy.getBackground()).getImage(), enemy.x, enemy.y, enemy.width, enemy.height, null);

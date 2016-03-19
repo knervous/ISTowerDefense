@@ -6,20 +6,13 @@
 package Enemies;
 
 import istower.defense.v1.ObjectFrame;
-import static istower.defense.v1.OptionsPanel.gold;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
-/**
- *
- * @author lmo5113
- */
+
 public class EnemyPanel extends JPanel{
     private JButton EnemyImage;
     private JLabel Damage; 

@@ -44,7 +44,7 @@ public class TowerShootAnimation implements Runnable {
 
             Point p = new Point(projectile.x, projectile.y);
 
-            while (enemy.getHP() >= 0 && tower.whenToFire(tower.getRange(), enemy, tower)) {
+            while (enemy.getHitpoints() >= 0 && tower.whenToFire(tower.getRange(), enemy, tower)) {
 
                 angle = getAngle(new Point((int) tower.getCenterX(), (int) tower.getCenterY()), new Point((int) enemy.getCenterX(), (int) enemy.getCenterY()));
                 yscale = Math.cos(Math.toRadians(angle));

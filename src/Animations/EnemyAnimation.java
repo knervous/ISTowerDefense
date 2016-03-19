@@ -39,7 +39,7 @@ public class EnemyAnimation implements Runnable {
                 ydif = enemy.y - pathingPoint.y;
 
                 while ((Math.abs(xdif) > 0) || (Math.abs(ydif) > 0)) {
-                    if (!(enemy.getHP() > 0)) {
+                    if (!(enemy.getHitpoints() > 0)) {
                         
                         killedEnemy();
                         break;
@@ -64,14 +64,14 @@ public class EnemyAnimation implements Runnable {
 
                 }
                 
-                if(!gotGold && !(enemy.getHP() > 0))
+                if(!gotGold && !(enemy.getHitpoints() > 0))
                 {
                     OptionsPanel.setGold(-1*enemy.getGoldOnKill());
                     gotGold = true;
                 }
                 
             }
-            if(enemy.getHP() > 0)
+            if(enemy.getHitpoints() > 0)
             {
             parent.damageCastle(enemy);
             

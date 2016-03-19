@@ -1,23 +1,25 @@
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Towers;
 
 //~--- JDK imports ------------------------------------------------------------
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import javax.swing.ImageIcon;
 
-/**
- *
- * @author greg
- */
+
 public abstract class Tower extends Rectangle {
 
+    
+    
+    /*
+    
+    OLIVE:
+    
+    Change these protected members to private,
+    then create get and set methods for them.
+    Document all these changes as "Encapsulate Field refactor"
+    
+    
+    */
+    
     private boolean isFiring = false;
     protected String background;
     protected String name;
@@ -83,6 +85,3 @@ public abstract class Tower extends Rectangle {
 
 
 }
-
-
-//~ Formatted by Jindent --- http://www.jindent.com

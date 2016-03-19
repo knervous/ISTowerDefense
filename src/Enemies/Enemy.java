@@ -14,6 +14,18 @@ import java.awt.*;
  * @author Paul
  */
 public abstract class Enemy extends Rectangle {
+    
+    /*
+    
+    LUKE:
+    
+    Change these protected members to private,
+    then create get and set methods for them.
+    Document all these changes as "Encapsulate Field refactor"
+    
+    
+    */
+    
     protected double hitpoints;
     protected double maxHP;
     protected int damage;
@@ -45,7 +57,7 @@ public abstract class Enemy extends Rectangle {
         }
     }
     
-    public double getHP() {
+    public double getHitpoints() {
         return hitpoints;
     }
     

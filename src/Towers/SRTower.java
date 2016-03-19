@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Towers;
 
-import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author greg
- */
 public class SRTower extends Tower {
 
 
     public SRTower() {
+        
+        /*
+        OLIVE: Change each of these this.something to this.getRange() or this.getDamage()
+        once you change the parent class
+        */
+        
+        
         this.range = 100;
         this.damage = 15;
         background = "Images/sr_tower.png";

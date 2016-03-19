@@ -1,21 +1,21 @@
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Towers;
 
 //~--- JDK imports ------------------------------------------------------------
 import javax.swing.*;
 
-/**
- *
- * @author greg
- */
+
 public class LRTower extends Tower {
 
     public LRTower() {
+        
+        
+        /*
+        OLIVE: Change each of these this.something to this.getRange() or this.getDamage()
+        once you change the parent class
+        */
+        
+        
         this.range = 300;
         this.damage = 10;
         background = "Images/lr_tower.png";
@@ -27,4 +27,3 @@ public class LRTower extends Tower {
 }
 
 
-//~ Formatted by Jindent --- http://www.jindent.com
