@@ -30,14 +30,22 @@ public abstract class Tower extends Rectangle {
         this.height = height;
     }
     
-    public void setTower(String name, double range, int damage, String background){
-        this.name = name;
-        this.range = range;
-        this.damage = damage;
-        this.background = background;        
+    public void setName(String name){
+        this.name = name;    
     }
-
-  
+    
+    public void setRange(double range){
+        this.range = range;
+    }
+    
+    public void setDamage(int damage){
+        this.damage = damage;
+    }
+    
+    public void setBackground(String background){
+            this.background = background; 
+    }
+    
     public boolean whenToFire(double range, Rectangle enemy, Rectangle tower) {
 
         double xdistance = Math.abs(enemy.getCenterX() - tower.getCenterX());
