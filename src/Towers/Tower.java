@@ -13,6 +13,9 @@ public abstract class Tower extends Rectangle {
     private String name;
     private double range;
     private int damage;
+    // Change these protected members to private,
+    //then create get and set methods for them.
+    //Document all these changes as "Encapsulate Field refactor"
     
     // Refactor: Encapsulate Field refactor, change protected members to private, created getTower method. Yangyuqi Chang 
 
@@ -61,23 +64,23 @@ public abstract class Tower extends Rectangle {
     
     public boolean getIsFiring()
     {
-        return isFiring;
+        return this.isFiring;
     }
 
     public String getBackground() {
-        return background;
+        return this.background;
     }
 
     public double getRange() {
-        return range;
+        return this.range;
     }
 
     public int getDamage() {
-        return damage;
+        return this.damage;
     }
      public String getName()
     {
-        return name;
+        return this.name;
     }
 
 
