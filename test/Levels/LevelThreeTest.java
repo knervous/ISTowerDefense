@@ -56,7 +56,6 @@ public class LevelThreeTest {
         boolean working = false;
         System.out.println("getNumEnemies");
         LevelThree instance = new LevelThree();
-        int expResult = 3;
         int result = instance.getNumEnemies();
         for (int i = 0; i < 5; i++){
             if (i + 1 == result){
@@ -64,5 +63,16 @@ public class LevelThreeTest {
             }
         }
         assertTrue(working);
+    }
+    
+    @Test
+    public void testGetEnemyType() {
+        System.out.println("getEnemyType");
+        LevelThree instance = new LevelThree();
+        int result = instance.getEnemyType();
+        int rand = instance.getRand();
+        assertTrue((result == 1 && (rand >= 1 && rand <= 3) || 
+                  (result == 2 && (rand >= 4 && rand <= 6)) || 
+                  (result == 1 && (rand >= 7 && rand <= 8) )));
     }
 }

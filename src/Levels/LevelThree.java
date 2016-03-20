@@ -20,6 +20,7 @@ public class LevelThree extends Level {
     private Point startingPoint;
     private String grass;
     private String path;
+    private int rand;
     
 
     public LevelThree() {
@@ -69,6 +70,12 @@ public class LevelThree extends Level {
     public void setPathingPoints() {
         pathingPoints = new ArrayList<>();
     }
+    
+    
+    public int getRand()
+    {
+        return rand;
+    }
 
     @Override
     public int getNumEnemies() {
@@ -77,7 +84,7 @@ public class LevelThree extends Level {
 
     @Override
     public int getEnemyType() {
-        int rand = new Random().nextInt(8) + 1;
+        rand = new Random().nextInt(8) + 1;
         if(rand >= 1 && rand <= 3)
         {
             return 1;
