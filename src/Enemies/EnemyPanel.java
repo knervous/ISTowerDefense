@@ -28,37 +28,37 @@ public class EnemyPanel extends JPanel{
         layoutConst.insets = new Insets(10, 10, 10, 10);
         ObjectFrame oF = new ObjectFrame(this);
         
-        EnemyImage = new JButton(new ImageIcon(enemy.background));
+        EnemyImage = new JButton(new ImageIcon(enemy.getBackground()));
         layoutConst.gridx = 0;
         layoutConst.gridy = 0;
         oF.add(EnemyImage, layoutConst);
         
-        name = new JLabel("Name: "+enemy.name);
+        name = new JLabel("Name: "+enemy.getName());
         layoutConst.gridx = 0;
         layoutConst.gridy = 1;
         oF.add(name, layoutConst);
 
-        Damage = new JLabel("Damage: " + enemy.damage);
+        Damage = new JLabel("Damage: " + enemy.getDamage());
         layoutConst.gridx = 0;
         layoutConst.gridy = 2;
         oF.add(Damage, layoutConst);
 
-        GoldOnKill = new JLabel("Gold on Kill: " + enemy.goldOnKill);
+        GoldOnKill = new JLabel("Gold on Kill: " + enemy.getGoldOnKill());
         layoutConst.gridx = 0;
         layoutConst.gridy = 3;
         oF.add(GoldOnKill, layoutConst);
 
-        isLiving = new JLabel("Alive?: " + enemy.isAlive);
+        isLiving = new JLabel("Alive?: " + enemy.getIsAlive());
         layoutConst.gridx = 0;
         layoutConst.gridy = 4;
         oF.add(isLiving, layoutConst);
 
-        MaxHP = new JLabel("Maximum HP: " + enemy.maxHP);
+        MaxHP = new JLabel("Maximum HP: " + enemy.getMaxHP());
         layoutConst.gridx = 0;
         layoutConst.gridy = 5;
         oF.add(MaxHP, layoutConst);
 
-        Hitpoints = new JLabel("Hit Points:" + enemy.hitpoints);
+        Hitpoints = new JLabel("Hit Points:" + enemy.getHitpoints());
         layoutConst.gridx = 0;
         layoutConst.gridy = 6;
         oF.add(Hitpoints, layoutConst);
