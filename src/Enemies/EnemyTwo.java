@@ -12,20 +12,18 @@ public class EnemyTwo extends Enemy {
         super();
         
         /*
-        LUKE: Change each of these variables to getHitpoints() or getDamage()
-        once you change the parent class
-        
-        ex. instead of hitpoints = 250;   it would be     getHitpoints() = 250;
-        
+        I Changed each of these variables to setHitpoints(350), setDamage(30)
+        once I changed the parent class
+        Luke Owen 
         */
         
         
-        hitpoints = 350;
-        maxHP = 350;
-        damage = 30;
-        goldOnKill = 50;
-        name = "Orc Shaman";
-        background = "Images/Orc_Marauder.gif";
+        setHitpoints(350);
+        setMaxHP(350);
+        setDamage(30);
+        setGoldOnKill(50);
+        setName("Orc Shaman");
+        setBackground("Images/Orc_Marauder.gif");
     }
     
 
