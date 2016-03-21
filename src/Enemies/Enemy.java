@@ -17,22 +17,22 @@ public abstract class Enemy extends Rectangle {
     
     /*
     
-    LUKE:
     
-    Change these protected members to private,
-    then create get and set methods for them.
-    Document all these changes as "Encapsulate Field refactor"
+    I Change these protected members to private,
+    then I created get and set methods for each of them.
+    I used the Encapsulate Field refactor
+    * Luke Owen 
     
     
     */
     
-    protected double hitpoints;
-    protected double maxHP;
-    protected int damage;
-    protected int goldOnKill;
-    protected boolean isAlive;
-    protected String background;
-    protected String name;
+    private double hitpoints;
+    private double maxHP;
+    private int damage;
+    private int goldOnKill;
+    private boolean isAlive;
+    private String background;
+    private String name;
 
     public Enemy() {
         super();
@@ -50,10 +50,10 @@ public abstract class Enemy extends Rectangle {
     }
     
     public void setHP(int damage) {
-        hitpoints = hitpoints - damage;
-        if(hitpoints <= 0)
+        setHitpoints(getHitpoints() - damage);
+        if(getHitpoints() <= 0)
         {
-            isAlive = false;
+            setIsAlive(false);
         }
     }
     
@@ -91,9 +91,32 @@ public abstract class Enemy extends Rectangle {
         return name;
     }
 
-    
-    
+    public void setHitpoints(double hitpoints) {
+        this.hitpoints = hitpoints;
+    }
 
+    public void setMaxHP(double maxHP) {
+        this.maxHP = maxHP;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public void setGoldOnKill(int goldOnKill) {
+        this.goldOnKill = goldOnKill;
+    }
+    public boolean isIsAlive() {
+        return isAlive;
+    }
+
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
 }
 
