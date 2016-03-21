@@ -106,7 +106,7 @@ public abstract class Enemy extends Rectangle {
     public void setGoldOnKill(int goldOnKill) {
         this.goldOnKill = goldOnKill;
     }
-    public boolean isIsAlive() {
+    public boolean getIsAlive() {
         return isAlive;
     }
 
