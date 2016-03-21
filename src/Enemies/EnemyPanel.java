@@ -28,6 +28,8 @@ public class EnemyPanel extends JPanel{
         layoutConst.insets = new Insets(10, 10, 10, 10);
         ObjectFrame oF = new ObjectFrame(this);
         
+        //changed every enemy. instance to enemy.get then the new variable after changing them in the parent class
+        //Luke Owen 
         EnemyImage = new JButton(new ImageIcon(enemy.getBackground()));
         layoutConst.gridx = 0;
         layoutConst.gridy = 0;
