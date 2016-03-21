@@ -84,7 +84,7 @@ public class LevelThree extends Level {
 
     @Override
     public int getEnemyType() {
-        rand = new Random().nextInt(8) + 1;
+        rand = new Random().nextInt(9) + 1;
         if(rand >= 1 && rand <= 3)
         {
             return 1;
