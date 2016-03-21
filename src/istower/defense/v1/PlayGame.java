@@ -1,9 +1,7 @@
 
 package istower.defense.v1;
 
-import java.awt.event.KeyEvent;
 import javax.swing.*;
-import java.awt.event.KeyListener;
 
 public class PlayGame extends JFrame {
 

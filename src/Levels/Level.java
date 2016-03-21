@@ -82,15 +82,14 @@ public abstract class Level extends JPanel implements MouseListener {
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
-        g2dObj = g.create();
-        g.drawImage(new ImageIcon(getPath()).getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
         drawWorld(g);
         drawObjects(g);
         startProjectile(g);
         
         /*
-        Instead of having a huge paintComponent method, I split up each part of the drawing and passed along the graphics object
-        This would be considered extract method according to Martin L. Fowler
+        Instead of having a huge paintComponent method, I split up each part of the 
+        drawing and passed along the graphics object
+        This would be considered extract method refactoring according to Martin L. Fowler
         
         Paul Johnson
         */
@@ -98,6 +97,7 @@ public abstract class Level extends JPanel implements MouseListener {
 
     private void drawWorld(Graphics g) {
         Graphics2D g2d = (Graphics2D) g.create();
+        g.drawImage(new ImageIcon(getPath()).getImage(), 0, 0, super.getWidth(), super.getHeight(), null);
 
         for (Rectangle world1 : world) {
             g2d.drawImage(new ImageIcon(getGrass()).getImage(), world1.x, world1.y, world1.width,
